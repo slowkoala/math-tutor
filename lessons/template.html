@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day XX — Topic Title</title>
+
+  <!-- KaTeX (math rendering) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<!--
+  data-day  = lesson number (1–27)
+  nav.js reads this to set the unit color, title, and prev/next links
+-->
+<body data-day="XX">
+
+  <div class="lesson-accent-bar"></div>
+
+  <!-- HEADER ─────────────────────────────────────────────────────────────── -->
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day XX</span>
+        <span class="unit-badge" id="unit-badge">Unit Name</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Lesson Title</h1>
+    </div>
+  </header>
+
+  <!-- PROGRESS DOTS ──────────────────────────────────────────────────────── -->
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <!-- LESSON BODY ────────────────────────────────────────────────────────── -->
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Term</div>
+          <div class="vocab-def">Definition goes here.</div>
+        </div>
+
+        <!-- Add more vocab-card blocks as needed -->
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>Explanation paragraph. Use $inline math$ and $$display math$$ for equations.</p>
+
+        <!-- Optional diagram -->
+        <div class="diagram-wrap">
+          <!-- Inline SVG or Desmos iframe goes here -->
+          <svg viewBox="0 0 400 200" style="max-width:400px;margin:0 auto;">
+            <!-- SVG content -->
+          </svg>
+          <p class="diagram-caption">Figure caption</p>
+        </div>
+
+        <!-- Optional callout -->
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">Key insight or rule to remember.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">
+            Example 1
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Problem statement here.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">First step explanation with $math$.</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Second step.</div>
+            </div>
+          </div>
+          <div class="example__answer">Answer: result</div>
+        </div>
+
+        <!-- Add more example blocks as needed -->
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (always exactly 10) ───────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- MULTIPLE CHOICE — data-answer is the index (0-based) of the correct option -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Question text?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Option A</button>
+            <button class="option" data-value="1">Option B</button>
+            <button class="option" data-value="2">Option C</button>
+            <button class="option" data-value="3">Option D</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Hint text here.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Explanation of the correct answer with $math$.</div>
+          </div>
+        </div>
+
+        <!-- FILL-IN — data-answer accepts one value or pipe-separated alternatives
+             data-tolerance is the numeric margin of error (default 0.001) -->
+        <div class="problem" data-type="fill-in" data-answer="42" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve for $x$: …</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Hint text here.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Step-by-step explanation.</div>
+          </div>
+        </div>
+
+        <!-- Add more problems (copy one of the blocks above) -->
+
+      </div>
+    </section>
+
+    <!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
+    <nav class="lesson-nav">
+      <a href="#" id="nav-prev">← Previous</a>
+      <a href="#" id="nav-next">Next →</a>
+    </nav>
+
+  </main>
+
+  <!-- SCORE BAR ──────────────────────────────────────────────────────────── -->
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

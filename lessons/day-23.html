@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 23 — Transformations &amp; Congruence</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="23">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 23</span>
+        <span class="unit-badge" id="unit-badge">Geometry</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Transformations &amp; Congruence</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- VOCAB -->
+    <section class="vocab-section">
+      <h2 class="section-heading">Key Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Transformation</div>
+          <div class="vocab-def">A rule that moves or changes every point of a figure. Types: translation, reflection, rotation, dilation.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Translation</div>
+          <div class="vocab-def">A slide — every point moves the same distance in the same direction: \((x,y) \to (x+a, y+b)\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Reflection</div>
+          <div class="vocab-def">A flip over a line (line of reflection). Over the x-axis: \((x,y) \to (x,-y)\). Over y-axis: \((x,y) \to (-x,y)\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rotation</div>
+          <div class="vocab-def">A turn about a center point. 90° CCW: \((x,y) \to (-y,x)\). 180°: \((x,y) \to (-x,-y)\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Congruence</div>
+          <div class="vocab-def">Two figures are congruent (\(\cong\)) if one can be obtained from the other by rigid motions (translations, reflections, rotations).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Pre-image / Image</div>
+          <div class="vocab-def">The pre-image is the original figure; the image is the result after a transformation. Prime notation: \(A \to A'\).</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="concept-section">
+      <h2 class="section-heading">Rigid Motions Preserve Congruence</h2>
+
+      <p>Translations, reflections, and rotations are <strong>rigid motions</strong> — they preserve side lengths and angle measures. The image is always congruent to the pre-image.</p>
+
+      <!-- SVG: triangle with translation and reflection shown -->
+      <!-- Original triangle A(1,1) B(3,1) C(2,3) -->
+      <!-- Translated by (+4,0): A'(5,1) B'(7,1) C'(6,3) -->
+      <!-- Reflected over x-axis: A''(1,-1) B''(3,-1) C''(2,-3) -->
+      <!-- Use origin at SVG(80,120), unit=30px -->
+      <!-- SVG(x,y)=(80+30x, 120-30y) -->
+      <!-- A(1,1)->SVG(110,90); B(3,1)->SVG(170,90); C(2,3)->SVG(140,30) -->
+      <!-- A'(5,1)->SVG(230,90); B'(7,1)->SVG(290,90); C'(6,3)->SVG(260,30) -->
+      <!-- A''(1,-1)->SVG(110,150); B''(3,-1)->SVG(170,150); C''(2,-3)->SVG(140,210) — too low -->
+      <!-- Use unit=25px, origin SVG(70,130) -->
+      <!-- A(1,1)->SVG(95,105); B(3,1)->SVG(145,105); C(2,3)->SVG(120,55) -->
+      <!-- Reflected A''(1,-1)->SVG(95,155); B''(3,-1)->SVG(145,155); C''(2,-3)->SVG(120,205) -- too low -->
+      <!-- Let's show only translation, and label the arrow -->
+      <!-- Origin SVG(50,120), unit=28px -->
+      <!-- A(1,1)->SVG(78,92); B(3,1)->SVG(134,92); C(2,3)->SVG(106,36) -->
+      <!-- A'(5,1)->SVG(190,92); B'(7,1)->SVG(246,92); C'(6,3)->SVG(218,36) -->
+      <figure class="svg-figure">
+        <svg viewBox="0 0 320 160" width="320" height="160" aria-label="Triangle translated to the right">
+          <!-- axes -->
+          <line x1="20" y1="120" x2="305" y2="120" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="50" y1="15"  x2="50"  y2="145" stroke="#9ca3af" stroke-width="1"/>
+          <!-- tick labels x -->
+          <text x="78"  y="132" font-size="9" fill="#9ca3af" text-anchor="middle">1</text>
+          <text x="106" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">2</text>
+          <text x="134" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">3</text>
+          <text x="162" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">4</text>
+          <text x="190" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">5</text>
+          <text x="218" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">6</text>
+          <text x="246" y="132" font-size="9" fill="#9ca3af" text-anchor="middle">7</text>
+          <!-- tick labels y -->
+          <text x="42" y="92"  font-size="9" fill="#9ca3af" text-anchor="end">1</text>
+          <text x="42" y="64"  font-size="9" fill="#9ca3af" text-anchor="end">2</text>
+          <text x="42" y="36"  font-size="9" fill="#9ca3af" text-anchor="end">3</text>
+
+          <!-- Pre-image triangle (blue) A(1,1)->SVG(78,92), B(3,1)->SVG(134,92), C(2,3)->SVG(106,36) -->
+          <polygon points="78,92 134,92 106,36" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2"/>
+          <text x="78"  y="106" font-size="10" fill="#2563eb">A</text>
+          <text x="134" y="106" font-size="10" fill="#2563eb">B</text>
+          <text x="106" y="30"  font-size="10" fill="#2563eb" text-anchor="middle">C</text>
+
+          <!-- Image triangle (green) A'(5,1)->SVG(190,92), B'(7,1)->SVG(246,92), C'(6,3)->SVG(218,36) -->
+          <polygon points="190,92 246,92 218,36" fill="#bbf7d0" fill-opacity="0.6" stroke="#16a34a" stroke-width="2" stroke-dasharray="5"/>
+          <text x="190" y="106" font-size="10" fill="#16a34a">A'</text>
+          <text x="246" y="106" font-size="10" fill="#16a34a">B'</text>
+          <text x="218" y="30"  font-size="10" fill="#16a34a" text-anchor="middle">C'</text>
+
+          <!-- translation arrow -->
+          <defs>
+            <marker id="arr23" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 z" fill="#7c3aed"/>
+            </marker>
+          </defs>
+          <line x1="134" y1="70" x2="183" y2="70" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr23)"/>
+          <text x="158" y="65" font-size="10" text-anchor="middle" fill="#7c3aed">(x+4, y+0)</text>
+
+          <!-- congruence mark -->
+          <text x="158" y="110" font-size="10" text-anchor="middle" fill="#374151">△ABC ≅ △A′B′C′</text>
+        </svg>
+        <figcaption>A translation 4 units right: every point moves \((x,y) \to (x+4, y)\). The triangles are congruent.</figcaption>
+      </figure>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.8rem; margin:1rem 0; font-size:0.9rem;">
+        <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:6px; padding:0.7rem;">
+          <strong style="color:#1d4ed8;">Reflection over x-axis</strong><br>
+          \((x, y) \to (x, -y)\)
+        </div>
+        <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:0.7rem;">
+          <strong style="color:#15803d;">Reflection over y-axis</strong><br>
+          \((x, y) \to (-x, y)\)
+        </div>
+        <div style="background:#fefce8; border:1px solid #fde047; border-radius:6px; padding:0.7rem;">
+          <strong style="color:#92400e;">Rotation 90° CCW</strong><br>
+          \((x, y) \to (-y, x)\)
+        </div>
+        <div style="background:#fdf4ff; border:1px solid #d8b4fe; border-radius:6px; padding:0.7rem;">
+          <strong style="color:#7e22ce;">Rotation 180°</strong><br>
+          \((x, y) \to (-x, -y)\)
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="examples-section">
+      <h2 class="section-heading">Worked Examples</h2>
+
+      <div class="example">
+        <div class="example-problem">Triangle XYZ has vertices \(X(2,3)\), \(Y(4,1)\), \(Z(5,4)\). Translate by \((-3, 2)\). Find X'.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Rule:</strong> \((x,y) \to (x-3, y+2)\)</p>
+          <p><strong>X:</strong> \((2-3, 3+2) = (-1, 5)\)</p>
+          <p><strong>Y:</strong> \((4-3, 1+2) = (1, 3)\)</p>
+          <p><strong>Z:</strong> \((5-3, 4+2) = (2, 6)\)</p>
+          <p>\(X' = (-1, 5)\)</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Reflect point \(P(3, -5)\) over the y-axis.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Rule for reflection over y-axis:</strong> \((x,y) \to (-x, y)\)</p>
+          <p>\(P(3, -5) \to P'(-3, -5)\)</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Rotate point \(Q(4, 2)\) by 90° counter-clockwise about the origin.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Rule for 90° CCW:</strong> \((x,y) \to (-y, x)\)</p>
+          <p>\(Q(4, 2) \to Q'(-2, 4)\)</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <h2 class="section-heading">Practice Problems</h2>
+
+      <!-- P1: translate (3,-1) by (+2,+5): (5,4) → x-coord=5 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
+        <div class="problem-stem">Point \(A(3, -1)\) is translated by \((+2, +5)\). What is the x-coordinate of \(A'\)?</div>
+      </div>
+
+      <!-- P2: translate (3,-1) by (+2,+5): y-coord=4 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="4" data-tolerance="0">
+        <div class="problem-stem">Using the same translation, what is the y-coordinate of \(A'\)?</div>
+      </div>
+
+      <!-- P3: reflect (2,5) over x-axis: (2,-5) → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">Reflect point \((2, 5)\) over the x-axis.</div>
+        <ol class="choices" type="A">
+          <li>\((-2, 5)\)</li>
+          <li>\((2, -5)\)</li>
+          <li>\((-2, -5)\)</li>
+          <li>\((5, 2)\)</li>
+        </ol>
+      </div>
+
+      <!-- P4: reflect (-3,4) over y-axis: (3,4) → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">Reflect point \((-3, 4)\) over the y-axis.</div>
+        <ol class="choices" type="A">
+          <li>\((-3, -4)\)</li>
+          <li>\((3, -4)\)</li>
+          <li>\((3, 4)\)</li>
+          <li>\((-4, -3)\)</li>
+        </ol>
+      </div>
+
+      <!-- P5: rotate (5,2) 90° CCW: (-2,5) → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Rotate \((5, 2)\) by 90° counter-clockwise about the origin.</div>
+        <ol class="choices" type="A">
+          <li>\((-2, 5)\)</li>
+          <li>\((2, -5)\)</li>
+          <li>\((-5, -2)\)</li>
+          <li>\((5, -2)\)</li>
+        </ol>
+      </div>
+
+      <!-- P6: rotate (3,-1) by 180°: (-3,1) → index 3 -->
+      <div class="problem" data-type="multiple-choice" data-answer="3">
+        <div class="problem-stem">Rotate point \((3, -1)\) by 180° about the origin.</div>
+        <ol class="choices" type="A">
+          <li>\((1, -3)\)</li>
+          <li>\((-1, 3)\)</li>
+          <li>\((3, 1)\)</li>
+          <li>\((-3, 1)\)</li>
+        </ol>
+      </div>
+
+      <!-- P7: rigid motion preserves → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Which property is preserved by all rigid motions (translations, reflections, rotations)?</div>
+        <ol class="choices" type="A">
+          <li>Side lengths and angle measures</li>
+          <li>Coordinates of all points</li>
+          <li>Orientation of the figure</li>
+          <li>Area only, not angles</li>
+        </ol>
+      </div>
+
+      <!-- P8: vertex (1,4) translated to (1+a, 4+b)=(4,1): a=3, b=-3; a+b=0 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="0" data-tolerance="0">
+        <div class="problem-stem">A translation maps \((1, 4)\) to \((4, 1)\). What is the sum of the translation values \((a + b)\) where the rule is \((x+a, y+b)\)?</div>
+      </div>
+
+      <!-- P9: figure after reflection is congruent? yes → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">After reflecting a triangle over the y-axis, the image is:</div>
+        <ol class="choices" type="A">
+          <li>Congruent to the original</li>
+          <li>Larger than the original</li>
+          <li>Smaller than the original</li>
+          <li>A different shape</li>
+        </ol>
+      </div>
+
+      <!-- P10: which transformation changes orientation? reflection → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">Which transformation reverses the orientation (handedness) of a figure?</div>
+        <ol class="choices" type="A">
+          <li>Translation</li>
+          <li>Reflection</li>
+          <li>Rotation</li>
+          <li>All rigid motions reverse orientation</li>
+        </ol>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="lesson-footer">
+    <a href="day-22.html" id="nav-prev">← Day 22</a>
+    <a href="../index.html" class="home-link">Home</a>
+    <a href="day-24.html" id="nav-next">Day 24 →</a>
+  </footer>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 7 — Slope &amp; Rate of Change</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="7">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 7</span>
+        <span class="unit-badge" id="unit-badge">Linear Equations &amp; Graphing</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Slope &amp; Rate of Change</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Slope</div>
+          <div class="vocab-def">A number measuring the steepness of a line. Calculated as $m = \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rise</div>
+          <div class="vocab-def">The vertical change between two points: $\Delta y = y_2 - y_1$. Positive means up; negative means down.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Run</div>
+          <div class="vocab-def">The horizontal change between two points: $\Delta x = x_2 - x_1$. By convention, move left to right so the run is positive.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rate of Change</div>
+          <div class="vocab-def">How much one quantity changes per unit change in another. Slope equals the rate of change in real-world contexts (e.g., miles per hour, dollars per item).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Zero Slope</div>
+          <div class="vocab-def">A horizontal line has $m = 0$ because the rise is 0 regardless of how far you travel horizontally.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Undefined Slope</div>
+          <div class="vocab-def">A vertical line has undefined slope because the run is 0, producing division by zero in the slope formula.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          The <strong>slope</strong> of a line measures how steeply it rises or falls.
+          Given any two points $(x_1, y_1)$ and $(x_2, y_2)$ on the line:
+        </p>
+
+        $$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}$$
+
+        <!-- Rise/run diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Grid: origin at SVG (50, 170), unit = 40 px.
+            Line y = (2/3)x → slope 2/3.
+            Points shown: (3, 2) = SVG (170, 90) and (6, 4) = SVG (290, 10).
+            Rise/run triangle right-angles at SVG (290, 90).
+          -->
+          <svg viewBox="0 0 360 205" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:360px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Grid -->
+            <line x1="50" y1="10"  x2="320" y2="10"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="50" y1="50"  x2="320" y2="50"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="50" y1="90"  x2="320" y2="90"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="50" y1="130" x2="320" y2="130" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="90"  y1="10" x2="90"  y2="170" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="130" y1="10" x2="130" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="170" y1="10" x2="170" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="210" y1="10" x2="210" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="250" y1="10" x2="250" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="290" y1="10" x2="290" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+
+            <!-- Axes -->
+            <line x1="50" y1="10"  x2="50"  y2="178" stroke="#94A3B8" stroke-width="2"/>
+            <line x1="28" y1="170" x2="330" y2="170" stroke="#94A3B8" stroke-width="2"/>
+            <polygon points="330,170 322,166 322,174" fill="#94A3B8"/>
+            <polygon points="50,10 46,18 54,18" fill="#94A3B8"/>
+            <text x="335" y="174" font-size="11" fill="#64748B">x</text>
+            <text x="54"  y="9"   font-size="11" fill="#64748B">y</text>
+
+            <!-- Axis tick marks and labels -->
+            <!-- x-axis ticks at 1–6 -->
+            <line x1="90"  y1="167" x2="90"  y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="130" y1="167" x2="130" y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="170" y1="167" x2="170" y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="210" y1="167" x2="210" y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="250" y1="167" x2="250" y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="290" y1="167" x2="290" y2="173" stroke="#94A3B8" stroke-width="1"/>
+            <text x="90"  y="183" text-anchor="middle" font-size="9" fill="#64748B">1</text>
+            <text x="130" y="183" text-anchor="middle" font-size="9" fill="#64748B">2</text>
+            <text x="170" y="183" text-anchor="middle" font-size="9" fill="#64748B">3</text>
+            <text x="210" y="183" text-anchor="middle" font-size="9" fill="#64748B">4</text>
+            <text x="250" y="183" text-anchor="middle" font-size="9" fill="#64748B">5</text>
+            <text x="290" y="183" text-anchor="middle" font-size="9" fill="#64748B">6</text>
+            <!-- y-axis ticks at 1–4 -->
+            <line x1="47" y1="130" x2="53" y2="130" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="47" y1="90"  x2="53" y2="90"  stroke="#94A3B8" stroke-width="1"/>
+            <line x1="47" y1="50"  x2="53" y2="50"  stroke="#94A3B8" stroke-width="1"/>
+            <line x1="47" y1="10"  x2="53" y2="10"  stroke="#94A3B8" stroke-width="1"/>
+            <text x="43" y="133" text-anchor="end" font-size="9" fill="#64748B">1</text>
+            <text x="43" y="93"  text-anchor="end" font-size="9" fill="#64748B">2</text>
+            <text x="43" y="53"  text-anchor="end" font-size="9" fill="#64748B">3</text>
+            <text x="43" y="13"  text-anchor="end" font-size="9" fill="#64748B">4</text>
+
+            <!-- Line y=(2/3)x: from SVG(50,170) to SVG(305,0) -->
+            <line x1="50" y1="170" x2="305" y2="0" stroke="#3B82F6" stroke-width="2.5"/>
+
+            <!-- Rise/run triangle between (3,2) and (6,4) -->
+            <!-- Run: horizontal dashed from (170,90) to (290,90) -->
+            <line x1="170" y1="90" x2="290" y2="90" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <!-- Rise: vertical dashed from (290,90) to (290,10) -->
+            <line x1="290" y1="90" x2="290" y2="10" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <!-- Right-angle marker at (290, 90) -->
+            <rect x="282" y="82" width="8" height="8" fill="none" stroke="#64748B" stroke-width="1"/>
+
+            <!-- Points on line -->
+            <circle cx="170" cy="90" r="4" fill="#3B82F6"/>
+            <circle cx="290" cy="10" r="4" fill="#3B82F6"/>
+
+            <!-- Point labels -->
+            <text x="155" y="107" font-size="9" fill="#3B82F6">(3, 2)</text>
+            <text x="294" y="10"  font-size="9" fill="#3B82F6">(6, 4)</text>
+
+            <!-- Rise/run labels -->
+            <text x="230" y="107" text-anchor="middle" font-size="11" fill="#DC2626" font-weight="600">run = 3</text>
+            <text x="308" y="53"  text-anchor="start" font-size="11" fill="#15803D" font-weight="600">rise = 2</text>
+          </svg>
+          <p class="diagram-caption">Rise = 2 (green, vertical); Run = 3 (red, horizontal). Slope $= \dfrac{2}{3}$.</p>
+        </div>
+
+        <!-- Four types of slope -->
+        <div class="diagram-wrap">
+          <!--
+            4 panels, each 110×130, 10 px gaps, 5 px margin → viewBox 475×170.
+            Centers: P1=60, P2=180, P3=300, P4=420.
+          -->
+          <svg viewBox="0 0 475 170" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:475px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Panel 1: Positive slope (blue) -->
+            <rect x="5"   y="5" width="110" height="130" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <line x1="15"  y1="70" x2="110" y2="70"  stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="60"  y1="12" x2="60"  y2="128" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="10"  y1="122" x2="110" y2="22" stroke="#3B82F6" stroke-width="2.5"/>
+            <text x="60" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Positive</text>
+            <text x="60" y="162" text-anchor="middle" font-size="10" fill="#64748B">m &gt; 0</text>
+
+            <!-- Panel 2: Negative slope (red) -->
+            <rect x="125" y="5" width="110" height="130" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+            <line x1="135" y1="70" x2="230" y2="70"  stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="180" y1="12" x2="180" y2="128" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="130" y1="22" x2="230" y2="122" stroke="#EF4444" stroke-width="2.5"/>
+            <text x="180" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Negative</text>
+            <text x="180" y="162" text-anchor="middle" font-size="10" fill="#64748B">m &lt; 0</text>
+
+            <!-- Panel 3: Zero slope (green) -->
+            <rect x="245" y="5" width="110" height="130" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+            <line x1="255" y1="70" x2="350" y2="70"  stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="300" y1="12" x2="300" y2="128" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="250" y1="70" x2="350" y2="70"  stroke="#16A34A" stroke-width="2.5"/>
+            <text x="300" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Zero</text>
+            <text x="300" y="162" text-anchor="middle" font-size="10" fill="#64748B">m = 0</text>
+
+            <!-- Panel 4: Undefined slope (amber) -->
+            <rect x="365" y="5" width="105" height="130" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+            <line x1="375" y1="70" x2="465" y2="70"  stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="418" y1="12" x2="418" y2="128" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="418" y1="12" x2="418" y2="128" stroke="#D97706" stroke-width="2.5"/>
+            <text x="418" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Undefined</text>
+            <text x="418" y="162" text-anchor="middle" font-size="10" fill="#64748B">run = 0</text>
+          </svg>
+          <p class="diagram-caption">The four types of slope — positive, negative, zero (horizontal), and undefined (vertical).</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Rate of change in context:</strong> slope is rate of change.
+            If a car travels 180 miles in 3 hours, the slope of its distance-time graph is
+            $m = \dfrac{180}{3} = 60$ miles per hour.
+            Units of slope = (units of $y$) per (unit of $x$).
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            Order matters — but must stay consistent.
+            $\dfrac{y_2 - y_1}{x_2 - x_1}$ and $\dfrac{y_1 - y_2}{x_1 - x_2}$ give the same answer,
+            but mixing (e.g. $\dfrac{y_2 - y_1}{x_1 - x_2}$) flips the sign. Always subtract in the same order top and bottom.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Slope from Two Points
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Find the slope of the line through $(-2, 1)$ and $(4, 13)$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Label: $(x_1, y_1) = (-2, 1)$, $(x_2, y_2) = (4, 13)$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Substitute: $m = \dfrac{13 - 1}{4 - (-2)} = \dfrac{12}{6}$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Simplify: $m = 2$</div>
+            </div>
+          </div>
+          <div class="example__answer">$m = 2$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Negative Slope
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Find the slope of the line through $(0, 6)$ and $(4, 2)$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Rise: $y_2 - y_1 = 2 - 6 = -4$ (the line moves down).</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Run: $x_2 - x_1 = 4 - 0 = 4$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">$m = \dfrac{-4}{4} = -1$. Negative slope confirms the line falls left to right.</div>
+            </div>
+          </div>
+          <div class="example__answer">$m = -1$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Rate of Change in Context
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A phone plan costs $\$30$ with no calls. After 4 hours of calls it costs $\$54$. Find the rate of change (cost per hour).</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Write as ordered pairs (hours, dollars): $(0,\, 30)$ and $(4,\, 54)$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$m = \dfrac{54 - 30}{4 - 0} = \dfrac{24}{4} = 6$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Units: the rate of change is $\$6$ per hour of calls.</div>
+            </div>
+          </div>
+          <div class="example__answer">Rate of change = $\$6$ per hour</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: (1,2)→(4,8) → m=(8-2)/(4-1)=6/3=2, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the slope of the line through $(1, 2)$ and $(4, 8)$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = \dfrac{1}{2}$</button>
+            <button class="option" data-value="1">$m = 3$</button>
+            <button class="option" data-value="2">$m = 2$</button>
+            <button class="option" data-value="3">$m = 6$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$m = \dfrac{y_2-y_1}{x_2-x_1}$. Subtract $y$-values, then divide by the difference of $x$-values.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{8-2}{4-1} = \dfrac{6}{3} = 2$.</div>
+          </div>
+        </div>
+
+        <!-- P2: (3,9)→(6,3) → m=(3-9)/(6-3)=-6/3=-2, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the slope of the line through $(3, 9)$ and $(6, 3)$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = 2$</button>
+            <button class="option" data-value="1">$m = -2$</button>
+            <button class="option" data-value="2">$m = -3$</button>
+            <button class="option" data-value="3">$m = 3$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$\dfrac{3-9}{6-3} = \dfrac{?}{3}$. The rise is negative because the line falls.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{3-9}{6-3} = \dfrac{-6}{3} = -2$. Negative slope — line falls left to right.</div>
+          </div>
+        </div>
+
+        <!-- P3: horizontal line slope → 0, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the slope of a horizontal line?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = 1$</button>
+            <button class="option" data-value="1">$m = -1$</button>
+            <button class="option" data-value="2">Undefined</button>
+            <button class="option" data-value="3">$m = 0$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>On a horizontal line, two points share the same $y$-value. What is $y_2 - y_1$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\Delta y = 0$, so $m = \dfrac{0}{\text{run}} = 0$. Horizontal lines have zero slope.</div>
+          </div>
+        </div>
+
+        <!-- P4: vertical line (5,3)→(5,8) → undefined, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line passes through $(5, 3)$ and $(5, 8)$. What is its slope?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = 5$</button>
+            <button class="option" data-value="1">$m = 0$</button>
+            <button class="option" data-value="2">$m = 1$</button>
+            <button class="option" data-value="3">Undefined</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Both points have $x = 5$. What is $x_2 - x_1$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{8-3}{5-5} = \dfrac{5}{0}$ — division by zero is undefined. This is a vertical line.</div>
+          </div>
+        </div>
+
+        <!-- P5: fill-in (-3,1)→(1,9) → m=(9-1)/(1+3)=8/4=2 -->
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the slope of the line through $(-3, 1)$ and $(1, 9)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$m = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$\dfrac{9-1}{1-(-3)} = \dfrac{8}{?}$. Watch the double negative in the denominator.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{9-1}{1-(-3)} = \dfrac{8}{4} = 2$.</div>
+          </div>
+        </div>
+
+        <!-- P6: rate of change car 240 mi in 4 hr → 60 mph, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A car travels 240 miles in 4 hours at constant speed. What is the rate of change of distance with respect to time?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">40 miles per hour</button>
+            <button class="option" data-value="1">60 miles per hour</button>
+            <button class="option" data-value="2">80 miles per hour</button>
+            <button class="option" data-value="3">120 miles per hour</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Rate of change $= \dfrac{\Delta \text{distance}}{\Delta \text{time}} = \dfrac{240}{4}$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{240\text{ mi}}{4\text{ hr}} = 60$ miles per hour.</div>
+          </div>
+        </div>
+
+        <!-- P7: describe m=-3 → falls steeply left to right, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which correctly describes a line with slope $m = -3$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">The line rises steeply from left to right.</button>
+            <button class="option" data-value="1">The line is horizontal.</button>
+            <button class="option" data-value="2">The line falls steeply from left to right.</button>
+            <button class="option" data-value="3">The line is vertical.</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Negative slope → falls left to right. Large $|m|$ → steep.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = -3$ is negative (falls left to right) with large absolute value (steep — drops 3 units for every 1 unit right).</div>
+          </div>
+        </div>
+
+        <!-- P8: fill-in (2,5)→(6,5) → m=0 -->
+        <div class="problem" data-type="fill-in" data-answer="0" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the slope of the line through $(2, 5)$ and $(6, 5)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$m = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Both points have the same $y$-value. What is the rise?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{5-5}{6-2} = \dfrac{0}{4} = 0$. Horizontal line — zero slope.</div>
+          </div>
+        </div>
+
+        <!-- P9: (-2,4)→(2,-4) → m=(-4-4)/(2+2)=-8/4=-2, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the slope of the line through $(-2, 4)$ and $(2, -4)$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = -\dfrac{1}{2}$</button>
+            <button class="option" data-value="1">$m = \dfrac{1}{2}$</button>
+            <button class="option" data-value="2">$m = 2$</button>
+            <button class="option" data-value="3">$m = -2$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$\dfrac{-4-4}{2-(-2)} = \dfrac{-8}{?}$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{-4-4}{2-(-2)} = \dfrac{-8}{4} = -2$.</div>
+          </div>
+        </div>
+
+        <!-- P10: candle 12→6 in 3 hr → (6-12)/(3-0)=-6/3=-2 in/hr, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A candle is 12 inches tall when lit. After 3 hours it is 6 inches tall. What is the rate of change of height?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$-4$ in/hr</button>
+            <button class="option" data-value="1">$2$ in/hr</button>
+            <button class="option" data-value="2">$-2$ in/hr</button>
+            <button class="option" data-value="3">$4$ in/hr</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Points: $(0, 12)$ and $(3, 6)$. The candle shrinks, so rate of change is negative.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{6-12}{3-0} = \dfrac{-6}{3} = -2$ inches per hour. The candle loses 2 inches each hour.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-06.html" id="nav-prev">← Day 6</a>
+      <a href="day-08.html" id="nav-next">Day 8 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

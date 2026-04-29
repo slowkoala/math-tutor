@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 8 — Forms of Linear Equations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="8">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 8</span>
+        <span class="unit-badge" id="unit-badge">Linear Equations &amp; Graphing</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Forms of Linear Equations</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Slope-Intercept Form</div>
+          <div class="vocab-def">$y = mx + b$, where $m$ is the slope and $b$ is the $y$-intercept. The most common form for graphing.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Y-Intercept</div>
+          <div class="vocab-def">The point where a line crosses the $y$-axis. Always has $x = 0$, so the point is $(0,\, b)$. Found by setting $x = 0$ in any form.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Point-Slope Form</div>
+          <div class="vocab-def">$y - y_1 = m(x - x_1)$, where $m$ is the slope and $(x_1,\, y_1)$ is any known point on the line.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Standard Form</div>
+          <div class="vocab-def">$Ax + By = C$, where $A$, $B$, and $C$ are integers and $A \geq 0$. Useful for finding both intercepts quickly.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">X-Intercept</div>
+          <div class="vocab-def">The point where a line crosses the $x$-axis. Always has $y = 0$, so the point is $(x_0,\, 0)$. Found by setting $y = 0$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Converting Forms</div>
+          <div class="vocab-def">Moving between the three forms using algebra. All three forms describe the same line — they are equivalent equations.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          Every non-vertical line can be written in three equivalent forms.
+          Choose the form that matches the information you're given.
+        </p>
+
+        <!-- Three-forms comparison grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:var(--s4);margin:var(--s4) 0;">
+
+          <div style="background:#EFF6FF;border:2px solid #3B82F6;border-radius:10px;padding:var(--s4);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.05em;color:#1D4ED8;margin-bottom:var(--s2);">SLOPE-INTERCEPT</div>
+            $$y = mx + b$$
+            <div style="font-size:0.85rem;color:#1E293B;margin-top:var(--s2);">
+              $m$ = slope &nbsp;|&nbsp; $b$ = $y$-intercept<br>
+              <span style="color:#64748B;font-size:0.78rem;">Best for: graphing, reading slope and intercept directly</span>
+            </div>
+          </div>
+
+          <div style="background:#F0FDF4;border:2px solid #16A34A;border-radius:10px;padding:var(--s4);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.05em;color:#15803D;margin-bottom:var(--s2);">POINT-SLOPE</div>
+            $$y - y_1 = m(x - x_1)$$
+            <div style="font-size:0.85rem;color:#1E293B;margin-top:var(--s2);">
+              $m$ = slope &nbsp;|&nbsp; $(x_1, y_1)$ = known point<br>
+              <span style="color:#64748B;font-size:0.78rem;">Best for: writing an equation from a point + slope (or two points)</span>
+            </div>
+          </div>
+
+          <div style="background:#FFFBEB;border:2px solid #D97706;border-radius:10px;padding:var(--s4);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.05em;color:#B45309;margin-bottom:var(--s2);">STANDARD FORM</div>
+            $$Ax + By = C$$
+            <div style="font-size:0.85rem;color:#1E293B;margin-top:var(--s2);">
+              $A, B, C$ are integers, $A \geq 0$<br>
+              <span style="color:#64748B;font-size:0.78rem;">Best for: finding both intercepts; common in standardized tests</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Converting between forms diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Arrow cycle diagram showing how to convert between the three forms.
+            Triangle layout: Slope-Intercept at top, Point-Slope at bottom-left, Standard at bottom-right.
+          -->
+          <svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:400px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Slope-Intercept (top center) -->
+            <rect x="120" y="5"  width="160" height="38" rx="7" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="200" y="20" text-anchor="middle" font-size="9"  font-weight="700" fill="#1D4ED8">SLOPE-INTERCEPT</text>
+            <text x="200" y="36" text-anchor="middle" font-size="11" font-style="italic" fill="#0F172A">y = mx + b</text>
+
+            <!-- Point-Slope (bottom left) -->
+            <rect x="5"   y="120" width="175" height="50" rx="7" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+            <text x="92"  y="135" text-anchor="middle" font-size="9"  font-weight="700" fill="#15803D">POINT-SLOPE</text>
+            <text x="92"  y="153" text-anchor="middle" font-size="10" font-style="italic" fill="#0F172A">y − y₁ = m(x − x₁)</text>
+            <text x="92"  y="165" text-anchor="middle" font-size="8"  fill="#64748B">(distribute &amp; add y₁)</text>
+
+            <!-- Standard Form (bottom right) -->
+            <rect x="220" y="120" width="175" height="50" rx="7" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+            <text x="307" y="135" text-anchor="middle" font-size="9"  font-weight="700" fill="#B45309">STANDARD FORM</text>
+            <text x="307" y="153" text-anchor="middle" font-size="11" font-style="italic" fill="#0F172A">Ax + By = C</text>
+            <text x="307" y="165" text-anchor="middle" font-size="8"  fill="#64748B">(move x-term to left side)</text>
+
+            <!-- Arrow: Slope-Intercept → Point-Slope (left side) -->
+            <!-- Arrow from bottom-left of top box to top-right of bottom-left box -->
+            <line x1="148" y1="43" x2="115" y2="118" stroke="#64748B" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="107" y="83"  text-anchor="middle" font-size="8" fill="#64748B" transform="rotate(-55 107 83)">use a point on line</text>
+
+            <!-- Arrow: Slope-Intercept → Standard (right side) -->
+            <line x1="252" y1="43" x2="285" y2="118" stroke="#64748B" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="293" y="83"  text-anchor="middle" font-size="8" fill="#64748B" transform="rotate(55 293 83)">move terms, clear fractions</text>
+
+            <!-- Arrow: Point-Slope → Slope-Intercept (upward) -->
+            <line x1="130" y1="118" x2="163" y2="45" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+            <!-- Arrow: Standard → Slope-Intercept -->
+            <line x1="270" y1="118" x2="237" y2="45" stroke="#D97706" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+            <!-- Arrow between bottom two: Point-Slope ↔ Standard (horizontal) -->
+            <line x1="183" y1="145" x2="218" y2="145" stroke="#64748B" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line x1="218" y1="150" x2="183" y2="150" stroke="#64748B" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- Arrow markers -->
+            <defs>
+              <marker id="arr"  markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0,0 7,3.5 0,7" fill="#64748B"/>
+              </marker>
+              <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0,0 7,3.5 0,7" fill="#3B82F6"/>
+              </marker>
+              <marker id="arr3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0,0 7,3.5 0,7" fill="#D97706"/>
+              </marker>
+            </defs>
+          </svg>
+          <p class="diagram-caption">The three forms are equivalent — you can always convert from one to another using algebra.</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🔄</span>
+          <div class="callout__body">
+            <strong>Converting from point-slope to slope-intercept:</strong> distribute $m$, then add $y_1$ to both sides.<br>
+            $y - 3 = 2(x - 1) \;\Rightarrow\; y - 3 = 2x - 2 \;\Rightarrow\; y = 2x + 1$
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            In standard form $Ax + By = C$, the coefficient $A$ must be non-negative and the terms must be integers.
+            If you get $-2x + 3y = 6$, multiply the entire equation by $-1$: $2x - 3y = -6$.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Write in Slope-Intercept Form
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Write the equation of the line with slope $m = -\dfrac{1}{2}$ and $y$-intercept $b = 4$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Recall slope-intercept form: $y = mx + b$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Substitute $m = -\dfrac{1}{2}$ and $b = 4$: $y = -\dfrac{1}{2}x + 4$.</div>
+            </div>
+          </div>
+          <div class="example__answer">$y = -\dfrac{1}{2}x + 4$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Write Using Point-Slope Form
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Write the equation of the line through $(2, 5)$ and $(4, 11)$ in slope-intercept form.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Find slope: $m = \dfrac{11-5}{4-2} = \dfrac{6}{2} = 3$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Use point-slope with $(x_1, y_1) = (2, 5)$: $y - 5 = 3(x - 2)$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Distribute: $y - 5 = 3x - 6 \;\Rightarrow\; y = 3x - 1$</div>
+            </div>
+          </div>
+          <div class="example__answer">$y = 3x - 1$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Convert to Standard Form
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Write $y = \dfrac{3}{4}x - 2$ in standard form.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Clear the fraction — multiply both sides by 4: $4y = 3x - 8$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Move $x$-term to the left: $-3x + 4y = -8$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Make $A$ positive — multiply by $-1$: $3x - 4y = 8$</div>
+            </div>
+          </div>
+          <div class="example__answer">$3x - 4y = 8$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: y-intercept of y = 4x − 7 → b = −7, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the $y$-intercept of the line $y = 4x - 7$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$b = 4$</button>
+            <button class="option" data-value="1">$b = 7$</button>
+            <button class="option" data-value="2">$b = -7$</button>
+            <button class="option" data-value="3">$b = 0$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>In $y = mx + b$, identify which constant is $b$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>In slope-intercept form $y = 4x - 7$, the $y$-intercept is $b = -7$ (the constant term).</div>
+          </div>
+        </div>
+
+        <!-- P2: slope of 3x − y = 6 → y = 3x−6, m=3, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the slope of the line $3x - y = 6$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = -3$</button>
+            <button class="option" data-value="1">$m = 3$</button>
+            <button class="option" data-value="2">$m = 6$</button>
+            <button class="option" data-value="3">$m = -6$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Solve for $y$ to get slope-intercept form: subtract $3x$, then multiply by $-1$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$3x - y = 6 \Rightarrow -y = -3x + 6 \Rightarrow y = 3x - 6$. The slope is $m = 3$.</div>
+          </div>
+        </div>
+
+        <!-- P3: equation with m=−1/3, b=4 → y=(-1/3)x+4, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write the equation of the line with slope $m = -\dfrac{1}{3}$ and $y$-intercept $b = 4$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$y = \dfrac{1}{3}x + 4$</button>
+            <button class="option" data-value="1">$y = -\dfrac{1}{3}x - 4$</button>
+            <button class="option" data-value="2">$y = -\dfrac{1}{3}x + 4$</button>
+            <button class="option" data-value="3">$y = 3x + 4$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute directly: $y = mx + b$ with $m = -\dfrac{1}{3}$ and $b = 4$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y = -\dfrac{1}{3}x + 4$. The slope is negative and the $y$-intercept is positive.</div>
+          </div>
+        </div>
+
+        <!-- P4: fill-in y-intercept of y = −5x + 9 → b = 9 -->
+        <div class="problem" data-type="fill-in" data-answer="9" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the $y$-intercept (value of $b$) of the line $y = -5x + 9$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$b = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The equation is already in $y = mx + b$ form. Which number is $b$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y = -5x + 9$. The $y$-intercept is $b = 9$ (the constant added at the end).</div>
+          </div>
+        </div>
+
+        <!-- P5: point-slope m=2, point (3,1) → y−1=2(x−3), index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write the equation in point-slope form for slope $m = 2$ through the point $(3, 1)$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$y - 1 = 3(x - 2)$</button>
+            <button class="option" data-value="1">$y - 3 = 2(x - 1)$</button>
+            <button class="option" data-value="2">$y - 1 = 2(x - 3)$</button>
+            <button class="option" data-value="3">$y + 1 = 2(x + 3)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Point-slope: $y - y_1 = m(x - x_1)$. Here $y_1 = 1$, $m = 2$, $x_1 = 3$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y - y_1 = m(x - x_1) \Rightarrow y - 1 = 2(x - 3)$. Option B swaps the point coordinates.</div>
+          </div>
+        </div>
+
+        <!-- P6: convert y−4=3(x+1) to slope-intercept → y=3x+7, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Convert $y - 4 = 3(x + 1)$ to slope-intercept form.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$y = 3x + 1$</button>
+            <button class="option" data-value="1">$y = 3x - 7$</button>
+            <button class="option" data-value="2">$y = 3x + 3$</button>
+            <button class="option" data-value="3">$y = 3x + 7$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute: $3(x+1) = 3x + 3$. Then add 4 to both sides.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y - 4 = 3x + 3 \Rightarrow y = 3x + 3 + 4 = 3x + 7$.</div>
+          </div>
+        </div>
+
+        <!-- P7: through (0,5), m=−2 → y=−2x+5, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write the equation of the line through $(0, 5)$ with slope $m = -2$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$y = 2x + 5$</button>
+            <button class="option" data-value="1">$y = -2x - 5$</button>
+            <button class="option" data-value="2">$y = -2x + 5$</button>
+            <button class="option" data-value="3">$y = 5x - 2$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$(0, 5)$ tells you the $y$-intercept: $b = 5$. Plug in $m$ and $b$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Since the point is $(0, 5)$, the $y$-intercept is $b = 5$. With $m = -2$: $y = -2x + 5$.</div>
+          </div>
+        </div>
+
+        <!-- P8: standard form of y=(2/3)x−4 → 2x−3y=12, index 3 -->
+        <!-- Verify: multiply by 3 → 3y=2x−12 → −2x+3y=−12 → ×(−1): 2x−3y=12 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write $y = \dfrac{2}{3}x - 4$ in standard form.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$2x + 3y = 12$</button>
+            <button class="option" data-value="1">$3x - 2y = 12$</button>
+            <button class="option" data-value="2">$2x - 3y = -12$</button>
+            <button class="option" data-value="3">$2x - 3y = 12$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply both sides by 3 to clear the fraction, then rearrange so $Ax + By = C$ with $A &gt; 0$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Multiply by 3: $3y = 2x - 12 \Rightarrow -2x + 3y = -12$. Multiply by $-1$: $2x - 3y = 12$.</div>
+          </div>
+        </div>
+
+        <!-- P9: fill-in y-intercept of line through (2,7), slope 3
+             y−7=3(x−2) → y=3x−6+7=3x+1, b=1 -->
+        <div class="problem" data-type="fill-in" data-answer="1" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line has slope $3$ and passes through $(2, 7)$. Write it in slope-intercept form. What is the $y$-intercept $b$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$b = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Use point-slope: $y - 7 = 3(x - 2)$, then solve for $y$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y - 7 = 3(x-2) = 3x - 6 \Rightarrow y = 3x - 6 + 7 = 3x + 1$. So $b = 1$.</div>
+          </div>
+        </div>
+
+        <!-- P10: slope of 3x−2y=6 → y=(3/2)x−3, m=3/2, index 2 -->
+        <!-- Verify: −2y=−3x+6 → y=(3/2)x−3 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the slope of the line $3x - 2y = 6$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$m = -\dfrac{3}{2}$</button>
+            <button class="option" data-value="1">$m = -3$</button>
+            <button class="option" data-value="2">$m = \dfrac{3}{2}$</button>
+            <button class="option" data-value="3">$m = 3$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Solve for $y$: subtract $3x$, then divide both sides by $-2$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-2y = -3x + 6 \Rightarrow y = \dfrac{3}{2}x - 3$. The slope is $m = \dfrac{3}{2}$.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-07.html" id="nav-prev">← Day 7</a>
+      <a href="day-09.html" id="nav-next">Day 9 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

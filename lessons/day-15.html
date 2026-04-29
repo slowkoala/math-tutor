@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 15 — Introduction to Functions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="15">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 15</span>
+        <span class="unit-badge" id="unit-badge">Functions</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Introduction to Functions</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- VOCAB -->
+    <section class="vocab-section">
+      <h2 class="section-heading">Key Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Function</div>
+          <div class="vocab-def">A relation where each input (x) has exactly one output (y). Every x maps to exactly one y.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Domain</div>
+          <div class="vocab-def">The set of all allowed input values (x-values) for a function.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Range</div>
+          <div class="vocab-def">The set of all possible output values (y-values) produced by a function.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Function Notation</div>
+          <div class="vocab-def">\(f(x)\) — read "f of x" — means the output of function f when the input is x.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Vertical Line Test</div>
+          <div class="vocab-def">A graph represents a function if and only if every vertical line crosses the graph at most once.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Mapping Diagram</div>
+          <div class="vocab-def">An arrow diagram showing how each element of the domain maps to an element of the range.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="concept-section">
+      <h2 class="section-heading">What Makes a Function?</h2>
+
+      <p>A <strong>function</strong> assigns exactly one output to every input. Think of it as a machine: you put in a number, you always get the same result back.</p>
+
+      <!-- SVG: mapping diagram - function vs not a function -->
+      <!-- Left panel: function (each x -> exactly one y) -->
+      <!-- Right panel: not a function (one x -> two y's) -->
+      <figure class="svg-figure">
+        <svg viewBox="0 0 420 160" width="420" height="160" aria-label="Function vs not a function mapping diagram">
+          <!-- LEFT: Function -->
+          <rect x="5" y="5" width="195" height="150" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+          <text x="102" y="20" font-size="11" text-anchor="middle" fill="#16a34a" font-weight="bold">✓ Function</text>
+          <!-- Domain circles -->
+          <circle cx="45" cy="50"  r="14" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"/>
+          <circle cx="45" cy="90"  r="14" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"/>
+          <circle cx="45" cy="130" r="14" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"/>
+          <text x="45" y="54"  font-size="11" text-anchor="middle" fill="#166534">1</text>
+          <text x="45" y="94"  font-size="11" text-anchor="middle" fill="#166534">2</text>
+          <text x="45" y="134" font-size="11" text-anchor="middle" fill="#166534">3</text>
+          <!-- Range circles -->
+          <circle cx="155" cy="50"  r="14" fill="#d1fae5" stroke="#16a34a" stroke-width="1"/>
+          <circle cx="155" cy="90"  r="14" fill="#d1fae5" stroke="#16a34a" stroke-width="1"/>
+          <circle cx="155" cy="130" r="14" fill="#d1fae5" stroke="#16a34a" stroke-width="1"/>
+          <text x="155" y="54"  font-size="11" text-anchor="middle" fill="#166534">A</text>
+          <text x="155" y="94"  font-size="11" text-anchor="middle" fill="#166534">B</text>
+          <text x="155" y="134" font-size="11" text-anchor="middle" fill="#166534">C</text>
+          <!-- arrows: one-to-one -->
+          <line x1="59" y1="50"  x2="141" y2="50"  stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr14g)"/>
+          <line x1="59" y1="90"  x2="141" y2="90"  stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr14g)"/>
+          <line x1="59" y1="130" x2="141" y2="130" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr14g)"/>
+          <!-- labels -->
+          <text x="45"  y="43" font-size="9" text-anchor="middle" fill="#6b7280">Domain</text>
+          <text x="155" y="43" font-size="9" text-anchor="middle" fill="#6b7280">Range</text>
+
+          <!-- RIGHT: Not a Function -->
+          <rect x="220" y="5" width="195" height="150" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+          <text x="317" y="20" font-size="11" text-anchor="middle" fill="#dc2626" font-weight="bold">✗ Not a Function</text>
+          <!-- Domain circles -->
+          <circle cx="260" cy="50"  r="14" fill="#fecaca" stroke="#dc2626" stroke-width="1"/>
+          <circle cx="260" cy="90"  r="14" fill="#fecaca" stroke="#dc2626" stroke-width="1"/>
+          <circle cx="260" cy="130" r="14" fill="#fecaca" stroke="#dc2626" stroke-width="1"/>
+          <text x="260" y="54"  font-size="11" text-anchor="middle" fill="#7f1d1d">1</text>
+          <text x="260" y="94"  font-size="11" text-anchor="middle" fill="#7f1d1d">2</text>
+          <text x="260" y="134" font-size="11" text-anchor="middle" fill="#7f1d1d">3</text>
+          <!-- Range circles -->
+          <circle cx="370" cy="50"  r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+          <circle cx="370" cy="90"  r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+          <circle cx="370" cy="130" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+          <text x="370" y="54"  font-size="11" text-anchor="middle" fill="#7f1d1d">A</text>
+          <text x="370" y="94"  font-size="11" text-anchor="middle" fill="#7f1d1d">B</text>
+          <text x="370" y="134" font-size="11" text-anchor="middle" fill="#7f1d1d">C</text>
+          <!-- arrows: 2 maps to both A and B (violation) -->
+          <line x1="274" y1="50"  x2="356" y2="50"  stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr14r)"/>
+          <line x1="274" y1="90"  x2="356" y2="52"  stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arr14r)"/>
+          <line x1="274" y1="90"  x2="356" y2="88"  stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arr14r)"/>
+          <line x1="274" y1="130" x2="356" y2="130" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr14r)"/>
+          <!-- violation label -->
+          <text x="317" y="110" font-size="9" text-anchor="middle" fill="#dc2626">2 maps to two outputs!</text>
+          <text x="260"  y="43" font-size="9" text-anchor="middle" fill="#6b7280">Domain</text>
+          <text x="370" y="43" font-size="9" text-anchor="middle" fill="#6b7280">Range</text>
+
+          <defs>
+            <marker id="arr14g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 z" fill="#16a34a"/>
+            </marker>
+            <marker id="arr14r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 z" fill="#dc2626"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>A function (left): each input maps to exactly one output. Not a function (right): input 2 maps to two outputs.</figcaption>
+      </figure>
+
+      <div class="callout callout--tip">
+        <strong>Vertical Line Test:</strong> Draw (or imagine) vertical lines through a graph. If any vertical line hits the graph more than once, it is <em>not</em> a function.
+      </div>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="examples-section">
+      <h2 class="section-heading">Worked Examples</h2>
+
+      <div class="example">
+        <div class="example-problem">Given \(f(x) = 3x - 2\), find \(f(4)\) and \(f(-1)\).</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>\(f(4)\):</strong> Substitute \(x = 4\): \(3(4) - 2 = 12 - 2 = 10\).</p>
+          <p><strong>\(f(-1)\):</strong> Substitute \(x = -1\): \(3(-1) - 2 = -3 - 2 = -5\).</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Does the table represent a function? <br>
+          <table style="margin:0.5rem auto; border-collapse:collapse; font-size:0.95rem">
+            <tr><th style="border:1px solid #d1d5db;padding:4px 10px">x</th><td style="border:1px solid #d1d5db;padding:4px 10px">1</td><td style="border:1px solid #d1d5db;padding:4px 10px">2</td><td style="border:1px solid #d1d5db;padding:4px 10px">2</td><td style="border:1px solid #d1d5db;padding:4px 10px">3</td></tr>
+            <tr><th style="border:1px solid #d1d5db;padding:4px 10px">y</th><td style="border:1px solid #d1d5db;padding:4px 10px">5</td><td style="border:1px solid #d1d5db;padding:4px 10px">7</td><td style="border:1px solid #d1d5db;padding:4px 10px">9</td><td style="border:1px solid #d1d5db;padding:4px 10px">11</td></tr>
+          </table>
+        </div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Check for repeated x-values:</strong> The input \(x = 2\) appears twice, giving outputs 7 and 9.</p>
+          <p><strong>Conclusion:</strong> This is <em>not</em> a function — one input (2) maps to two different outputs.</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Find the domain and range of \(f(x) = x^2\) if the domain is \(\{-2, -1, 0, 1, 2\}\).</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Domain</strong> (given): \(\{-2, -1, 0, 1, 2\}\)</p>
+          <p><strong>Evaluate:</strong><br>
+          \(f(-2) = 4,\quad f(-1) = 1,\quad f(0) = 0,\quad f(1) = 1,\quad f(2) = 4\)</p>
+          <p><strong>Range</strong> (unique outputs): \(\{0, 1, 4\}\)</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <h2 class="section-heading">Practice Problems</h2>
+
+      <!-- P1: f(x)=2x+5, f(3)=2(3)+5=11 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="11" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = 2x + 5\), find \(f(3)\).</div>
+      </div>
+
+      <!-- P2: f(x)=x^2-1, f(-2)=4-1=3 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = x^2 - 1\), find \(f(-2)\).</div>
+      </div>
+
+      <!-- P3: which set of ordered pairs is a function? no repeated x → index 1: {(1,2),(2,3),(3,4)} -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">Which set of ordered pairs represents a function?</div>
+        <ol class="choices" type="A">
+          <li>\(\{(1,2),(1,3),(2,4)\}\)</li>
+          <li>\(\{(1,2),(2,3),(3,4)\}\)</li>
+          <li>\(\{(2,5),(3,5),(2,6)\}\)</li>
+          <li>\(\{(0,1),(0,2),(1,3)\}\)</li>
+        </ol>
+      </div>
+
+      <!-- P4: vertical line test — circle fails → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">A circle graphed on the coordinate plane — does it pass the vertical line test?</div>
+        <ol class="choices" type="A">
+          <li>Yes, because it is a closed curve</li>
+          <li>Yes, because it has a consistent radius</li>
+          <li>No, because vertical lines through the middle hit two points</li>
+          <li>No, because circles have no slope</li>
+        </ol>
+      </div>
+
+      <!-- P5: domain of f where x can be any real → "all real numbers" → index 3 -->
+      <div class="problem" data-type="multiple-choice" data-answer="3">
+        <div class="problem-stem">For \(f(x) = 5x - 3\), which best describes the domain?</div>
+        <ol class="choices" type="A">
+          <li>Only positive numbers</li>
+          <li>Only integers</li>
+          <li>Numbers greater than 3</li>
+          <li>All real numbers</li>
+        </ol>
+      </div>
+
+      <!-- P6: f(x)=4-x, f(0)=4, f(4)=0: which is in range when domain={0,1,2,3,4} → range={4,3,2,1,0} → 2 is in range → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">For \(f(x) = 4 - x\) with domain \(\{0,1,2,3,4\}\), which value is in the range?</div>
+        <ol class="choices" type="A">
+          <li>5</li>
+          <li>2</li>
+          <li>-1</li>
+          <li>6</li>
+        </ol>
+      </div>
+
+      <!-- P7: g(x)=3x-1, g(-3)=3(-3)-1=-10 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="-10" data-tolerance="0">
+        <div class="problem-stem">If \(g(x) = 3x - 1\), find \(g(-3)\).</div>
+      </div>
+
+      <!-- P8: table x:1,2,3,4 y:2,4,6,8 — is it a function? all x unique → yes → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">The table shows \(x\): 1, 2, 3, 4 and \(y\): 2, 4, 6, 8. Is this a function?</div>
+        <ol class="choices" type="A">
+          <li>Yes — each x-value appears only once</li>
+          <li>No — the y-values are all different</li>
+          <li>No — the outputs are all even</li>
+          <li>Cannot be determined from a table</li>
+        </ol>
+      </div>
+
+      <!-- P9: f(x)=x^2+x, f(2)=4+2=6 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="6" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = x^2 + x\), find \(f(2)\).</div>
+      </div>
+
+      <!-- P10: which statement describes a function? each input one output → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Which statement best describes a function?</div>
+        <ol class="choices" type="A">
+          <li>Each input value produces exactly one output value</li>
+          <li>Each output value produces exactly one input value</li>
+          <li>All inputs and outputs must be positive</li>
+          <li>A function must be represented by a straight line</li>
+        </ol>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="lesson-footer">
+    <a href="day-14.html" id="nav-prev">← Day 14</a>
+    <a href="../index.html" class="home-link">Home</a>
+    <a href="day-16.html" id="nav-next">Day 16 →</a>
+  </footer>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

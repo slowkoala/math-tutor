@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 6 — Literal Equations &amp; Special Cases</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="6">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 6</span>
+        <span class="unit-badge" id="unit-badge">Linear Equations &amp; Graphing</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Literal Equations &amp; Special Cases</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Literal Equation</div>
+          <div class="vocab-def">An equation containing two or more variables. You solve it by isolating one variable in terms of the others.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Formula</div>
+          <div class="vocab-def">A literal equation describing a real-world relationship. Examples: $A = lw$, $d = rt$, $P = 2l + 2w$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">No Solution</div>
+          <div class="vocab-def">An equation that is false for every value of the variable. Solving produces a contradiction such as $3 = 7$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Identity</div>
+          <div class="vocab-def">An equation that is true for every value of the variable. Solving produces a tautology such as $4 = 4$. The solution set is all real numbers.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Contradiction</div>
+          <div class="vocab-def">A statement that is always false, such as $0 = 5$. Signals that an equation has no solution.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Coefficient</div>
+          <div class="vocab-def">The numerical factor multiplying a variable. In $5x$, the coefficient is 5. In $-x$, it is $-1$.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          <strong>Literal equations</strong> are solved using the exact same steps as regular equations —
+          the only difference is that the answer is an expression containing other variables rather than a number.
+          Treat every variable <em>except</em> the one you're solving for as if it were a constant.
+        </p>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🔧</span>
+          <div class="callout__body">
+            <strong>Example — solve $A = lw$ for $l$:</strong><br>
+            Divide both sides by $w$: $\dfrac{A}{w} = l$, so $l = \dfrac{A}{w}$.<br>
+            Same step you'd take to isolate a number — just divide by $w$ instead of a digit.
+          </div>
+        </div>
+
+        <p>
+          <strong>Special cases</strong> occur when all the variable terms cancel during solving.
+          What's left is a statement involving only constants — and that statement is either always true or always false.
+        </p>
+
+        <!-- Three-case diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Three side-by-side panels showing the three possible outcomes when solving a linear equation.
+            Panel widths: 145px each, 10px gap between, total ≈ 475px.
+          -->
+          <svg viewBox="0 0 475 195" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:475px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- ── Panel 1: One Solution ── -->
+            <rect x="5"   y="5" width="145" height="150" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <!-- axes -->
+            <line x1="77"  y1="15" x2="77"  y2="145" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="15"  y1="80" x2="140" y2="80"  stroke="#CBD5E1" stroke-width="1"/>
+            <!-- line 1: rising -->
+            <line x1="15"  y1="145" x2="140" y2="20" stroke="#3B82F6" stroke-width="2"/>
+            <!-- line 2: falling -->
+            <line x1="15"  y1="25"  x2="140" y2="140" stroke="#8B5CF6" stroke-width="2"/>
+            <!-- intersection dot -->
+            <circle cx="77" cy="80" r="5" fill="#EF4444"/>
+            <!-- title -->
+            <text x="77" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">One Solution</text>
+            <text x="77" y="183" text-anchor="middle" font-size="10" fill="#64748B">x = value</text>
+
+            <!-- ── Panel 2: No Solution ── -->
+            <rect x="165" y="5" width="145" height="150" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+            <!-- axes -->
+            <line x1="237" y1="15" x2="237" y2="145" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="175" y1="80" x2="300" y2="80"  stroke="#CBD5E1" stroke-width="1"/>
+            <!-- line 1 -->
+            <line x1="175" y1="45"  x2="300" y2="100" stroke="#3B82F6" stroke-width="2"/>
+            <!-- line 2 (parallel — same slope, shifted down) -->
+            <line x1="175" y1="85"  x2="300" y2="140" stroke="#8B5CF6" stroke-width="2"/>
+            <!-- title -->
+            <text x="237" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">No Solution</text>
+            <text x="237" y="183" text-anchor="middle" font-size="10" fill="#64748B">parallel lines</text>
+
+            <!-- ── Panel 3: Infinite Solutions ── -->
+            <rect x="325" y="5" width="145" height="150" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+            <!-- axes -->
+            <line x1="397" y1="15" x2="397" y2="145" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="335" y1="80" x2="460" y2="80"  stroke="#CBD5E1" stroke-width="1"/>
+            <!-- one thick line (two coincide) -->
+            <line x1="335" y1="130" x2="460" y2="30" stroke="#3B82F6" stroke-width="5" opacity="0.35"/>
+            <line x1="335" y1="130" x2="460" y2="30" stroke="#8B5CF6" stroke-width="2"/>
+            <!-- title -->
+            <text x="397" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Infinite Solutions</text>
+            <text x="397" y="183" text-anchor="middle" font-size="10" fill="#64748B">same line</text>
+          </svg>
+          <p class="diagram-caption">Three possible outcomes for a linear equation — previewing what you'll see geometrically in systems of equations.</p>
+        </div>
+
+        <!-- Decision callout -->
+        <div class="callout callout--info">
+          <span class="callout__icon">🔀</span>
+          <div class="callout__body">
+            <strong>How to identify special cases while solving:</strong><br>
+            If the variable terms cancel and you get a <em>false</em> constant statement (e.g. $3 = 7$) → <strong>no solution</strong>.<br>
+            If the variable terms cancel and you get a <em>true</em> constant statement (e.g. $4 = 4$) → <strong>infinite solutions</strong>.
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            When solving a literal equation, you can't get a purely numeric answer — that's fine.
+            The answer is an expression. Example: solving $A = \frac{1}{2}bh$ for $h$ gives $h = \frac{2A}{b}$, not a number.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Literal Equation (Formula)
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve $P = 2l + 2w$ for $l$. (Perimeter of a rectangle.)</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Subtract $2w$ from both sides: $P - 2w = 2l$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Divide both sides by 2: $l = \dfrac{P - 2w}{2}$</div>
+            </div>
+          </div>
+          <div class="example__answer">$l = \dfrac{P - 2w}{2}$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — No Solution
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $4x + 2 = 4x - 5$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Subtract $4x$ from both sides: $2 = -5$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$2 = -5$ is a false statement — no value of $x$ can make this true.</div>
+            </div>
+          </div>
+          <div class="example__answer">No solution (contradiction: $2 \neq -5$)</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Infinite Solutions
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $3(x + 4) = 3x + 12$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Distribute: $3x + 12 = 3x + 12$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Subtract $3x$: $12 = 12$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">$12 = 12$ is always true — every real number is a solution.</div>
+            </div>
+          </div>
+          <div class="example__answer">Infinite solutions — all real numbers (identity)</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: d = rt for t → t = d/r, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $d = rt$ for $t$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$t = dr$</button>
+            <button class="option" data-value="1">$t = d + r$</button>
+            <button class="option" data-value="2">$t = \dfrac{d}{r}$</button>
+            <button class="option" data-value="3">$t = \dfrac{r}{d}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$t$ is being multiplied by $r$. What operation undoes multiplication?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Divide both sides by $r$: $\dfrac{d}{r} = \dfrac{rt}{r} \Rightarrow t = \dfrac{d}{r}$.</div>
+          </div>
+        </div>
+
+        <!-- P2: A = (1/2)bh for h → h = 2A/b, index 1 -->
+        <!-- Verify: multiply both sides by 2: 2A = bh; divide by b: h = 2A/b ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $A = \dfrac{1}{2}bh$ for $h$. (Area of a triangle.)</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$h = \dfrac{A}{2b}$</button>
+            <button class="option" data-value="1">$h = \dfrac{2A}{b}$</button>
+            <button class="option" data-value="2">$h = 2Ab$</button>
+            <button class="option" data-value="3">$h = \dfrac{b}{2A}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply both sides by 2 first to clear the fraction, then divide by $b$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Multiply by 2: $2A = bh$. Divide by $b$: $h = \dfrac{2A}{b}$.</div>
+          </div>
+        </div>
+
+        <!-- P3: y = mx + b for x → x = (y-b)/m, index 2 -->
+        <!-- Verify: y - b = mx; x = (y-b)/m ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $y = mx + b$ for $x$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = y - mb$</button>
+            <button class="option" data-value="1">$x = \dfrac{y + b}{m}$</button>
+            <button class="option" data-value="2">$x = \dfrac{y - b}{m}$</button>
+            <button class="option" data-value="3">$x = my - b$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract $b$ from both sides first, then divide by $m$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y - b = mx \;\Rightarrow\; x = \dfrac{y-b}{m}$.</div>
+          </div>
+        </div>
+
+        <!-- P4: 5x + 3 = 5x + 3 → infinite solutions, index 2 -->
+        <!-- Verify: subtract 5x → 3 = 3 (always true) ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">How many solutions does $5x + 3 = 5x + 3$ have?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 0$</button>
+            <button class="option" data-value="1">No solution</button>
+            <button class="option" data-value="2">Infinite solutions (all real numbers)</button>
+            <button class="option" data-value="3">$x = 1$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Try subtracting $5x$ from both sides. What's left?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Subtract $5x$: $3 = 3$. This is always true — every value of $x$ satisfies the original equation. Identity → infinite solutions.</div>
+          </div>
+        </div>
+
+        <!-- P5: 2x + 7 = 2x - 1 → no solution, index 3 -->
+        <!-- Verify: subtract 2x → 7 = -1 (false) ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">How many solutions does $2x + 7 = 2x - 1$ have?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 4$</button>
+            <button class="option" data-value="1">$x = -4$</button>
+            <button class="option" data-value="2">Infinite solutions</button>
+            <button class="option" data-value="3">No solution</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract $2x$ from both sides. Is the resulting constant statement true or false?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Subtract $2x$: $7 = -1$. This is always false — no value of $x$ makes the equation true. No solution.</div>
+          </div>
+        </div>
+
+        <!-- P6: C = 2πr for r → r = C/(2π), index 3 -->
+        <!-- Verify: divide both sides by 2π ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $C = 2\pi r$ for $r$. (Circumference of a circle.)</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$r = 2\pi C$</button>
+            <button class="option" data-value="1">$r = C - 2\pi$</button>
+            <button class="option" data-value="2">$r = \dfrac{2\pi}{C}$</button>
+            <button class="option" data-value="3">$r = \dfrac{C}{2\pi}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$r$ is being multiplied by $2\pi$. Divide both sides by $2\pi$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Divide both sides by $2\pi$: $r = \dfrac{C}{2\pi}$.</div>
+          </div>
+        </div>
+
+        <!-- P7: P = a + b + c for b → b = P - a - c, index 1 -->
+        <!-- Verify: subtract a and c from both sides ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $P = a + b + c$ for $b$. (Perimeter of a triangle.)</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$b = P + a + c$</button>
+            <button class="option" data-value="1">$b = P - a - c$</button>
+            <button class="option" data-value="2">$b = \dfrac{P}{a + c}$</button>
+            <button class="option" data-value="3">$b = aP - c$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract $a$ and $c$ from both sides to isolate $b$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$P - a - c = b$, so $b = P - a - c$.</div>
+          </div>
+        </div>
+
+        <!-- P8: V = lwh for w → w = V/(lh), index 3 -->
+        <!-- Verify: divide both sides by lh ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $V = lwh$ for $w$. (Volume of a rectangular prism.)</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$w = V - lh$</button>
+            <button class="option" data-value="1">$w = Vlh$</button>
+            <button class="option" data-value="2">$w = \dfrac{lh}{V}$</button>
+            <button class="option" data-value="3">$w = \dfrac{V}{lh}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$w$ is being multiplied by both $l$ and $h$. Divide both sides by $lh$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Divide both sides by $lh$: $w = \dfrac{V}{lh}$.</div>
+          </div>
+        </div>
+
+        <!-- P9: 3(2x + 1) = 6x + 4 → no solution, index 2 -->
+        <!-- Verify: 6x + 3 = 6x + 4 → 3 = 4 (false) ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">How many solutions does $3(2x + 1) = 6x + 4$ have?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 1$</button>
+            <button class="option" data-value="1">Infinite solutions</button>
+            <button class="option" data-value="2">No solution</button>
+            <button class="option" data-value="3">$x = \dfrac{1}{6}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute the left side first, then subtract $6x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Distribute: $6x + 3 = 6x + 4$. Subtract $6x$: $3 = 4$. False statement → no solution.</div>
+          </div>
+        </div>
+
+        <!-- P10: F = (9/5)C + 32 for C → C = 5(F-32)/9, index 2 -->
+        <!-- Verify: F - 32 = (9/5)C; multiply both sides by 5/9: C = (5/9)(F-32) = 5(F-32)/9 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $F = \dfrac{9}{5}C + 32$ for $C$. (Convert Fahrenheit to Celsius.)</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$C = \dfrac{9}{5}(F - 32)$</button>
+            <button class="option" data-value="1">$C = \dfrac{5}{9}F - 32$</button>
+            <button class="option" data-value="2">$C = \dfrac{5(F - 32)}{9}$</button>
+            <button class="option" data-value="3">$C = 5F - 32$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 32 from both sides first, then multiply both sides by $\dfrac{5}{9}$ (the reciprocal of $\dfrac{9}{5}$).</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $F - 32 = \dfrac{9}{5}C \;\Rightarrow\; C = \dfrac{5}{9}(F - 32) = \dfrac{5(F-32)}{9}$.<br>
+              Option A uses the wrong fraction ($\frac{9}{5}$ instead of $\frac{5}{9}$). Option B distributes incorrectly.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-05.html" id="nav-prev">← Day 5</a>
+      <a href="day-07.html" id="nav-next">Day 7 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

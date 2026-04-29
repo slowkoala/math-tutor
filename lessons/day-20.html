@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 20 — Polynomials: Operations &amp; Special Products</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="20">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 20</span>
+        <span class="unit-badge" id="unit-badge">Polynomials &amp; Quadratics</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Polynomials: Operations &amp; Special Products</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- VOCAB -->
+    <section class="vocab-section">
+      <h2 class="section-heading">Key Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Polynomial</div>
+          <div class="vocab-def">A sum of terms of the form \(ax^n\) where \(n\) is a non-negative integer. Examples: \(3x^2 - 2x + 1\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Degree</div>
+          <div class="vocab-def">The highest exponent in a polynomial. \(3x^4 - x + 7\) has degree 4.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Leading Coefficient</div>
+          <div class="vocab-def">The coefficient of the term with the highest degree.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">FOIL</div>
+          <div class="vocab-def">First, Outer, Inner, Last — a method for multiplying two binomials.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Perfect Square Trinomial</div>
+          <div class="vocab-def">\((a+b)^2 = a^2+2ab+b^2\) and \((a-b)^2 = a^2-2ab+b^2\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Difference of Squares</div>
+          <div class="vocab-def">\(a^2 - b^2 = (a+b)(a-b)\). Only works with subtraction, not addition.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="concept-section">
+      <h2 class="section-heading">Special Products Reference</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin:1rem 0;">
+        <div style="background:#eff6ff; border:1.5px solid #3b82f6; border-radius:8px; padding:0.9rem;">
+          <div style="font-weight:700; color:#1d4ed8; margin-bottom:0.5rem;">Difference of Squares</div>
+          <div>\(a^2 - b^2 = (a+b)(a-b)\)</div>
+          <div style="margin-top:0.5rem; font-size:0.9rem; color:#374151;">Example: \(x^2 - 9 = (x+3)(x-3)\)</div>
+        </div>
+        <div style="background:#f0fdf4; border:1.5px solid #16a34a; border-radius:8px; padding:0.9rem;">
+          <div style="font-weight:700; color:#15803d; margin-bottom:0.5rem;">Perfect Square (Sum)</div>
+          <div>\((a+b)^2 = a^2 + 2ab + b^2\)</div>
+          <div style="margin-top:0.5rem; font-size:0.9rem; color:#374151;">Example: \((x+4)^2 = x^2+8x+16\)</div>
+        </div>
+        <div style="background:#fefce8; border:1.5px solid #ca8a04; border-radius:8px; padding:0.9rem;">
+          <div style="font-weight:700; color:#92400e; margin-bottom:0.5rem;">Perfect Square (Diff)</div>
+          <div>\((a-b)^2 = a^2 - 2ab + b^2\)</div>
+          <div style="margin-top:0.5rem; font-size:0.9rem; color:#374151;">Example: \((x-5)^2 = x^2-10x+25\)</div>
+        </div>
+      </div>
+
+      <!-- SVG: FOIL diagram for (2x+3)(x-4) -->
+      <!-- (2x+3)(x-4) = 2x^2 - 8x + 3x - 12 = 2x^2 - 5x - 12 -->
+      <figure class="svg-figure">
+        <svg viewBox="0 0 370 120" width="370" height="120" aria-label="FOIL method for 2x plus 3 times x minus 4">
+          <text x="185" y="15" font-size="12" text-anchor="middle" fill="#374151" font-weight="bold">FOIL: \((2x+3)(x-4)\)</text>
+          <!-- terms displayed -->
+          <text x="80"  y="45" font-size="15" text-anchor="middle" fill="#2563eb" font-weight="bold">2x</text>
+          <text x="120" y="45" font-size="15" text-anchor="middle" fill="#374151">+</text>
+          <text x="158" y="45" font-size="15" text-anchor="middle" fill="#dc2626" font-weight="bold">3</text>
+          <text x="198" y="45" font-size="12" text-anchor="middle" fill="#6b7280">)(</text>
+          <text x="238" y="45" font-size="15" text-anchor="middle" fill="#2563eb" font-weight="bold">x</text>
+          <text x="268" y="45" font-size="15" text-anchor="middle" fill="#374151">−</text>
+          <text x="302" y="45" font-size="15" text-anchor="middle" fill="#dc2626" font-weight="bold">4</text>
+          <!-- curved arrows for F O I L -->
+          <!-- First: 2x·x -->
+          <path d="M80,50 Q159,75 238,50" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4"/>
+          <text x="159" y="82" font-size="9" text-anchor="middle" fill="#2563eb">F: 2x²</text>
+          <!-- Outer: 2x·(-4) -->
+          <path d="M80,52 Q192,100 302,52" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4"/>
+          <text x="192" y="107" font-size="9" text-anchor="middle" fill="#16a34a">O: −8x</text>
+          <!-- Inner: 3·x -->
+          <path d="M158,48 Q198,68 238,48" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4"/>
+          <text x="198" y="72" font-size="9" text-anchor="middle" fill="#d97706">I: +3x</text>
+          <!-- Last: 3·(-4) -->
+          <path d="M158,50 Q230,88 302,50" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4"/>
+          <text x="246" y="93" font-size="9" text-anchor="middle" fill="#dc2626">L: −12</text>
+          <!-- result -->
+          <text x="185" y="118" font-size="11" text-anchor="middle" fill="#7c3aed">= 2x² + (−8x + 3x) − 12 = 2x² − 5x − 12</text>
+        </svg>
+        <figcaption>FOIL connects each term in the first binomial to each term in the second.</figcaption>
+      </figure>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="examples-section">
+      <h2 class="section-heading">Worked Examples</h2>
+
+      <div class="example">
+        <div class="example-problem">Add: \((3x^2 - 2x + 5) + (x^2 + 4x - 3)\)</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Group like terms:</strong></p>
+          <p>\(x^2\) terms: \(3x^2 + x^2 = 4x^2\)</p>
+          <p>\(x\) terms: \(-2x + 4x = 2x\)</p>
+          <p>Constants: \(5 + (-3) = 2\)</p>
+          <p><strong>Answer:</strong> \(4x^2 + 2x + 2\)</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Multiply: \((x+5)^2\)</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Use the perfect square formula:</strong> \((a+b)^2 = a^2 + 2ab + b^2\)</p>
+          <p>Here \(a = x\) and \(b = 5\):</p>
+          <p>\(x^2 + 2(x)(5) + 5^2 = x^2 + 10x + 25\)</p>
+          <p><strong>Warning:</strong> \((x+5)^2 \ne x^2 + 25\)! Don't forget the middle term.</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Multiply: \((3x-2)(3x+2)\)</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Recognize the pattern:</strong> \((a-b)(a+b) = a^2 - b^2\)</p>
+          <p>Here \(a = 3x\) and \(b = 2\):</p>
+          <p>\((3x)^2 - 2^2 = 9x^2 - 4\)</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <h2 class="section-heading">Practice Problems</h2>
+
+      <!-- P1: (x^2+3x-1)+(2x^2-x+4)=3x^2+2x+3 → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">Add: \((x^2 + 3x - 1) + (2x^2 - x + 4)\)</div>
+        <ol class="choices" type="A">
+          <li>\(3x^2 + 4x + 3\)</li>
+          <li>\(3x^2 + 2x + 3\)</li>
+          <li>\(3x^2 + 2x - 3\)</li>
+          <li>\(x^2 + 2x + 3\)</li>
+        </ol>
+      </div>
+
+      <!-- P2: (4x^2-5x+2)-(x^2+3x-1)=3x^2-8x+3 → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">Subtract: \((4x^2 - 5x + 2) - (x^2 + 3x - 1)\)</div>
+        <ol class="choices" type="A">
+          <li>\(3x^2 - 2x + 1\)</li>
+          <li>\(3x^2 - 8x + 1\)</li>
+          <li>\(3x^2 - 8x + 3\)</li>
+          <li>\(5x^2 - 2x + 3\)</li>
+        </ol>
+      </div>
+
+      <!-- P3: (x+3)(x-5)=x^2-2x-15 → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Multiply: \((x+3)(x-5)\)</div>
+        <ol class="choices" type="A">
+          <li>\(x^2 - 2x - 15\)</li>
+          <li>\(x^2 + 2x - 15\)</li>
+          <li>\(x^2 - 2x + 15\)</li>
+          <li>\(x^2 + 8x - 15\)</li>
+        </ol>
+      </div>
+
+      <!-- P4: (x-7)^2=x^2-14x+49: middle term coefficient → fill-in answer=-14 -->
+      <div class="problem" data-type="fill-in" data-answer="-14" data-tolerance="0">
+        <div class="problem-stem">Expand \((x-7)^2\). What is the coefficient of the \(x\) term?</div>
+      </div>
+
+      <!-- P5: (2x+1)(3x-4)=6x^2-8x+3x-4=6x^2-5x-4 → index 3 -->
+      <div class="problem" data-type="multiple-choice" data-answer="3">
+        <div class="problem-stem">Multiply: \((2x+1)(3x-4)\)</div>
+        <ol class="choices" type="A">
+          <li>\(6x^2 + 5x - 4\)</li>
+          <li>\(5x^2 - 5x - 4\)</li>
+          <li>\(6x^2 - 3x - 4\)</li>
+          <li>\(6x^2 - 5x - 4\)</li>
+        </ol>
+      </div>
+
+      <!-- P6: (x+6)^2 constant term = 36 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="36" data-tolerance="0">
+        <div class="problem-stem">Expand \((x+6)^2\). What is the constant term?</div>
+      </div>
+
+      <!-- P7: (5x-1)(5x+1)=25x^2-1: diff of squares → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Multiply: \((5x-1)(5x+1)\)</div>
+        <ol class="choices" type="A">
+          <li>\(25x^2 - 1\)</li>
+          <li>\(25x^2 + 1\)</li>
+          <li>\(10x^2 - 1\)</li>
+          <li>\(25x^2 - 10x - 1\)</li>
+        </ol>
+      </div>
+
+      <!-- P8: degree of product of degree-2 and degree-3 poly = 5 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
+        <div class="problem-stem">What is the degree of the product of a degree-2 polynomial and a degree-3 polynomial?</div>
+      </div>
+
+      <!-- P9: leading coeff of (3x^2+x)(2x-5) = 3*2=6 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="6" data-tolerance="0">
+        <div class="problem-stem">What is the leading coefficient of \((3x^2 + x)(2x - 5)\)?</div>
+      </div>
+
+      <!-- P10: (x+2)(x-2)(x+3): first do (x+2)(x-2)=x^2-4, then (x^2-4)(x+3)=x^3+3x^2-4x-12: degree=3 constant term=-12 → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">Expand \((x+2)(x-2)(x+3)\). What is the constant term?</div>
+        <ol class="choices" type="A">
+          <li>\(24\)</li>
+          <li>\(-24\)</li>
+          <li>\(-12\)</li>
+          <li>\(12\)</li>
+        </ol>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="lesson-footer">
+    <a href="day-19.html" id="nav-prev">← Day 19</a>
+    <a href="../index.html" class="home-link">Home</a>
+    <a href="day-21.html" id="nav-next">Day 21 →</a>
+  </footer>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

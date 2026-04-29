@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 5 — Solving Linear Equations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="5">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 5</span>
+        <span class="unit-badge" id="unit-badge">Linear Equations &amp; Graphing</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Solving Linear Equations</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Linear Equation</div>
+          <div class="vocab-def">An equation where the variable has exponent 1. Its graph is a straight line. General form: $ax + b = c$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Solution</div>
+          <div class="vocab-def">A value of the variable that makes the equation true. To check, substitute it back in and verify both sides are equal.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Inverse Operations</div>
+          <div class="vocab-def">Operations that undo each other: addition ↔ subtraction, multiplication ↔ division. Used to isolate the variable.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Properties of Equality</div>
+          <div class="vocab-def">Whatever operation you apply to one side of an equation, you <em>must</em> apply to the other side to keep it balanced.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Distributive Property</div>
+          <div class="vocab-def">$a(b + c) = ab + ac$. Expand parentheses before combining like terms.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Like Terms</div>
+          <div class="vocab-def">Terms with the same variable and exponent. They can be combined: $3x + 5x = 8x$. Constants are also like terms.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          Solving a linear equation means isolating the variable — getting it alone on one side.
+          The key principle: <strong>an equation is a balance</strong>. Any operation applied to one side must be applied to the other.
+        </p>
+
+        <!-- Step-by-step solve cascade diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Shows the two-step solve of  2x + 3 = 9
+            Three boxes stacked vertically with annotated arrows between them.
+          -->
+          <svg viewBox="0 0 460 212" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:460px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Box 1 -->
+            <rect x="8" y="8" width="444" height="48" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="32" y="39" font-size="22" fill="#0F172A" font-weight="600">2x + 3 = 9</text>
+
+            <!-- Arrow 1 + annotation -->
+            <line x1="36" y1="58" x2="36" y2="82" stroke="#10B981" stroke-width="2"/>
+            <polygon points="30,82 42,82 36,90" fill="#10B981"/>
+            <text x="52" y="72" font-size="12" fill="#047857" font-weight="600">subtract 3 from both sides</text>
+            <text x="52" y="86" font-size="11" fill="#94A3B8">2x + 3 − 3 = 9 − 3</text>
+
+            <!-- Box 2 -->
+            <rect x="8" y="94" width="444" height="48" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="32" y="124" font-size="22" fill="#0F172A" font-weight="600">2x = 6</text>
+
+            <!-- Arrow 2 + annotation -->
+            <line x1="36" y1="144" x2="36" y2="168" stroke="#10B981" stroke-width="2"/>
+            <polygon points="30,168 42,168 36,176" fill="#10B981"/>
+            <text x="52" y="158" font-size="12" fill="#047857" font-weight="600">divide both sides by 2</text>
+            <text x="52" y="172" font-size="11" fill="#94A3B8">2x ÷ 2 = 6 ÷ 2</text>
+
+            <!-- Box 3 (answer) -->
+            <rect x="8" y="180" width="444" height="24" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+            <text x="32" y="197" font-size="18" fill="#15803D" font-weight="700">x = 3 &#x2713;</text>
+          </svg>
+          <p class="diagram-caption">Each step undoes one operation until $x$ stands alone.</p>
+        </div>
+
+        <p><strong>General strategy (works every time):</strong></p>
+        <ol style="margin:var(--s3) 0 var(--s3) var(--s6);line-height:2;">
+          <li>Distribute to clear any parentheses.</li>
+          <li>Combine like terms on each side.</li>
+          <li>Move all variable terms to one side (add/subtract).</li>
+          <li>Move all constants to the other side (add/subtract).</li>
+          <li>Divide both sides by the coefficient of the variable.</li>
+          <li>Check: substitute your answer back into the original equation.</li>
+        </ol>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">✅</span>
+          <div class="callout__body">
+            <strong>Always check your answer.</strong> Substitute it back in.
+            If both sides equal the same number, you're done.
+            Example: $x = 3$ in $2x + 3 = 9$: $2(3) + 3 = 9$ ✓
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            When you move a term across the equals sign by adding or subtracting, its <strong>sign changes</strong>.
+            $2x + 5 = 13$ → subtract 5: $2x = 8$. The $+5$ becomes $-5$ on the other side.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Two-Step Equation
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $3x - 7 = 14$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Add 7 to both sides: $3x - 7 + 7 = 14 + 7 \;\Rightarrow\; 3x = 21$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Divide both sides by 3: $x = \dfrac{21}{3} = 7$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Check: $3(7) - 7 = 21 - 7 = 14$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$x = 7$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Variables on Both Sides
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $5x + 2 = 2x + 14$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Move variable terms left — subtract $2x$ from both sides: $5x - 2x + 2 = 14 \;\Rightarrow\; 3x + 2 = 14$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Subtract 2 from both sides: $3x = 12$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Divide by 3: $x = 4$</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Check: $5(4)+2 = 22$ and $2(4)+14 = 22$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$x = 4$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Distributive Property
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $3(x - 4) = 2x + 1$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Distribute: $3x - 12 = 2x + 1$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Subtract $2x$: $x - 12 = 1$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Add 12: $x = 13$</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Check: $3(13-4) = 3(9) = 27$ and $2(13)+1 = 27$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$x = 13$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: x + 7 = 15, x = 8 -->
+        <div class="problem" data-type="fill-in" data-answer="8" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $x + 7 = 15$</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 7 from both sides.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x + 7 - 7 = 15 - 7 \;\Rightarrow\; x = 8$. Check: $8 + 7 = 15$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P2: 4x = 28, x = 7 -->
+        <div class="problem" data-type="fill-in" data-answer="7" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $4x = 28$</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Divide both sides by 4.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\dfrac{4x}{4} = \dfrac{28}{4} \;\Rightarrow\; x = 7$. Check: $4(7) = 28$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P3: 2x - 5 = 11, x = 8 -->
+        <div class="problem" data-type="fill-in" data-answer="8" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x - 5 = 11$</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add 5 to both sides first, then divide.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x = 11 + 5 = 16 \;\Rightarrow\; x = 8$. Check: $2(8) - 5 = 11$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P4: x/3 + 2 = 7, x = 15, index 1 -->
+        <!-- Verify: x/3 = 5, x = 15; check: 15/3 + 2 = 5 + 2 = 7 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $\dfrac{x}{3} + 2 = 7$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 5$</button>
+            <button class="option" data-value="1">$x = 15$</button>
+            <button class="option" data-value="2">$x = 27$</button>
+            <button class="option" data-value="3">$x = 3$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 2 from both sides first: $\dfrac{x}{3} = 5$. Then multiply both sides by 3.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Subtract 2: $\dfrac{x}{3} = 5$. Multiply by 3: $x = 15$. Check: $\frac{15}{3} + 2 = 7$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P5: 5x + 3 = 3x + 11, x = 4 -->
+        <!-- Verify: 5x - 3x = 11 - 3 → 2x = 8 → x = 4; check: 5(4)+3=23, 3(4)+11=23 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $5x + 3 = 3x + 11$</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract $3x$ from both sides to collect the variable on one side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$5x - 3x + 3 = 11 \;\Rightarrow\; 2x + 3 = 11 \;\Rightarrow\; 2x = 8 \;\Rightarrow\; x = 4$. Check: $23 = 23$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P6: 4(x + 3) = 28, x = 4, index 0 -->
+        <!-- Verify: 4x + 12 = 28 → 4x = 16 → x = 4; check: 4(4+3) = 4(7) = 28 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $4(x + 3) = 28$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 4$</button>
+            <button class="option" data-value="1">$x = 1$</button>
+            <button class="option" data-value="2">$x = 7$</button>
+            <button class="option" data-value="3">$x = 25$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute first: $4 \cdot x + 4 \cdot 3 = 28$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$4x + 12 = 28 \;\Rightarrow\; 4x = 16 \;\Rightarrow\; x = 4$. Check: $4(4+3) = 4(7) = 28$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P7: which is a solution to 2x - 1 = 5, x = 3, index 1 -->
+        <!-- Verify: 2(3)-1 = 5 ✓; 2(2)-1=3≠5; 2(4)-1=7≠5; 2(6)-1=11≠5 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which value is a solution to $2x - 1 = 5$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 2$</button>
+            <button class="option" data-value="1">$x = 3$</button>
+            <button class="option" data-value="2">$x = 4$</button>
+            <button class="option" data-value="3">$x = 6$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Try substituting each value into $2x - 1$ and see which gives 5.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $x=2$: $2(2)-1=3 \neq 5$. &nbsp; $x=3$: $2(3)-1=5$ ✓. &nbsp; $x=4$: $2(4)-1=7 \neq 5$.
+            </div>
+          </div>
+        </div>
+
+        <!-- P8: (2x + 4)/3 = 6, x = 7 -->
+        <!-- Verify: 2x + 4 = 18 → 2x = 14 → x = 7; check: (2·7+4)/3 = 18/3 = 6 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="7" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $\dfrac{2x + 4}{3} = 6$</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply both sides by 3 first to clear the fraction.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Multiply by 3: $2x + 4 = 18 \;\Rightarrow\; 2x = 14 \;\Rightarrow\; x = 7$. Check: $\frac{18}{3} = 6$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P9: 7 - 3x = 1, x = 2, index 1 -->
+        <!-- Verify: 7 - 3x = 1 → -3x = -6 → x = 2; check: 7 - 3(2) = 7-6 = 1 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $7 - 3x = 1$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = -2$</button>
+            <button class="option" data-value="1">$x = 2$</button>
+            <button class="option" data-value="2">$x = -\dfrac{8}{3}$</button>
+            <button class="option" data-value="3">$x = \dfrac{8}{3}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 7 from both sides first: $-3x = -6$. Then divide by $-3$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-3x = 1 - 7 = -6 \;\Rightarrow\; x = \dfrac{-6}{-3} = 2$. Check: $7-3(2)=1$ ✓</div>
+          </div>
+        </div>
+
+        <!-- P10: 3(2x-1) = 2(x+5), x = 13/4, index 0 -->
+        <!-- Verify: 6x - 3 = 2x + 10 → 4x = 13 → x = 13/4 -->
+        <!-- check: 3(2·13/4 - 1) = 3(26/4 - 4/4) = 3(22/4) = 66/4 = 33/2 -->
+        <!-- 2(13/4 + 5) = 2(13/4 + 20/4) = 2(33/4) = 66/4 = 33/2 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $3(2x - 1) = 2(x + 5)$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = \dfrac{13}{4}$</button>
+            <button class="option" data-value="1">$x = \dfrac{7}{8}$</button>
+            <button class="option" data-value="2">$x = 3$</button>
+            <button class="option" data-value="3">$x = \dfrac{7}{4}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute both sides first, then collect variable terms on the left and constants on the right.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $6x - 3 = 2x + 10 \;\Rightarrow\; 4x = 13 \;\Rightarrow\; x = \dfrac{13}{4}$<br>
+              Check: $3\!\left(2\cdot\frac{13}{4}-1\right) = 3\cdot\frac{22}{4} = \frac{33}{2}$ and $2\!\left(\frac{13}{4}+5\right) = 2\cdot\frac{33}{4} = \frac{33}{2}$ ✓
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-04.html" id="nav-prev">← Day 4</a>
+      <a href="day-06.html" id="nav-next">Day 6 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

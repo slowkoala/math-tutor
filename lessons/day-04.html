@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 4 — Exponents &amp; Radicals Review</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="4">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 4</span>
+        <span class="unit-badge" id="unit-badge">Number Systems &amp; Exponents</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Exponents &amp; Radicals Review</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── REVIEW SUMMARY ────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Quick-Reference Summary</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);">
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s5);">
+          <div style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:var(--s3);">Exponent Rules</div>
+          <div style="font-size:0.88rem;display:flex;flex-direction:column;gap:6px;line-height:1.7;">
+            <div>$a^m \cdot a^n = a^{m+n}$</div>
+            <div>$\dfrac{a^m}{a^n} = a^{m-n}$</div>
+            <div>$(a^m)^n = a^{mn}$</div>
+            <div>$(ab)^n = a^n b^n$</div>
+            <div>$a^0 = 1 \quad (a \neq 0)$</div>
+            <div>$a^{-n} = \dfrac{1}{a^n}$</div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s5);">
+          <div style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:var(--s3);">Radical Rules</div>
+          <div style="font-size:0.88rem;display:flex;flex-direction:column;gap:6px;line-height:1.7;">
+            <div>$\sqrt[n]{a} \cdot \sqrt[n]{b} = \sqrt[n]{ab}$</div>
+            <div>$\dfrac{\sqrt[n]{a}}{\sqrt[n]{b}} = \sqrt[n]{\dfrac{a}{b}}$</div>
+            <div>$a^{1/n} = \sqrt[n]{a}$</div>
+            <div>$a^{m/n} = \left(\sqrt[n]{a}\right)^m$</div>
+            <div>Like radicals: $p\sqrt{a} + q\sqrt{a} = (p+q)\sqrt{a}$</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout callout--info" style="margin-top:var(--s4);">
+        <span class="callout__icon">🔑</span>
+        <div class="callout__body">
+          <strong>Strategy for complex simplifications:</strong>
+          (1) Expand any powers of products/quotients first.
+          (2) Combine terms with the same base using product/quotient rules.
+          (3) Convert between radical and rational-exponent form if it helps.
+          (4) Check that the final answer has no negative exponents and all radicals are simplified.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONCEPT: NEW SKILLS FOR REVIEW DAY ───────────────────────────── -->
+    <section>
+      <h2 class="section-label">Adding &amp; Subtracting Radicals</h2>
+      <div class="concept-text">
+        <p>
+          You can only add or subtract radicals that have the <strong>same index and the same radicand</strong>
+          (called <em>like radicals</em>). Think of $\sqrt{3}$ as a "unit," just like $x$ in algebra.
+          $2\sqrt{3} + 5\sqrt{3} = 7\sqrt{3}$ for the same reason $2x + 5x = 7x$.
+        </p>
+        <p>
+          Always simplify first — radicals that look different may become like radicals after simplification.
+          For example, $\sqrt{12} + \sqrt{27}$ looks like unlike radicals, but:
+        </p>
+        <div class="math-block">
+          $$\sqrt{12} + \sqrt{27} = 2\sqrt{3} + 3\sqrt{3} = 5\sqrt{3}$$
+        </div>
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            $\sqrt{12} + \sqrt{27} \neq \sqrt{39}$. You cannot add the radicands — only combine like radicals after simplifying.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Add Radicals After Simplifying
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Simplify $\sqrt{20} + \sqrt{45}$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Simplify $\sqrt{20}$: largest perfect-square factor is 4. $\sqrt{20} = \sqrt{4 \cdot 5} = 2\sqrt{5}$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Simplify $\sqrt{45}$: largest perfect-square factor is 9. $\sqrt{45} = \sqrt{9 \cdot 5} = 3\sqrt{5}$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Now they are like radicals: $2\sqrt{5} + 3\sqrt{5} = 5\sqrt{5}$</div>
+            </div>
+          </div>
+          <div class="example__answer">$\sqrt{20} + \sqrt{45} = 5\sqrt{5}$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Multi-Rule Exponent Simplification
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Simplify $\dfrac{(x^3)^2 \cdot x^{-1}}{x^5}$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Power rule in numerator: $(x^3)^2 = x^6$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Product rule: $x^6 \cdot x^{-1} = x^{6+(-1)} = x^5$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Quotient rule: $\dfrac{x^5}{x^5} = x^{5-5} = x^0 = 1$</div>
+            </div>
+          </div>
+          <div class="example__answer">$\dfrac{(x^3)^2 \cdot x^{-1}}{x^5} = 1$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Rational Exponent with Fraction Base
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Evaluate $\left(\dfrac{1}{2}\right)^{-3}$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Negative exponent means take the reciprocal of the base: $\left(\dfrac{1}{2}\right)^{-3} = \left(\dfrac{2}{1}\right)^3 = 2^3$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Evaluate: $2^3 = 8$</div>
+            </div>
+          </div>
+          <div class="example__answer">$\left(\dfrac{1}{2}\right)^{-3} = 8$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: 2√5 + 3√5 = 5√5, index 1 -->
+        <!-- Verify: like radicals, add coefficients: 2+3=5, keep √5 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $2\sqrt{5} + 3\sqrt{5}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$5\sqrt{10}$</button>
+            <button class="option" data-value="1">$5\sqrt{5}$</button>
+            <button class="option" data-value="2">$6\sqrt{5}$</button>
+            <button class="option" data-value="3">$25$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Like radicals: treat $\sqrt{5}$ as a unit, like a variable. $2x + 3x = ?$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2\sqrt{5} + 3\sqrt{5} = (2+3)\sqrt{5} = 5\sqrt{5}$. The radicand stays the same — you add coefficients only.</div>
+          </div>
+        </div>
+
+        <!-- P2: x^(-2)·x^5 / x^0 = x^3, index 0 -->
+        <!-- Verify: x^(-2+5) / 1 = x^3 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\dfrac{x^{-2} \cdot x^5}{x^0}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x^3$</button>
+            <button class="option" data-value="1">$x^7$</button>
+            <button class="option" data-value="2">$x^{-3}$</button>
+            <button class="option" data-value="3">$x^{10}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Simplify the denominator first ($x^0 = ?$), then combine the numerator with the product rule.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^0 = 1$, so denominator is 1. Numerator: $x^{-2} \cdot x^5 = x^{-2+5} = x^3$. Result: $x^3$.</div>
+          </div>
+        </div>
+
+        <!-- P3: √(x^10) = x^5 -->
+        <!-- Verify: x^(10·1/2) = x^5 ✓ (for x ≥ 0) -->
+        <div class="problem" data-type="fill-in" data-answer="x^5" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{x^{10}}$ (assume $x \ge 0$). Write your answer using an exponent.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\sqrt{x^{10}} =$</label>
+            <input type="text" class="answer-input" placeholder="x^?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$\sqrt{x^{10}} = (x^{10})^{1/2}$. Use the power rule: multiply the exponents.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{x^{10}} = (x^{10})^{1/2} = x^{10 \cdot \frac{1}{2}} = x^5$.</div>
+          </div>
+        </div>
+
+        <!-- P4: 1/√4 = 1/2, index 2 -->
+        <!-- Verify: √4 = 2, so 1/√4 = 1/2 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\dfrac{1}{\sqrt{4}}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$2$</button>
+            <button class="option" data-value="1">$\dfrac{1}{4}$</button>
+            <button class="option" data-value="2">$\dfrac{1}{2}$</button>
+            <button class="option" data-value="3">$\sqrt{2}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Simplify the denominator first: $\sqrt{4} = ?$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{4} = 2$, so $\dfrac{1}{\sqrt{4}} = \dfrac{1}{2}$.</div>
+          </div>
+        </div>
+
+        <!-- P5: x^2 / x^(-3) = x^5, index 2 -->
+        <!-- Verify: x^(2-(-3)) = x^(2+3) = x^5 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\dfrac{x^2}{x^{-3}}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x^{-1}$</button>
+            <button class="option" data-value="1">$x^6$</button>
+            <button class="option" data-value="2">$x^5$</button>
+            <button class="option" data-value="3">$x^{-5}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Quotient rule: subtract the exponents. Be careful — you're subtracting a negative number.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\dfrac{x^2}{x^{-3}} = x^{2-(-3)} = x^{2+3} = x^5$. Subtracting a negative adds.</div>
+          </div>
+        </div>
+
+        <!-- P6: 4.7 × 10^(-3) = 0.0047 -->
+        <!-- Verify: 10^(-3) = 0.001; 4.7 × 0.001 = 0.0047 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="0.0047" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write $4.7 \times 10^{-3}$ in standard (decimal) notation.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="0.00__">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>A negative exponent on 10 means move the decimal to the left. How many places?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$10^{-3} = 0.001$. Move the decimal 3 places left: $4.7 \to 0.0047$.</div>
+          </div>
+        </div>
+
+        <!-- P7: √12 + √27 = 5√3, index 2 -->
+        <!-- Verify: √12 = 2√3, √27 = 3√3, sum = 5√3 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{12} + \sqrt{27}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\sqrt{39}$</button>
+            <button class="option" data-value="1">$6\sqrt{3}$</button>
+            <button class="option" data-value="2">$5\sqrt{3}$</button>
+            <button class="option" data-value="3">$5\sqrt{6}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Simplify each radical first. What is the largest perfect-square factor of 12? Of 27?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{12} = \sqrt{4 \cdot 3} = 2\sqrt{3}$ &nbsp;·&nbsp; $\sqrt{27} = \sqrt{9 \cdot 3} = 3\sqrt{3}$<br>
+              Now like radicals: $2\sqrt{3} + 3\sqrt{3} = 5\sqrt{3}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- P8: (1/2)^(-3) = 8, index 3 -->
+        <!-- Verify: (1/2)^(-3) = (2/1)^3 = 2^3 = 8 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Evaluate $\left(\dfrac{1}{2}\right)^{-3}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$-8$</button>
+            <button class="option" data-value="1">$\dfrac{1}{8}$</button>
+            <button class="option" data-value="2">$-\dfrac{1}{8}$</button>
+            <button class="option" data-value="3">$8$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>A negative exponent flips the fraction. What is the reciprocal of $\dfrac{1}{2}$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\left(\dfrac{1}{2}\right)^{-3} = \left(\dfrac{2}{1}\right)^3 = 2^3 = 8$. The negative exponent reciprocates the fraction; the result is positive.</div>
+          </div>
+        </div>
+
+        <!-- P9: 16^(3/4) = 8 -->
+        <!-- Verify: ⁴√16 = 2 (since 2^4=16), 2^3 = 8 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="8" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Evaluate $16^{3/4}$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$16^{3/4} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^{m/n} = \left(\sqrt[n]{a}\right)^m$. Take the 4th root of 16 first, then cube it.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$16^{3/4} = \left(\sqrt[4]{16}\right)^3 = 2^3 = 8$. Check: $2^4 = 16$ ✓, then $2^3 = 8$.</div>
+          </div>
+        </div>
+
+        <!-- P10: √(50x^4) / x = 5x√2, index 2 -->
+        <!-- Verify: √(50x^4) = √(25·2·x^4) = 5x^2·√2; divide by x → 5x√2 ✓ (x>0) -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\dfrac{\sqrt{50x^4}}{x}$ (assume $x > 0$).</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$5x^2\sqrt{2}$</button>
+            <button class="option" data-value="1">$\dfrac{5\sqrt{2}}{x}$</button>
+            <button class="option" data-value="2">$5x\sqrt{2}$</button>
+            <button class="option" data-value="3">$5\sqrt{2x}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Simplify the numerator first: factor out perfect squares from both the number and the variable part.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{50x^4} = \sqrt{25 \cdot 2 \cdot x^4} = \sqrt{25} \cdot \sqrt{x^4} \cdot \sqrt{2} = 5x^2\sqrt{2}$<br>
+              Then divide: $\dfrac{5x^2\sqrt{2}}{x} = 5x\sqrt{2}$.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-03.html" id="nav-prev">← Day 3</a>
+      <a href="day-05.html" id="nav-next">Day 5 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

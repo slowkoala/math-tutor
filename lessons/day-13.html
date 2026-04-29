@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 13 — Systems of Equations: Elimination</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="13">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 13</span>
+        <span class="unit-badge" id="unit-badge">Systems of Equations</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Systems of Equations: Elimination</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Elimination Method</div>
+          <div class="vocab-def">Adding or subtracting two equations so that one variable cancels out. The remaining single-variable equation can then be solved directly.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Opposite Coefficients</div>
+          <div class="vocab-def">When the coefficients of the same variable in two equations are additive inverses (e.g., $+3y$ and $-3y$), adding the equations eliminates that variable.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Multiplier</div>
+          <div class="vocab-def">A constant used to scale one (or both) equations so that a variable's coefficients become opposites. Essential when coefficients don't already match.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Equivalent System</div>
+          <div class="vocab-def">A system with the same solution set as the original. Multiplying an equation by a non-zero constant produces an equivalent system.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Back-Substitution</div>
+          <div class="vocab-def">After finding one variable's value, substituting it back into any equation from the original system to find the other variable.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Linear Combination</div>
+          <div class="vocab-def">Adding multiples of two equations together. Elimination is a specific use of linear combinations to remove a variable.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          The <strong>elimination method</strong> adds the two equations together (or subtracts one from the other)
+          so that one variable disappears. This leaves a simple one-variable equation to solve.
+        </p>
+
+        <!-- Elimination process diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Shows elimination of y from: 2x + y = 9 and 4x − y = 3.
+            Add equations → 6x = 12 → x = 2.
+          -->
+          <svg viewBox="0 0 420 155" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:420px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Equation 1 box -->
+            <rect x="5" y="10" width="190" height="42" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="100" y="30" text-anchor="middle" font-size="13" font-style="italic" fill="#0F172A">2x + y = 9</text>
+            <text x="100" y="46" text-anchor="middle" font-size="9" fill="#3B82F6">Equation 1</text>
+
+            <!-- + sign -->
+            <text x="207" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#64748B">+</text>
+
+            <!-- Equation 2 box -->
+            <rect x="220" y="10" width="190" height="42" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+            <text x="315" y="30" text-anchor="middle" font-size="13" font-style="italic" fill="#0F172A">4x − y = 3</text>
+            <text x="315" y="46" text-anchor="middle" font-size="9" fill="#16A34A">Equation 2</text>
+
+            <!-- Arrow down -->
+            <line x1="210" y1="57" x2="210" y2="75" stroke="#64748B" stroke-width="2"/>
+            <polygon points="210,78 206,70 214,70" fill="#64748B"/>
+            <text x="230" y="70" font-size="9" fill="#64748B">Add equations:</text>
+            <text x="230" y="80" font-size="9" fill="#64748B">$y$ and $-y$ cancel</text>
+
+            <!-- Result: 6x = 12 -->
+            <rect x="80" y="85" width="260" height="38" rx="6" fill="#FFF7ED" stroke="#D97706" stroke-width="1.5"/>
+            <text x="210" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">6x = 12 → x = 2</text>
+            <text x="210" y="117" text-anchor="middle" font-size="9" fill="#D97706">$y$ has been eliminated!</text>
+
+            <!-- Arrow down to back-sub -->
+            <line x1="210" y1="128" x2="210" y2="140" stroke="#64748B" stroke-width="2"/>
+            <polygon points="210,143 206,135 214,135" fill="#64748B"/>
+
+            <!-- Back-sub result -->
+            <text x="210" y="152" text-anchor="middle" font-size="11" fill="#1E293B">Back-substitute $x=2$: $2(2)+y=9 \Rightarrow y=5$. Solution: $(2,5)$.</text>
+          </svg>
+          <p class="diagram-caption">The $+y$ and $-y$ terms cancel when the equations are added, leaving a single equation in $x$.</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🔢</span>
+          <div class="callout__body">
+            <strong>When coefficients don't already cancel:</strong> multiply one equation (or both) by a constant first.
+            To eliminate $y$ from $3x + 2y = 11$ and $x + y = 5$: multiply the second by $-2$ to get $-2x - 2y = -10$, then add.
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            If after adding/subtracting both variables cancel and you get $0 = 0$ → infinite solutions (same line).
+            If you get $0 = k$ where $k \neq 0$ → no solution (parallel lines).
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Add to Eliminate
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $x + y = 8$ and $x - y = 2$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">The $y$ terms are $+y$ and $-y$ (opposites). Add the equations:</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$(x+y)+(x-y)=8+2 \Rightarrow 2x = 10 \Rightarrow x = 5$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Back-substitute: $5 + y = 8 \Rightarrow y = 3$.</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Check: $5-3 = 2$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$(5, 3)$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Multiply First, Then Eliminate
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $2x + 3y = 11$ and $x + 2y = 7$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Multiply the second equation by $-2$: $-2x - 4y = -14$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Add to the first: $(2x+3y)+(-2x-4y) = 11+(-14) \Rightarrow -y = -3 \Rightarrow y = 3$.</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Back-substitute: $x + 2(3) = 7 \Rightarrow x = 1$.</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Check: $2(1)+3(3)=11$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$(1, 3)$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Multiply Both Equations
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $4x + 3y = 24$ and $2x - y = 2$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Multiply the second by 3: $6x - 3y = 6$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Add: $4x+3y+6x-3y = 24+6 \Rightarrow 10x = 30 \Rightarrow x = 3$.</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Back-substitute: $2(3)-y=2 \Rightarrow y=4$.</div>
+            </div>
+          </div>
+          <div class="example__answer">$(3, 4)$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: x+y=8, x-y=2 → add→2x=10→x=5,y=3, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve by elimination: $x + y = 8$ and $x - y = 2$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(3, 5)$</button>
+            <button class="option" data-value="1">$(5, 3)$</button>
+            <button class="option" data-value="2">$(4, 4)$</button>
+            <button class="option" data-value="3">$(6, 2)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add the equations: the $y$ terms cancel. Solve for $x$, then back-substitute.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Adding: $2x=10 \Rightarrow x=5$. Then $5+y=8 \Rightarrow y=3$.</div>
+          </div>
+        </div>
+
+        <!-- P2: 2x+y=7, x+y=4 → subtract→x=3,y=1, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x + y = 7$ and $x + y = 4$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2, 3)$</button>
+            <button class="option" data-value="1">$(3, 1)$</button>
+            <button class="option" data-value="2">$(1, 5)$</button>
+            <button class="option" data-value="3">$(4, 0)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract the second from the first to eliminate $y$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(2x+y)-(x+y)=7-4 \Rightarrow x=3$. Then $3+y=4 \Rightarrow y=1$.</div>
+          </div>
+        </div>
+
+        <!-- P3: fill-in x+2y=7, x-2y=1 → add→2x=8→x=4 -->
+        <div class="problem" data-type="fill-in" data-answer="4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $x + 2y = 7$ and $x - 2y = 1$ by elimination. What is $x$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add the two equations. The $2y$ and $-2y$ terms cancel.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Adding: $2x = 8 \Rightarrow x = 4$. (Then $4+2y=7 \Rightarrow y=1.5$.)</div>
+          </div>
+        </div>
+
+        <!-- P4: 2x+y=9, 4x-y=3 → add→6x=12→x=2,y=5, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x + y = 9$ and $4x - y = 3$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(1, 7)$</button>
+            <button class="option" data-value="1">$(3, 3)$</button>
+            <button class="option" data-value="2">$(2, 5)$</button>
+            <button class="option" data-value="3">$(4, 1)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$+y$ and $-y$ are opposites. Add the equations to eliminate $y$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Adding: $6x=12 \Rightarrow x=2$. Then $4+y=9 \Rightarrow y=5$. Solution: $(2,5)$.</div>
+          </div>
+        </div>
+
+        <!-- P5: 2x+3y=11, x+2y=7 → multiply 2nd by -2→y=3,x=1, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x + 3y = 11$ and $x + 2y = 7$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2, 2)$</button>
+            <button class="option" data-value="1">$(1, 3)$</button>
+            <button class="option" data-value="2">$(4, 1)$</button>
+            <button class="option" data-value="3">$(3, 5)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply the second equation by $-2$, then add to the first to eliminate $x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-2(x+2y=7) \Rightarrow -2x-4y=-14$. Add: $-y=-3 \Rightarrow y=3$. Then $x+6=7 \Rightarrow x=1$.</div>
+          </div>
+        </div>
+
+        <!-- P6: fill-in 3x+y=11, x+y=5 → subtract→2x=6→x=3,y=2. What is y? →2 -->
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $3x + y = 11$ and $x + y = 5$ by elimination. What is $y$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$y = $</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract the second from the first: $3x+y-(x+y)=11-5$. This eliminates $y$. Find $x$, then back-sub.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x=6 \Rightarrow x=3$. Then $3+y=5 \Rightarrow y=2$.</div>
+          </div>
+        </div>
+
+        <!-- P7: 2x+y=10, 2x+3y=14 → subtract→-2y=-4→y=2,x=4, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x + y = 10$ and $2x + 3y = 14$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(3, 4)$</button>
+            <button class="option" data-value="1">$(4, 2)$</button>
+            <button class="option" data-value="2">$(5, 0)$</button>
+            <button class="option" data-value="3">$(2, 6)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract the first from the second to eliminate $2x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(2x+3y)-(2x+y)=14-10 \Rightarrow 2y=4 \Rightarrow y=2$. Then $2x+2=10 \Rightarrow x=4$.</div>
+          </div>
+        </div>
+
+        <!-- P8: 0=0 after elimination → infinite solutions, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">After eliminating one variable, you get the equation $0 = 0$. What does this mean about the system?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">No solution (parallel lines)</button>
+            <button class="option" data-value="1">Exactly one solution</button>
+            <button class="option" data-value="2">Infinite solutions (the equations describe the same line)</button>
+            <button class="option" data-value="3">Two solutions</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$0=0$ is always true — it doesn't restrict $x$ or $y$ at all.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$0=0$ is a tautology → infinite solutions (dependent system, same line).</div>
+          </div>
+        </div>
+
+        <!-- P9: 3x-2y=4, 6x-4y=8 → same line → infinite solutions, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $3x - 2y = 4$ and $6x - 4y = 8$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2, 1)$</button>
+            <button class="option" data-value="1">No solution</button>
+            <button class="option" data-value="2">$(4, 4)$</button>
+            <button class="option" data-value="3">Infinite solutions</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply the first equation by 2. Compare the result to the second equation.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2 \times (3x-2y=4) = 6x-4y=8$, which is identical to equation 2. The equations are the same line → infinite solutions.</div>
+          </div>
+        </div>
+
+        <!-- P10: 4x+3y=24, 2x-y=2 → ×3: 6x-3y=6, add→10x=30→x=3,y=4, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $4x + 3y = 24$ and $2x - y = 2$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2, 5)$</button>
+            <button class="option" data-value="1">$(3, 4)$</button>
+            <button class="option" data-value="2">$(4, 3)$</button>
+            <button class="option" data-value="3">$(5, 2)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply the second equation by 3 to make the $y$-coefficients opposites ($+3y$ and $-3y$).</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$3(2x-y=2) \Rightarrow 6x-3y=6$. Add: $10x=30 \Rightarrow x=3$. Then $2(3)-y=2 \Rightarrow y=4$.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-12.html" id="nav-prev">← Day 12</a>
+      <a href="day-14.html" id="nav-next">Day 14 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

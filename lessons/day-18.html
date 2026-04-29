@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 18 — Creating Functions from Contexts</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="18">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 18</span>
+        <span class="unit-badge" id="unit-badge">Functions</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Creating Functions from Contexts</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- VOCAB -->
+    <section class="vocab-section">
+      <h2 class="section-heading">Key Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Modeling</div>
+          <div class="vocab-def">Writing a mathematical function that represents a real-world situation.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Constraint</div>
+          <div class="vocab-def">A restriction on the domain based on the real-world context (e.g., time cannot be negative).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Reasonable Domain</div>
+          <div class="vocab-def">The set of input values that make sense for the given real-world situation.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Fixed Cost</div>
+          <div class="vocab-def">A cost that does not change with the number of units — it is the y-intercept in a linear model.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Variable Cost</div>
+          <div class="vocab-def">A cost that changes based on the number of units — it is the slope in a linear model.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Piecewise Function</div>
+          <div class="vocab-def">A function defined by different rules on different parts of its domain.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="concept-section">
+      <h2 class="section-heading">From Words to Functions</h2>
+
+      <p>Real-world problems often describe a relationship in words. Your job is to identify the <strong>input</strong>, <strong>output</strong>, <strong>rate</strong>, and <strong>starting value</strong>, then write the function.</p>
+
+      <!-- Process diagram -->
+      <!-- SVG: 4-step arrow flow -->
+      <figure class="svg-figure">
+        <svg viewBox="0 0 480 90" width="480" height="90" aria-label="Modeling process flow diagram">
+          <defs>
+            <marker id="arr18" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 z" fill="#6b7280"/>
+            </marker>
+          </defs>
+          <!-- Step 1 -->
+          <rect x="5"   y="20" width="95" height="50" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="52"  y="40" font-size="10" text-anchor="middle" fill="#1d4ed8" font-weight="bold">1. Identify</text>
+          <text x="52"  y="54" font-size="9" text-anchor="middle" fill="#374151">Input &amp; Output</text>
+          <!-- arrow -->
+          <line x1="100" y1="45" x2="118" y2="45" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr18)"/>
+          <!-- Step 2 -->
+          <rect x="120" y="20" width="95" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+          <text x="167"  y="40" font-size="10" text-anchor="middle" fill="#15803d" font-weight="bold">2. Find Rate</text>
+          <text x="167"  y="54" font-size="9" text-anchor="middle" fill="#374151">(slope / base)</text>
+          <!-- arrow -->
+          <line x1="215" y1="45" x2="233" y2="45" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr18)"/>
+          <!-- Step 3 -->
+          <rect x="235" y="20" width="95" height="50" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+          <text x="282"  y="40" font-size="10" text-anchor="middle" fill="#92400e" font-weight="bold">3. Find Start</text>
+          <text x="282"  y="54" font-size="9" text-anchor="middle" fill="#374151">(initial value)</text>
+          <!-- arrow -->
+          <line x1="330" y1="45" x2="348" y2="45" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr18)"/>
+          <!-- Step 4 -->
+          <rect x="350" y="20" width="120" height="50" rx="6" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5"/>
+          <text x="410"  y="40" font-size="10" text-anchor="middle" fill="#7e22ce" font-weight="bold">4. Write &amp; Use</text>
+          <text x="410"  y="54" font-size="9" text-anchor="middle" fill="#374151">the function</text>
+        </svg>
+        <figcaption>Four-step process for building a function from a word problem.</figcaption>
+      </figure>
+
+      <div class="callout callout--info">
+        <strong>Choosing the model type:</strong>
+        <ul style="margin:0.4rem 0 0 1.1rem; line-height:1.8">
+          <li><strong>Linear:</strong> constant rate of change ("per," "each," "every")</li>
+          <li><strong>Exponential:</strong> percent growth/decay, doubling/halving</li>
+          <li><strong>Piecewise:</strong> different rules for different intervals</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="examples-section">
+      <h2 class="section-heading">Worked Examples</h2>
+
+      <div class="example">
+        <div class="example-problem">A gym charges a $30 membership fee plus $10 per visit. Write a function for total cost \(C\) after \(v\) visits, then find the cost for 8 visits.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Input:</strong> \(v\) = number of visits.</p>
+          <p><strong>Output:</strong> \(C\) = total cost in dollars.</p>
+          <p><strong>Rate:</strong> $10 per visit (slope = 10).</p>
+          <p><strong>Start:</strong> $30 membership (y-intercept = 30).</p>
+          <p><strong>Model:</strong> \(C(v) = 10v + 30\)</p>
+          <p><strong>8 visits:</strong> \(C(8) = 10(8)+30 = 80+30 = \$110\)</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">A savings account starts with $500 and earns 4% interest annually. Write a model and find the balance after 3 years (round to nearest dollar).</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Model type:</strong> Exponential growth (percent rate).</p>
+          <p><strong>Growth factor:</strong> \(b = 1 + 0.04 = 1.04\).</p>
+          <p><strong>Model:</strong> \(B(t) = 500 \cdot (1.04)^t\)</p>
+          <p><strong>After 3 years:</strong> \(B(3) = 500 \cdot (1.04)^3 \approx 500 \cdot 1.1249 \approx \$562\)</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">A taxi charges $2.50 flat fee plus $1.80 per mile for the first 5 miles, then $1.20 per mile after that. Write a piecewise function for cost \(C(m)\).</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>For \(0 \le m \le 5\):</strong> \(C(m) = 2.50 + 1.80m\)</p>
+          <p><strong>For \(m > 5\):</strong> First 5 miles cost \(2.50 + 9.00 = 11.50\). Each additional mile costs $1.20.</p>
+          <p>\(C(m) = 11.50 + 1.20(m - 5)\) for \(m > 5\).</p>
+          <p><strong>Piecewise:</strong> \(C(m) = \begin{cases} 2.50 + 1.80m & 0 \le m \le 5 \\ 11.50 + 1.20(m-5) & m > 5 \end{cases}\)</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <h2 class="section-heading">Practice Problems</h2>
+
+      <!-- P1: phone plan: $25 base + $0.05/text. 60 texts: C=25+0.05*60=25+3=28 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="28" data-tolerance="0">
+        <div class="problem-stem">A phone plan costs $25 per month plus $0.05 per text message. What is the total cost (in dollars) for 60 text messages?</div>
+      </div>
+
+      <!-- P2: which function models "starts at 100, loses 5 per week"? C=100-5w → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">A candle is 100 cm tall and burns 5 cm per hour. Which function gives its height \(h\) after \(t\) hours?</div>
+        <ol class="choices" type="A">
+          <li>\(h(t) = 5t + 100\)</li>
+          <li>\(h(t) = 100t - 5\)</li>
+          <li>\(h(t) = 100 - 5t\)</li>
+          <li>\(h(t) = 5(100 - t)\)</li>
+        </ol>
+      </div>
+
+      <!-- P3: reasonable domain for candle burning at 5cm/hr from 100cm: 0<=t<=20 → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">For the candle in the previous problem, what is the reasonable domain?</div>
+        <ol class="choices" type="A">
+          <li>\(t \ge 0\) (all non-negative hours)</li>
+          <li>\(0 \le t \le 20\) (stops when candle is gone)</li>
+          <li>\(-20 \le t \le 20\)</li>
+          <li>\(0 \le t \le 100\)</li>
+        </ol>
+      </div>
+
+      <!-- P4: investment $1000 grows 6%/yr: which model? 1000*(1.06)^t → index 3 -->
+      <div class="problem" data-type="multiple-choice" data-answer="3">
+        <div class="problem-stem">$1,000 invested at 6% annual growth. Which is the correct model?</div>
+        <ol class="choices" type="A">
+          <li>\(V(t) = 1000 + 6t\)</li>
+          <li>\(V(t) = 1000 \cdot (0.06)^t\)</li>
+          <li>\(V(t) = 1000 \cdot (0.94)^t\)</li>
+          <li>\(V(t) = 1000 \cdot (1.06)^t\)</li>
+        </ol>
+      </div>
+
+      <!-- P5: store sells items at $8 each; fixed cost $40: profit P(n)=8n-40; break even: 8n=40 → n=5 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
+        <div class="problem-stem">A store pays $40 rent and sells items for $8 each. How many items must be sold to break even (profit = 0)?</div>
+      </div>
+
+      <!-- P6: table shows linear growth — find function: x=0,1,2 y=7,10,13 → slope=3, int=7 → f(5)=3*5+7=22 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="22" data-tolerance="0">
+        <div class="problem-stem">A table shows: \(x = 0, 1, 2\) and \(y = 7, 10, 13\). Using the pattern, find \(f(5)\).</div>
+      </div>
+
+      <!-- P7: piecewise: C(m)= 3+2m for m<=4, 11+1.5(m-4) for m>4. C(6)=11+1.5(2)=11+3=14 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="14" data-tolerance="0.01">
+        <div class="problem-stem">A delivery service charges: \(C(m) = \begin{cases}3 + 2m & m \le 4 \\ 11 + 1.5(m-4) & m > 4\end{cases}\). Find \(C(6)\).</div>
+      </div>
+
+      <!-- P8: "earns $12/hr plus $50 bonus" — which is linear model? C=12h+50 → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">An employee earns $12 per hour plus a $50 weekly bonus. Which function gives weekly earnings for \(h\) hours?</div>
+        <ol class="choices" type="A">
+          <li>\(E(h) = 50h + 12\)</li>
+          <li>\(E(h) = 12h + 50\)</li>
+          <li>\(E(h) = 12 \cdot 50^h\)</li>
+          <li>\(E(h) = 50 \cdot (1.12)^h\)</li>
+        </ol>
+      </div>
+
+      <!-- P9: linear or exponential: "population triples each decade"? exponential → index 1 -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">"A town's population triples every decade." Which type of model fits?</div>
+        <ol class="choices" type="A">
+          <li>Linear — constant rate</li>
+          <li>Exponential — multiplicative rate</li>
+          <li>Piecewise — different rules</li>
+          <li>Cannot be modeled mathematically</li>
+        </ol>
+      </div>
+
+      <!-- P10: car rental $40/day + $0.20/mile; 3 days + 150 miles: C=40*3+0.20*150=120+30=150 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="150" data-tolerance="0">
+        <div class="problem-stem">A car rental costs $40 per day plus $0.20 per mile. What is the total cost (in dollars) for 3 days and 150 miles?</div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="lesson-footer">
+    <a href="day-17.html" id="nav-prev">← Day 17</a>
+    <a href="../index.html" class="home-link">Home</a>
+    <a href="day-19.html" id="nav-next">Day 19 →</a>
+  </footer>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 — Radicals &amp; Rational Exponents</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="3">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 3</span>
+        <span class="unit-badge" id="unit-badge">Number Systems &amp; Exponents</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Radicals &amp; Rational Exponents</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Radical</div>
+          <div class="vocab-def">The expression $\sqrt[n]{a}$, meaning "the $n$th root of $a$." The symbol $\sqrt{\phantom{x}}$ is the radical sign.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Radicand</div>
+          <div class="vocab-def">The expression under the radical sign. In $\sqrt{50}$, the radicand is 50.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Index</div>
+          <div class="vocab-def">The small number indicating which root to take. $\sqrt[3]{8}$ has index 3. When no index is written, the index is 2 (square root).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Principal Root</div>
+          <div class="vocab-def">The non-negative square root. $\sqrt{9} = 3$, not $-3$. (Both $3$ and $-3$ square to $9$, but the principal root is the positive one.)</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Simplest Radical Form</div>
+          <div class="vocab-def">A radical is simplified when: (1) no perfect-square factor remains under the radical, (2) no fractions appear under the radical, and (3) no radical appears in the denominator.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rational Exponent</div>
+          <div class="vocab-def">An exponent written as a fraction: $a^{1/n} = \sqrt[n]{a}$ and $a^{m/n} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m$.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          The <strong>square root</strong> of $a$ is the number that, when squared, equals $a$.
+          The <strong>cube root</strong> of $a$ is the number that, when cubed, equals $a$.
+          Unlike square roots, cube roots can be negative: $\sqrt[3]{-8} = -2$ because $(-2)^3 = -8$.
+        </p>
+
+        <p>
+          <strong>Simplifying a square radical</strong> means pulling out any perfect-square factors from under the sign.
+          The diagram below shows the process for $\sqrt{72}$.
+        </p>
+
+        <!-- Flow diagram: simplifying √72 -->
+        <div class="diagram-wrap">
+          <!--
+            Flow: √72 → factor out perfect square → √(36·2) → product rule → √36·√2 → simplify → 6√2
+            Box width ~90px, arrow width ~40px, total ≈ 4×90 + 3×40 = 480px
+          -->
+          <svg viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:500px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Box 1: √72 -->
+            <rect x="5"   y="25" width="88" height="42" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="49"  y="51" text-anchor="middle" font-size="18" fill="#1E293B" font-weight="600">&#x221A;72</text>
+
+            <!-- Arrow 1 -->
+            <line x1="97"  y1="46" x2="127" y2="46" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="127,41 137,46 127,51" fill="#94A3B8"/>
+            <text x="112" y="38" text-anchor="middle" font-size="9" fill="#94A3B8">factor</text>
+
+            <!-- Box 2: √(36·2) -->
+            <rect x="140" y="25" width="100" height="42" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="190" y="51" text-anchor="middle" font-size="16" fill="#1E293B" font-weight="600">&#x221A;(36&#xB7;2)</text>
+
+            <!-- Arrow 2 -->
+            <line x1="244" y1="46" x2="274" y2="46" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="274,41 284,46 274,51" fill="#94A3B8"/>
+            <text x="259" y="38" text-anchor="middle" font-size="9" fill="#94A3B8">product</text>
+
+            <!-- Box 3: √36·√2 -->
+            <rect x="287" y="25" width="108" height="42" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="341" y="51" text-anchor="middle" font-size="16" fill="#1E293B" font-weight="600">&#x221A;36&#xB7;&#x221A;2</text>
+
+            <!-- Arrow 3 -->
+            <line x1="399" y1="46" x2="420" y2="46" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="420,41 430,46 420,51" fill="#94A3B8"/>
+            <text x="415" y="38" text-anchor="middle" font-size="9" fill="#94A3B8">&#x221A;36=6</text>
+
+            <!-- Box 4: 6√2 -->
+            <rect x="433" y="25" width="60" height="42" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+            <text x="463" y="51" text-anchor="middle" font-size="18" fill="#15803D" font-weight="700">6&#x221A;2</text>
+
+            <!-- "perfect square" annotation under 36 in box 2 -->
+            <text x="190" y="82" text-anchor="middle" font-size="9" fill="#3B82F6">36 = 6&#xB2; &#x2713;</text>
+          </svg>
+          <p class="diagram-caption">Simplifying $\sqrt{72}$: factor out the largest perfect square, then split the radical.</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">📐</span>
+          <div class="callout__body">
+            <strong>Two rules for radical arithmetic:</strong><br>
+            Product rule: $\sqrt[n]{a} \cdot \sqrt[n]{b} = \sqrt[n]{ab}$ &nbsp;·&nbsp;
+            Quotient rule: $\dfrac{\sqrt[n]{a}}{\sqrt[n]{b}} = \sqrt[n]{\dfrac{a}{b}}$ &nbsp; (both require $a, b \ge 0$)<br>
+            You can only combine radicals with the <em>same index</em>.
+          </div>
+        </div>
+
+        <p>
+          <strong>Rational exponents</strong> are a bridge between exponents and radicals.
+          The denominator of the fraction is the root index; the numerator is the power:
+        </p>
+
+        <div class="math-block">
+          $$a^{1/n} = \sqrt[n]{a} \qquad a^{m/n} = \left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m}$$
+        </div>
+
+        <p>
+          Example: $8^{2/3} = \left(\sqrt[3]{8}\right)^2 = 2^2 = 4$.
+          Always take the root <em>first</em> (when possible) — it keeps the numbers small.
+        </p>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$. For example, $\sqrt{9+16} = \sqrt{25} = 5$,
+            but $\sqrt{9} + \sqrt{16} = 3 + 4 = 7 \neq 5$.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Simplify a Radical
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Simplify $\sqrt{48}$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Find the largest perfect-square factor of 48. Factors of 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. The largest perfect square is 16.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Rewrite: $\sqrt{48} = \sqrt{16 \cdot 3}$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Product rule: $\sqrt{16 \cdot 3} = \sqrt{16} \cdot \sqrt{3} = 4\sqrt{3}$</div>
+            </div>
+          </div>
+          <div class="example__answer">$\sqrt{48} = 4\sqrt{3}$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Cube Root (Negative)
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Simplify $\sqrt[3]{-27}$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Ask: what number, when cubed, gives $-27$?</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$(-3)^3 = (-3)(-3)(-3) = 9 \cdot (-3) = -27$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$\sqrt[3]{-27} = -3$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Rational Exponents
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Evaluate $8^{2/3}$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">The denominator 3 means cube root; the numerator 2 means square: $8^{2/3} = \left(\sqrt[3]{8}\right)^2$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Cube root first (keeps numbers small): $\sqrt[3]{8} = 2$ because $2^3 = 8$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Then square: $2^2 = 4$</div>
+            </div>
+          </div>
+          <div class="example__answer">$8^{2/3} = 4$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: √100 = 10 -->
+        <div class="problem" data-type="fill-in" data-answer="10" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{100}$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\sqrt{100} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>What number times itself equals 100?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{100} = 10$ because $10^2 = 100$. We take the principal (positive) root.</div>
+          </div>
+        </div>
+
+        <!-- P2: √75 = 5√3, index 0 -->
+        <!-- Verify: 75 = 25·3, √25 = 5, so √75 = 5√3 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{75}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$5\sqrt{3}$</button>
+            <button class="option" data-value="1">$3\sqrt{5}$</button>
+            <button class="option" data-value="2">$5\sqrt{15}$</button>
+            <button class="option" data-value="3">$15\sqrt{5}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>What is the largest perfect-square factor of 75? (Think: 75 = ? × ?)</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$75 = 25 \cdot 3$ and 25 is a perfect square ($5^2$). So $\sqrt{75} = \sqrt{25 \cdot 3} = \sqrt{25}\cdot\sqrt{3} = 5\sqrt{3}$.</div>
+          </div>
+        </div>
+
+        <!-- P3: ∛(−64) = −4 -->
+        <!-- Verify: (-4)^3 = -64 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="-4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt[3]{-64}$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\sqrt[3]{-64} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>What number, when multiplied by itself three times, gives $-64$? (Cube roots of negatives are negative.)</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(-4)^3 = (-4)(-4)(-4) = 16 \cdot (-4) = -64$. So $\sqrt[3]{-64} = -4$. Cube roots can be negative; square roots cannot.</div>
+          </div>
+        </div>
+
+        <!-- P4: x^(1/2) = √x, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which expression is equivalent to $x^{1/2}$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\dfrac{x}{2}$</button>
+            <button class="option" data-value="1">$\sqrt{x}$</button>
+            <button class="option" data-value="2">$x^2$</button>
+            <button class="option" data-value="3">$2\sqrt{x}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^{1/n} = \sqrt[n]{a}$. What is the index when the denominator is 2?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^{1/2} = \sqrt[2]{x} = \sqrt{x}$. The denominator of the rational exponent is the index of the radical.</div>
+          </div>
+        </div>
+
+        <!-- P5: 27^(1/3) = 3 -->
+        <!-- Verify: ∛27 = 3 because 3^3 = 27 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Evaluate $27^{1/3}$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$27^{1/3} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^{1/3} = \sqrt[3]{a}$. What number cubed gives 27?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$27^{1/3} = \sqrt[3]{27} = 3$ because $3^3 = 27$.</div>
+          </div>
+        </div>
+
+        <!-- P6: √18 · √2 = 6, index 2 -->
+        <!-- Verify: √18 · √2 = √(18·2) = √36 = 6 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{18} \cdot \sqrt{2}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$6\sqrt{2}$</button>
+            <button class="option" data-value="1">$3\sqrt{2}$</button>
+            <button class="option" data-value="2">$6$</button>
+            <button class="option" data-value="3">$36$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Use the product rule: $\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}$. Then simplify.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{18} \cdot \sqrt{2} = \sqrt{18 \cdot 2} = \sqrt{36} = 6$.</div>
+          </div>
+        </div>
+
+        <!-- P7: 8^(2/3) = 4 -->
+        <!-- Verify: (∛8)^2 = 2^2 = 4 ✓ -->
+        <div class="problem" data-type="fill-in" data-answer="4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Evaluate $8^{2/3}$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$8^{2/3} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^{m/n} = \left(\sqrt[n]{a}\right)^m$. Take the cube root of 8 first, then square it.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$8^{2/3} = \left(\sqrt[3]{8}\right)^2 = 2^2 = 4$.</div>
+          </div>
+        </div>
+
+        <!-- P8: √50 / √2 = 5, index 2 -->
+        <!-- Verify: √50/√2 = √(50/2) = √25 = 5 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\dfrac{\sqrt{50}}{\sqrt{2}}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$25$</button>
+            <button class="option" data-value="1">$5\sqrt{2}$</button>
+            <button class="option" data-value="2">$5$</button>
+            <button class="option" data-value="3">$\sqrt{48}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Quotient rule: $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$. What is $\dfrac{50}{2}$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\dfrac{\sqrt{50}}{\sqrt{2}} = \sqrt{\dfrac{50}{2}} = \sqrt{25} = 5$.</div>
+          </div>
+        </div>
+
+        <!-- P9: which is in simplest form — 3√5 = index 2 -->
+        <!-- Verify: √12 = 2√3 (not simplified), √45 = 3√5 (not simplified), 3√5 IS simplified (radicand 5 has no perfect-square factors), √8 = 2√2 (not simplified) ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which expression is already in <strong>simplest radical form</strong>?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\sqrt{12}$</button>
+            <button class="option" data-value="1">$\sqrt{45}$</button>
+            <button class="option" data-value="2">$3\sqrt{5}$</button>
+            <button class="option" data-value="3">$\sqrt{8}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Check each radicand for perfect-square factors greater than 1. If any exist, the radical can still be simplified.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{12} = 2\sqrt{3}$ (12 has factor 4). $\sqrt{45} = 3\sqrt{5}$ (45 has factor 9). $\sqrt{8} = 2\sqrt{2}$ (8 has factor 4).<br>
+              $3\sqrt{5}$: the radicand 5 has no perfect-square factors other than 1. ✓ Already simplified.
+            </div>
+          </div>
+        </div>
+
+        <!-- P10: ⁵√(x³) = x^(3/5), index 1 -->
+        <!-- Verify: ⁵√(x³) = x^(3/5) — index 5 → denominator 5; power 3 → numerator 3 ✓ -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Rewrite $\sqrt[5]{x^3}$ using a rational exponent.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x^{5/3}$</button>
+            <button class="option" data-value="1">$x^{3/5}$</button>
+            <button class="option" data-value="2">$x^{15}$</button>
+            <button class="option" data-value="3">$5x^3$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$\sqrt[n]{a^m} = a^{m/n}$. What is the index? What is the power inside?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt[5]{x^3} = x^{3/5}$. The index (5) becomes the denominator; the power of the radicand (3) becomes the numerator.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-02.html" id="nav-prev">← Day 2</a>
+      <a href="day-04.html" id="nav-next">Day 4 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

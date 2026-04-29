@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 10 — Linear Inequalities</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="10">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 10</span>
+        <span class="unit-badge" id="unit-badge">Inequalities</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Linear Inequalities</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Inequality</div>
+          <div class="vocab-def">A mathematical statement comparing two expressions using $<$, $>$, $\leq$, or $\geq$. Unlike an equation, it describes a range of solutions.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Solution Set</div>
+          <div class="vocab-def">All values of the variable that make an inequality true. Usually infinite — for example, $x > 3$ is satisfied by 4, 5, 100, 3.001, etc.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Open Circle</div>
+          <div class="vocab-def">A hollow dot on a number line indicating that the boundary value is <em>not</em> included in the solution set. Used for strict inequalities ($<$ or $>$).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Closed Circle</div>
+          <div class="vocab-def">A filled dot on a number line indicating that the boundary value <em>is</em> included. Used for non-strict inequalities ($\leq$ or $\geq$).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Flip the Sign</div>
+          <div class="vocab-def">When multiplying or dividing both sides of an inequality by a <em>negative</em> number, the direction of the inequality symbol reverses. This is the key difference from solving equations.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Compound Inequality</div>
+          <div class="vocab-def">Two inequalities joined by <em>and</em> or <em>or</em>. Example: $-2 \leq x < 5$ means $-2 \leq x$ AND $x < 5$.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          Solving a linear inequality uses the same steps as solving a linear equation,
+          with one critical exception: <strong>when you multiply or divide both sides by a negative number, flip the inequality symbol.</strong>
+        </p>
+
+        <!-- Number line diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Three number lines showing how to graph inequality solutions.
+            Scale: unit = 45 px, 0 at SVG x = 190.
+            v → SVG x = 190 + 45v.
+            Marks shown: -3=55, -2=100, -1=145, 0=190, 1=235, 2=280, 3=325.
+            Rows at y = 22, 55, 88 (center of each line).
+          -->
+          <svg viewBox="0 0 380 110" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:380px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- ── Row 1: x > 2 ── -->
+            <!-- Axis line -->
+            <line x1="35" y1="22" x2="360" y2="22" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="360,22 352,18 352,26" fill="#94A3B8"/>
+            <!-- Ticks and labels -->
+            <line x1="55"  y1="18" x2="55"  y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="100" y1="18" x2="100" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="145" y1="18" x2="145" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="190" y1="18" x2="190" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="235" y1="18" x2="235" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="280" y1="18" x2="280" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="325" y1="18" x2="325" y2="26" stroke="#94A3B8" stroke-width="1"/>
+            <text x="55"  y="36" text-anchor="middle" font-size="9" fill="#64748B">-3</text>
+            <text x="100" y="36" text-anchor="middle" font-size="9" fill="#64748B">-2</text>
+            <text x="145" y="36" text-anchor="middle" font-size="9" fill="#64748B">-1</text>
+            <text x="190" y="36" text-anchor="middle" font-size="9" fill="#64748B">0</text>
+            <text x="235" y="36" text-anchor="middle" font-size="9" fill="#64748B">1</text>
+            <text x="280" y="36" text-anchor="middle" font-size="9" fill="#64748B">2</text>
+            <text x="325" y="36" text-anchor="middle" font-size="9" fill="#64748B">3</text>
+            <!-- Solution: x > 2 -->
+            <line x1="280" y1="22" x2="355" y2="22" stroke="#3B82F6" stroke-width="3"/>
+            <polygon points="355,22 348,18 348,26" fill="#3B82F6"/>
+            <circle cx="280" cy="22" r="5" fill="white" stroke="#3B82F6" stroke-width="2"/>
+            <text x="10" y="25" font-size="10" font-weight="700" fill="#3B82F6">x &gt; 2</text>
+
+            <!-- ── Row 2: x ≤ −1 ── -->
+            <line x1="35" y1="55" x2="360" y2="55" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="360,55 352,51 352,59" fill="#94A3B8"/>
+            <line x1="55"  y1="51" x2="55"  y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="100" y1="51" x2="100" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="145" y1="51" x2="145" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="190" y1="51" x2="190" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="235" y1="51" x2="235" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="280" y1="51" x2="280" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="325" y1="51" x2="325" y2="59" stroke="#94A3B8" stroke-width="1"/>
+            <text x="55"  y="69" text-anchor="middle" font-size="9" fill="#64748B">-3</text>
+            <text x="100" y="69" text-anchor="middle" font-size="9" fill="#64748B">-2</text>
+            <text x="145" y="69" text-anchor="middle" font-size="9" fill="#64748B">-1</text>
+            <text x="190" y="69" text-anchor="middle" font-size="9" fill="#64748B">0</text>
+            <text x="235" y="69" text-anchor="middle" font-size="9" fill="#64748B">1</text>
+            <text x="280" y="69" text-anchor="middle" font-size="9" fill="#64748B">2</text>
+            <text x="325" y="69" text-anchor="middle" font-size="9" fill="#64748B">3</text>
+            <!-- Solution: x ≤ -1 -->
+            <line x1="40" y1="55" x2="145" y2="55" stroke="#EF4444" stroke-width="3"/>
+            <polygon points="40,55 48,51 48,59" fill="#EF4444"/>
+            <circle cx="145" cy="55" r="5" fill="#EF4444" stroke="#EF4444" stroke-width="2"/>
+            <text x="10" y="58" font-size="10" font-weight="700" fill="#EF4444">x ≤ -1</text>
+
+            <!-- ── Row 3: -1 ≤ x < 3 (compound) ── -->
+            <line x1="35" y1="88" x2="360" y2="88" stroke="#94A3B8" stroke-width="1.5"/>
+            <polygon points="360,88 352,84 352,92" fill="#94A3B8"/>
+            <line x1="55"  y1="84" x2="55"  y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="100" y1="84" x2="100" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="145" y1="84" x2="145" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="190" y1="84" x2="190" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="235" y1="84" x2="235" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="280" y1="84" x2="280" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <line x1="325" y1="84" x2="325" y2="92" stroke="#94A3B8" stroke-width="1"/>
+            <text x="55"  y="102" text-anchor="middle" font-size="9" fill="#64748B">-3</text>
+            <text x="100" y="102" text-anchor="middle" font-size="9" fill="#64748B">-2</text>
+            <text x="145" y="102" text-anchor="middle" font-size="9" fill="#64748B">-1</text>
+            <text x="190" y="102" text-anchor="middle" font-size="9" fill="#64748B">0</text>
+            <text x="235" y="102" text-anchor="middle" font-size="9" fill="#64748B">1</text>
+            <text x="280" y="102" text-anchor="middle" font-size="9" fill="#64748B">2</text>
+            <text x="325" y="102" text-anchor="middle" font-size="9" fill="#64748B">3</text>
+            <!-- Solution: -1 ≤ x < 3 -->
+            <line x1="145" y1="88" x2="325" y2="88" stroke="#16A34A" stroke-width="3"/>
+            <circle cx="145" cy="88" r="5" fill="#16A34A" stroke="#16A34A" stroke-width="2"/>
+            <circle cx="325" cy="88" r="5" fill="white" stroke="#16A34A" stroke-width="2"/>
+            <text x="10" y="91" font-size="8" font-weight="700" fill="#16A34A">-1≤x&lt;3</text>
+          </svg>
+          <p class="diagram-caption">Open circle = not included (strict); closed circle = included (non-strict). Row 3 shows a compound "AND" inequality.</p>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            <strong>Flip the sign rule:</strong> $-2x > 6$ → divide by $-2$ and flip → $x < -3$.<br>
+            Adding or subtracting the same value never flips the sign. Only multiplication/division by a negative does.
+          </div>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Checking your answer:</strong> pick a value in your solution set and verify it satisfies the original inequality.
+            For $x > 2$, try $x = 5$: substitute back and confirm the inequality is true.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Basic One-Step Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $-3x \leq 12$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Divide both sides by $-3$. Because we're dividing by a <em>negative</em>, flip the sign: $x \geq \dfrac{12}{-3}$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$x \geq -4$. Check with $x = 0$: $-3(0) = 0 \leq 12$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$x \geq -4$ (closed circle at $-4$, shade right)</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Multi-Step Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $3(x - 1) > 2x + 4$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Distribute: $3x - 3 > 2x + 4$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Subtract $2x$: $x - 3 > 4$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Add 3: $x > 7$. Check with $x = 8$: $3(7) = 21 > 2(8)+4 = 20$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">$x > 7$ (open circle at $7$, shade right)</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Real-World Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A concert venue charges $\$12$ admission plus $\$4$ per snack. Mia has $\$40$ to spend. Write and solve an inequality for the number of snacks $s$ she can buy.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Total cost: $4s + 12$. Constraint: $4s + 12 \leq 40$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Subtract 12: $4s \leq 28$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Divide by 4: $s \leq 7$. Mia can buy at most 7 snacks.</div>
+            </div>
+          </div>
+          <div class="example__answer">$s \leq 7$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: 2x+3>7 → x>2, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $2x + 3 > 7$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x > 4$</button>
+            <button class="option" data-value="1">$x < 2$</button>
+            <button class="option" data-value="2">$x > 2$</button>
+            <button class="option" data-value="3">$x < 4$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 3 from both sides, then divide by 2. No sign flip needed (positive divisor).</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x > 4 \Rightarrow x > 2$. No sign flip because we divided by positive 2.</div>
+          </div>
+        </div>
+
+        <!-- P2: -3x≤12 → x≥-4, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $-3x \leq 12$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x \leq -4$</button>
+            <button class="option" data-value="1">$x \geq -4$</button>
+            <button class="option" data-value="2">$x \leq 4$</button>
+            <button class="option" data-value="3">$x \geq 4$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Divide by $-3$. Since you're dividing by a <em>negative</em>, flip the inequality symbol.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\dfrac{-3x}{-3} \geq \dfrac{12}{-3} \Rightarrow x \geq -4$. Sign flipped because of division by $-3$.</div>
+          </div>
+        </div>
+
+        <!-- P3: 5-2x<11 → -2x<6 → x>-3, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $5 - 2x < 11$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x < -3$</button>
+            <button class="option" data-value="1">$x < 3$</button>
+            <button class="option" data-value="2">$x > 3$</button>
+            <button class="option" data-value="3">$x > -3$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 5: $-2x < 6$. Then divide by $-2$ — don't forget to flip!</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-2x < 6 \Rightarrow x > -3$ (flipped when dividing by $-2$).</div>
+          </div>
+        </div>
+
+        <!-- P4: fill-in boundary of 4x-1≥11 → x≥3, boundary=3 -->
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $4x - 1 \geq 11$. What is the boundary value (the number $x$ is compared to)?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>boundary = </label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add 1, then divide by 4. No negative divisor, so no sign flip.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$4x \geq 12 \Rightarrow x \geq 3$. The boundary is $3$ (closed circle, since $\geq$).</div>
+          </div>
+        </div>
+
+        <!-- P5: x<4 → open circle at 4, arrow left, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which number line graph correctly shows $x < 4$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Closed circle at 4, arrow pointing right</button>
+            <button class="option" data-value="1">Open circle at 4, arrow pointing left</button>
+            <button class="option" data-value="2">Open circle at $-4$, arrow pointing right</button>
+            <button class="option" data-value="3">Closed circle at 4, arrow pointing left</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$x < 4$ means all values less than (to the left of) 4. The strict $<$ means 4 is NOT included.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Strict inequality $<$ → open circle. "Less than" → arrow points left (toward smaller numbers).</div>
+          </div>
+        </div>
+
+        <!-- P6: 3(x-2)>2x+1 → 3x-6>2x+1 → x>7, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $3(x - 2) > 2x + 1$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x > 1$</button>
+            <button class="option" data-value="1">$x < 7$</button>
+            <button class="option" data-value="2">$x > 7$</button>
+            <button class="option" data-value="3">$x > -5$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute the left side first: $3x - 6 > 2x + 1$. Then isolate $x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$3x - 6 > 2x + 1 \Rightarrow x - 6 > 1 \Rightarrow x > 7$.</div>
+          </div>
+        </div>
+
+        <!-- P7: x≥-2, which is a solution? x=5, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">An inequality has solution $x \geq -2$. Which value is in the solution set?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = -3$</button>
+            <button class="option" data-value="1">$x = -5$</button>
+            <button class="option" data-value="2">$x = 5$</button>
+            <button class="option" data-value="3">$x = -10$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The solution includes all values greater than or equal to $-2$. Which option is $\geq -2$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$5 \geq -2$ ✓. All other choices are less than $-2$, so they fail the inequality.</div>
+          </div>
+        </div>
+
+        <!-- P8: closed circle at 1, arrow right → x≥1, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A number line shows a closed circle at $1$ with an arrow pointing right. Which inequality does this represent?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x > 1$</button>
+            <button class="option" data-value="1">$x < 1$</button>
+            <button class="option" data-value="2">$x \geq 1$</button>
+            <button class="option" data-value="3">$x \leq 1$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Closed circle = "or equal to." Arrow right = "greater than."</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Closed circle → $\leq$ or $\geq$. Arrow right → greater than. Together: $x \geq 1$.</div>
+          </div>
+        </div>
+
+        <!-- P9: fill-in boundary of 2(x+3)≥x+10 → x≥4, boundary=4 -->
+        <div class="problem" data-type="fill-in" data-answer="4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $2(x + 3) \geq x + 10$. What is the boundary value?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>boundary = </label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distribute: $2x + 6 \geq x + 10$. Then subtract $x$ and 6.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x + 6 \geq x + 10 \Rightarrow x \geq 4$. Boundary is $4$.</div>
+          </div>
+        </div>
+
+        <!-- P10: "at least 70 points" → s≥70, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A test requires <em>at least</em> 70 points to pass. Which inequality represents the score $s$ needed to pass?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$s < 70$</button>
+            <button class="option" data-value="1">$s > 70$</button>
+            <button class="option" data-value="2">$s \leq 70$</button>
+            <button class="option" data-value="3">$s \geq 70$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>"At least 70" means 70 is the minimum — 70 itself counts. Which symbol includes the boundary?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>"At least 70" → $s \geq 70$. A score of exactly 70 passes, and any score above 70 also passes.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-09.html" id="nav-prev">← Day 9</a>
+      <a href="day-11.html" id="nav-next">Day 11 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

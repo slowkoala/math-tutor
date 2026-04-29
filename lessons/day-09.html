@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 9 — Linear Equations Word Problems</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="9">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 9</span>
+        <span class="unit-badge" id="unit-badge">Linear Equations &amp; Graphing</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Linear Equations Word Problems</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Starting Value</div>
+          <div class="vocab-def">The $y$-intercept ($b$) in context: the value of the quantity when $x = 0$. Often described as a "base fee," "initial amount," or "starting balance."</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rate of Change</div>
+          <div class="vocab-def">The slope ($m$) in context: how much $y$ changes per one unit increase in $x$. Expressed with the word "per" (per hour, per mile, per item).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Linear Model</div>
+          <div class="vocab-def">An equation $y = mx + b$ that describes a real-world situation. Valid only when the rate of change is constant.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Define Variables</div>
+          <div class="vocab-def">The first step in any word problem: explicitly state what $x$ and $y$ (or other variables) represent, including units.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Unit Rate</div>
+          <div class="vocab-def">A rate whose denominator is 1, equivalent to slope. "$\$6$ per hour" means $m = 6$ dollars/hour.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Break-Even Point</div>
+          <div class="vocab-def">The value of $x$ where two cost (or revenue) models are equal. Found by setting two linear equations equal to each other and solving.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          Word problems become manageable when you follow a consistent setup process.
+          The goal is to translate the problem's language into the form $y = mx + b$.
+        </p>
+
+        <!-- Four-step process -->
+        <div class="diagram-wrap">
+          <!--
+            Four-step horizontal process diagram.
+            Each step is a rounded box connected by right-arrows.
+            viewBox: 480 × 100
+          -->
+          <svg viewBox="0 0 480 105" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:480px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Step 1 -->
+            <rect x="2"   y="15" width="100" height="70" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="52"  y="34" text-anchor="middle" font-size="9"  font-weight="700" fill="#1D4ED8">STEP 1</text>
+            <text x="52"  y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">Define</text>
+            <text x="52"  y="63" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">Variables</text>
+            <text x="52"  y="78" text-anchor="middle" font-size="8"  fill="#475569">what do x, y mean?</text>
+
+            <!-- Arrow 1→2 -->
+            <polygon points="108,50 116,46 116,54" fill="#94A3B8"/>
+            <line x1="102" y1="50" x2="116" y2="50" stroke="#94A3B8" stroke-width="1.5"/>
+
+            <!-- Step 2 -->
+            <rect x="118" y="15" width="100" height="70" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+            <text x="168" y="34" text-anchor="middle" font-size="9"  font-weight="700" fill="#15803D">STEP 2</text>
+            <text x="168" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">Find Slope</text>
+            <text x="168" y="65" text-anchor="middle" font-size="8"  fill="#475569">"per" → m</text>
+            <text x="168" y="78" text-anchor="middle" font-size="8"  fill="#475569">or use two points</text>
+
+            <!-- Arrow 2→3 -->
+            <polygon points="224,50 232,46 232,54" fill="#94A3B8"/>
+            <line x1="218" y1="50" x2="232" y2="50" stroke="#94A3B8" stroke-width="1.5"/>
+
+            <!-- Step 3 -->
+            <rect x="234" y="15" width="100" height="70" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+            <text x="284" y="34" text-anchor="middle" font-size="9"  font-weight="700" fill="#B45309">STEP 3</text>
+            <text x="284" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">Find b</text>
+            <text x="284" y="65" text-anchor="middle" font-size="8"  fill="#475569">"starting" → b</text>
+            <text x="284" y="78" text-anchor="middle" font-size="8"  fill="#475569">or set x = 0</text>
+
+            <!-- Arrow 3→4 -->
+            <polygon points="340,50 348,46 348,54" fill="#94A3B8"/>
+            <line x1="334" y1="50" x2="348" y2="50" stroke="#94A3B8" stroke-width="1.5"/>
+
+            <!-- Step 4 -->
+            <rect x="350" y="15" width="128" height="70" rx="8" fill="#FDF4FF" stroke="#A855F7" stroke-width="1.5"/>
+            <text x="414" y="34" text-anchor="middle" font-size="9"  font-weight="700" fill="#7E22CE">STEP 4</text>
+            <text x="414" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">Write &amp; Solve</text>
+            <text x="414" y="65" text-anchor="middle" font-size="8"  fill="#475569">y = mx + b</text>
+            <text x="414" y="78" text-anchor="middle" font-size="8"  fill="#475569">substitute and solve</text>
+          </svg>
+          <p class="diagram-caption">Four steps to model any linear word problem.</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🔍</span>
+          <div class="callout__body">
+            <strong>Spotting slope and intercept in word problems:</strong><br>
+            • Words like <em>per, each, every, for each additional</em> signal the <strong>slope</strong>.<br>
+            • Words like <em>initial, starting, flat fee, base charge, at time zero</em> signal the <strong>$y$-intercept</strong>.
+          </div>
+        </div>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            Always check your answer by substituting back into the original context.
+            If a plumber charges $\$50/hr + \$75$ base and you find cost after 4 hours,
+            verify: $50(4) + 75 = 275$. Does that match the problem?
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Service Fee Context
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A plumber charges a $\$75$ base fee plus $\$50$ per hour. Write an equation for total cost $y$ after $x$ hours. Then find the cost of a 4-hour job.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Define variables: $x$ = hours worked, $y$ = total cost in dollars.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Identify slope: "$\$50$ per hour" → $m = 50$.</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Identify $y$-intercept: "$\$75$ base fee" (cost at $x = 0$) → $b = 75$.</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Equation: $y = 50x + 75$. For 4 hours: $y = 50(4) + 75 = 200 + 75 = 275$.</div>
+            </div>
+          </div>
+          <div class="example__answer">$y = 50x + 75$; cost for 4 hours = $\$275$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Data Table Context
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A town's population is shown below. Write a linear equation and predict the population in year 5.</p>
+            <table style="border-collapse:collapse;margin:var(--s3) 0;font-size:0.9rem;">
+              <tr><th style="border:1px solid #CBD5E1;padding:4px 10px;">Year ($x$)</th><td style="border:1px solid #CBD5E1;padding:4px 10px;">0</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">1</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">2</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">3</td></tr>
+              <tr><th style="border:1px solid #CBD5E1;padding:4px 10px;">Pop. ($y$)</th><td style="border:1px solid #CBD5E1;padding:4px 10px;">4000</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">4200</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">4400</td><td style="border:1px solid #CBD5E1;padding:4px 10px;">4600</td></tr>
+            </table>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Slope: $m = \dfrac{4200 - 4000}{1 - 0} = 200$ people per year.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">$y$-intercept: when $x = 0$, $y = 4000$, so $b = 4000$.</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Equation: $y = 200x + 4000$. At year 5: $y = 200(5) + 4000 = 5000$.</div>
+            </div>
+          </div>
+          <div class="example__answer">$y = 200x + 4000$; predicted population at year 5 = 5,000</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Break-Even Context
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Plan A costs $\$20$/month plus $\$8$ per class. Plan B costs $\$44$/month with unlimited classes. After how many classes do the plans cost the same?</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Write equations: Plan A: $y = 8x + 20$. &nbsp; Plan B: $y = 44$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Set equal: $8x + 20 = 44$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Solve: $8x = 24 \;\Rightarrow\; x = 3$ classes.</div>
+            </div>
+            <div class="step"><span class="step__num">4</span>
+              <div class="step__content">Check: Plan A at 3 classes = $8(3)+20 = 44$ ✓ = Plan B ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">The plans cost the same at 3 classes per month ($\$44$).</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: Plumber $50 base + $30/hr, 5 hr → 30(5)+50=200, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A plumber charges a $\$50$ base fee plus $\$30$ per hour. What is the total cost for a 5-hour job?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\$150$</button>
+            <button class="option" data-value="1">$\$200$</button>
+            <button class="option" data-value="2">$\$250$</button>
+            <button class="option" data-value="3">$\$175$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$y = 30x + 50$. Substitute $x = 5$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y = 30(5) + 50 = 150 + 50 = \$200$.</div>
+          </div>
+        </div>
+
+        <!-- P2: gym $40/month + $10/class → y=10x+40, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A gym membership costs $\$40$ per month plus $\$10$ per fitness class. Which equation models total monthly cost $y$ for $x$ classes?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$y = 40x + 10$</button>
+            <button class="option" data-value="1">$y = 50x$</button>
+            <button class="option" data-value="2">$y = 10x + 40$</button>
+            <button class="option" data-value="3">$y = 10x - 40$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Rate per class = slope. The monthly flat fee = $y$-intercept.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = 10$ (per class), $b = 40$ (monthly base). Equation: $y = 10x + 40$.</div>
+          </div>
+        </div>
+
+        <!-- P3: candle 20cm, burns 2cm/hr, when 8cm: 20−2t=8, t=6, index 3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A candle is 20 cm tall and burns at 2 cm per hour. After how many hours is it 8 cm tall?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">4 hours</button>
+            <button class="option" data-value="1">14 hours</button>
+            <button class="option" data-value="2">10 hours</button>
+            <button class="option" data-value="3">6 hours</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Height decreases: $y = -2x + 20$. Set $y = 8$ and solve for $x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-2x + 20 = 8 \Rightarrow -2x = -12 \Rightarrow x = 6$ hours.</div>
+          </div>
+        </div>
+
+        <!-- P4: fill-in taxi $3 + $2.50/mi, 4 miles → 2.50(4)+3=13 -->
+        <div class="problem" data-type="fill-in" data-answer="13" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A taxi charges a $\$3.00$ base fare plus $\$2.50$ per mile. What is the total cost (in dollars) for a 4-mile trip?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\$$</label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$y = 2.50x + 3$. Substitute $x = 4$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y = 2.50(4) + 3 = 10 + 3 = \$13$.</div>
+          </div>
+        </div>
+
+        <!-- P5: table x=0,1,2,3; y=12,17,22,27 → rate of change m=5, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A table shows hours worked ($x$) and dollars earned ($y$):
+              $x$: 0, 1, 2, 3 &nbsp;|&nbsp; $y$: 12, 17, 22, 27.
+              What is the rate of change?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\$12$ per hour</button>
+            <button class="option" data-value="1">$\$7$ per hour</button>
+            <button class="option" data-value="2">$\$5$ per hour</button>
+            <button class="option" data-value="3">$\$10$ per hour</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Rate of change = $\dfrac{\Delta y}{\Delta x}$. How much does $y$ change each time $x$ increases by 1?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Each hour, earnings increase by $17 - 12 = 5$. Rate of change = $\$5$ per hour. The $y$-intercept ($b = 12$) represents a $\$12$ base payment.</div>
+          </div>
+        </div>
+
+        <!-- P6: car 120mi from home, drives toward home 40mph, when 40mi:
+             120−40t=40 → 40t=80 → t=2hr, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A car starts 120 miles from home and drives toward home at 40 miles per hour. After how many hours is it 40 miles from home?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">1 hour</button>
+            <button class="option" data-value="1">2 hours</button>
+            <button class="option" data-value="2">3 hours</button>
+            <button class="option" data-value="3">4 hours</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Distance from home decreases: $y = -40x + 120$. Set $y = 40$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-40x + 120 = 40 \Rightarrow -40x = -80 \Rightarrow x = 2$ hours.</div>
+          </div>
+        </div>
+
+        <!-- P7: savings $500 + $75/mo, months to reach $1250:
+             500+75m=1250 → 75m=750 → m=10, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A savings account starts with $\$500$ and grows by $\$75$ per month. After how many months does the balance reach $\$1{,}250$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">8 months</button>
+            <button class="option" data-value="1">12 months</button>
+            <button class="option" data-value="2">10 months</button>
+            <button class="option" data-value="3">15 months</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$75x + 500 = 1250$. Subtract 500, then divide by 75.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$75x = 750 \Rightarrow x = 10$ months.</div>
+          </div>
+        </div>
+
+        <!-- P8: fill-in phone plan $30/mo + $0.10/text, texts for $50:
+             30+0.10t=50 → 0.10t=20 → t=200 -->
+        <div class="problem" data-type="fill-in" data-answer="200" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A phone plan charges $\$30$ per month plus $\$0.10$ per text message. How many texts can you send if your budget is $\$50$ per month?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>texts = </label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Set up: $0.10t + 30 = 50$. Subtract 30, then divide by 0.10.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$0.10t = 20 \Rightarrow t = 200$ text messages.</div>
+          </div>
+        </div>
+
+        <!-- P9: population 5000 in year 0, grows 200/yr, when 7000:
+             5000+200t=7000 → 200t=2000 → t=10, add to 2000 → 2010, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A city's population was 5,000 in year 2000 and grows by 200 people per year. In what year will the population reach 7,000?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">2005</button>
+            <button class="option" data-value="1">2008</button>
+            <button class="option" data-value="2">2010</button>
+            <button class="option" data-value="3">2015</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Let $x$ = years since 2000. $200x + 5000 = 7000$. Solve for $x$, then add to 2000.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$200x = 2000 \Rightarrow x = 10$ years. $2000 + 10 = $ year 2010.</div>
+          </div>
+        </div>
+
+        <!-- P10: Plan A $20+$5/class, Plan B $35+$2/class, equal at:
+             20+5c=35+2c → 3c=15 → c=5 classes, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Plan A costs $\$20$/month plus $\$5$ per class. Plan B costs $\$35$/month plus $\$2$ per class. At how many classes per month do the two plans cost the same?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">3 classes</button>
+            <button class="option" data-value="1">4 classes</button>
+            <button class="option" data-value="2">5 classes</button>
+            <button class="option" data-value="3">7 classes</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Set the two cost equations equal: $5x + 20 = 2x + 35$. Solve for $x$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$5x + 20 = 2x + 35 \Rightarrow 3x = 15 \Rightarrow x = 5$ classes. Check: Plan A = $5(5)+20=45$, Plan B = $2(5)+35=45$ ✓</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-08.html" id="nav-prev">← Day 8</a>
+      <a href="day-10.html" id="nav-next">Day 10 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

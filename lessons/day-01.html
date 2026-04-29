@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 1 — Rational vs. Irrational Numbers</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="1">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 1</span>
+        <span class="unit-badge" id="unit-badge">Number Systems &amp; Exponents</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Rational vs. Irrational Numbers</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Real Number</div>
+          <div class="vocab-def">Any number that can be placed on a number line. Includes both rational and irrational numbers.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rational Number</div>
+          <div class="vocab-def">Any number expressible as $\frac{p}{q}$ where $p$ and $q$ are integers and $q \neq 0$. Its decimal either terminates or repeats.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Irrational Number</div>
+          <div class="vocab-def">A real number that <em>cannot</em> be written as a fraction. Its decimal never terminates and never repeats.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Integer</div>
+          <div class="vocab-def">A whole number or its negative: $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Terminating Decimal</div>
+          <div class="vocab-def">A decimal that ends after a finite number of digits. Example: $0.75$, $3.125$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Repeating Decimal</div>
+          <div class="vocab-def">A decimal where one or more digits repeat forever. Example: $0.\overline{3} = 0.3333\ldots$ and $0.\overline{142857}$.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          Every number you'll use in algebra is a <strong>real number</strong>. The real numbers split into
+          exactly two groups: <strong>rational</strong> and <strong>irrational</strong>. The diagram below
+          shows how these groups nest inside each other.
+        </p>
+
+        <!-- Number hierarchy SVG diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Layout (all measurements verified so no two sibling ovals overlap):
+            Real Numbers rect : x=8, y=8, w=564, h=304  (right=572, bottom=312)
+            Rational oval     : cx=195, cy=172, rx=165, ry=120  right-edge x=360
+            Irrational oval   : cx=465, cy=172, rx=90,  ry=110  left-edge  x=375  → 15 px gap ✓
+            Integers oval     : cx=175, cy=182, rx=110, ry=88   (fully inside Rational ✓)
+            Whole oval        : cx=158, cy=193, rx=68,  ry=60   (fully inside Integers ✓)
+          -->
+          <svg viewBox="0 0 580 320" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:580px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Real Numbers outer rect -->
+            <rect x="8" y="8" width="564" height="304" rx="18"
+                  fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+            <text x="562" y="32" text-anchor="end" font-size="13"
+                  fill="#1D4ED8" font-weight="700">Real Numbers &#x211D;</text>
+
+            <!-- Rational oval (right edge x=360) -->
+            <ellipse cx="195" cy="172" rx="165" ry="120"
+                     fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="195" y="62" text-anchor="middle" font-size="13"
+                  fill="#1D4ED8" font-weight="700">Rational</text>
+            <text x="195" y="76" text-anchor="middle" font-size="10"
+                  fill="#3B82F6">written as p &#xF7; q</text>
+
+            <!-- Integers oval (inside Rational) -->
+            <ellipse cx="175" cy="182" rx="110" ry="88"
+                     fill="#BFDBFE" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="175" y="103" text-anchor="middle" font-size="12"
+                  fill="#1E40AF" font-weight="700">Integers</text>
+
+            <!-- Whole Numbers oval (inside Integers) -->
+            <ellipse cx="158" cy="193" rx="68" ry="60"
+                     fill="#93C5FD" stroke="#1D4ED8" stroke-width="1.5"/>
+            <text x="158" y="180" text-anchor="middle" font-size="11"
+                  fill="#1E3A8A" font-weight="700">Whole</text>
+            <text x="158" y="196" text-anchor="middle" font-size="10"
+                  fill="#1E3A8A">0, 1, 2, 3 &#x2026;</text>
+
+            <!-- Negative integers: inside Integers, outside Whole -->
+            <text x="255" y="200" text-anchor="middle" font-size="10"
+                  fill="#1E40AF">&#x2212;1, &#x2212;2, &#x2212;3 &#x2026;</text>
+
+            <!-- Fractions/decimals: inside Rational, outside Integers -->
+            <text x="318" y="228" text-anchor="middle" font-size="10"
+                  fill="#1D4ED8">&#xBD;, &#xBE;, &#x2212;&#x2156;</text>
+            <text x="318" y="244" text-anchor="middle" font-size="10"
+                  fill="#1D4ED8">0.75,  0.333&#x2026;</text>
+
+            <!-- Irrational oval (left edge x=375, gap of 15 from Rational) -->
+            <ellipse cx="465" cy="172" rx="90" ry="110"
+                     fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+            <text x="465" y="73" text-anchor="middle" font-size="13"
+                  fill="#065F46" font-weight="700">Irrational</text>
+            <text x="465" y="150" text-anchor="middle" font-size="15"
+                  fill="#047857">&#x221A;2 , &#x221A;3</text>
+            <text x="465" y="173" text-anchor="middle" font-size="15"
+                  fill="#047857">&#x3C0; , e</text>
+            <text x="465" y="196" text-anchor="middle" font-size="10"
+                  fill="#047857">0.10110111&#x2026;</text>
+          </svg>
+          <p class="diagram-caption">The real number system — every number is either rational or irrational, never both.</p>
+        </div>
+
+        <p>
+          The key question is always: <em>can this number be written as a fraction of two integers?</em>
+          If yes → rational. If no → irrational.
+        </p>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Three quick tests for rational:</strong><br>
+            1. It <em>is</em> a fraction already (e.g. $\frac{5}{8}$).<br>
+            2. Its decimal <em>terminates</em> (e.g. $0.25 = \frac{1}{4}$).<br>
+            3. Its decimal <em>repeats</em> (e.g. $0.\overline{3} = \frac{1}{3}$).
+          </div>
+        </div>
+
+        <p>
+          <strong>Watch out for square roots.</strong> $\sqrt{9} = 3$ is rational because 9 is a perfect square.
+          But $\sqrt{7}$ is irrational because 7 is <em>not</em> a perfect square — its decimal goes
+          $2.6457513\ldots$ forever without repeating.
+        </p>
+
+        <div class="callout callout--warn">
+          <span class="callout__icon">⚠️</span>
+          <div class="callout__body">
+            $3.14$ is <strong>rational</strong> (it terminates). $\pi$ is <strong>irrational</strong>
+            ($\pi \approx 3.14159265\ldots$ — it never ends, never repeats).
+            They are <em>not</em> the same number!
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <!-- Example 1 -->
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Classify a list of numbers
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Classify each number as rational or irrational: $\quad\dfrac{3}{4},\quad -5,\quad \sqrt{9},\quad \sqrt{2},\quad \pi,\quad 0.1\overline{6}$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                $\dfrac{3}{4}$ — already a fraction of two integers. &nbsp;→ <strong>Rational</strong>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                $-5 = \dfrac{-5}{1}$ — integers can always be written as fractions. &nbsp;→ <strong>Rational</strong>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                $\sqrt{9} = 3$ — 9 is a perfect square, the result is an integer. &nbsp;→ <strong>Rational</strong>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">4</span>
+              <div class="step__content">
+                $\sqrt{2} = 1.41421356\ldots$ — not a perfect square, decimal never repeats. &nbsp;→ <strong>Irrational</strong>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">5</span>
+              <div class="step__content">
+                $\pi = 3.14159265\ldots$ — famous irrational constant, decimal never repeats. &nbsp;→ <strong>Irrational</strong>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">6</span>
+              <div class="step__content">
+                $0.1\overline{6} = 0.1666\ldots$ — decimal repeats (the 6 repeats forever). &nbsp;→ <strong>Rational</strong>
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            Rational: $\frac{3}{4},\ -5,\ \sqrt{9},\ 0.1\overline{6}$ &nbsp;·&nbsp; Irrational: $\sqrt{2},\ \pi$
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Convert a fraction to decimal form
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Convert $\dfrac{2}{3}$ to decimal form. Is it rational or irrational?</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                Divide numerator by denominator: $2 \div 3$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                Perform long division: $3$ goes into $2.000\ldots$:
+                <br>$2 \div 3 = 0$ remainder $2$, bring down → $20 \div 3 = 6$ remainder $2$, bring down → $20 \div 3 = 6$ remainder $2$, …
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                The remainder always equals 2, so the digit 6 repeats forever: $\dfrac{2}{3} = 0.\overline{6}$
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            $\dfrac{2}{3} = 0.\overline{6} = 0.6666\ldots$ &nbsp;→ Rational (repeating decimal)
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Tricky case
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Is $0.101001000100001\ldots$ rational or irrational?</p>
+            <p style="font-size:0.875rem;color:var(--text-muted);margin-top:4px;">(Each group of zeros grows by one: 1, 01, 001, 0001, …)</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                Ask: does the decimal <em>terminate</em>? No — it goes on forever.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                Ask: does any block of digits <em>repeat</em>? No — the pattern keeps changing (1 zero, then 2 zeros, then 3 zeros, …). No fixed block repeats.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                A number with a non-terminating, non-repeating decimal cannot be written as $\frac{p}{q}$.
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            Irrational — the decimal neither terminates nor repeats.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS ────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- Problem 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which of the following numbers is <strong>irrational</strong>?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\sqrt{16}$</button>
+            <button class="option" data-value="1">$\dfrac{2}{7}$</button>
+            <button class="option" data-value="2">$\sqrt{5}$</button>
+            <button class="option" data-value="3">$0.25$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Ask yourself: is each number under a square root sign a perfect square?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{16} = 4$ (perfect square → rational), $\frac{2}{7}$ is a fraction (rational), $0.25$ terminates (rational).
+              $\sqrt{5} = 2.2360679\ldots$ — 5 is not a perfect square, so the decimal never repeats. <strong>Irrational.</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which of the following numbers is <strong>rational</strong>?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\pi$</button>
+            <button class="option" data-value="1">$\sqrt{3}$</button>
+            <button class="option" data-value="2">$0.\overline{3}$</button>
+            <button class="option" data-value="3">$\sqrt{11}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>A repeating decimal can always be written as a fraction.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\pi$, $\sqrt{3}$, and $\sqrt{11}$ are all well-known irrationals. $0.\overline{3} = \dfrac{1}{3}$ — it repeats, so it is <strong>rational</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem" data-type="fill-in" data-answer="0.125" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Convert $\dfrac{1}{8}$ to decimal form. Enter the decimal.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="0.___">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Divide: $1 \div 8$. How many times does 8 go into 10? Into 20?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$1 \div 8 = 0.125$. The decimal terminates, confirming that $\frac{1}{8}$ is rational.</div>
+          </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem" data-type="fill-in" data-answer="6" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $\sqrt{36}$. What is the result?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\sqrt{36} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>What number times itself equals 36?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{36} = 6$ because $6 \times 6 = 36$. Since the result is an integer, $\sqrt{36}$ is <strong>rational</strong>.</div>
+          </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">The decimal $0.010010001\ldots$ (each group of zeros grows by one) is:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Rational — it has a pattern</button>
+            <button class="option" data-value="1">Irrational — the pattern never repeats the same block</button>
+            <button class="option" data-value="2">Rational — all decimals are rational</button>
+            <button class="option" data-value="3">Neither rational nor irrational</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>For a decimal to be rational, it must repeat the <em>same block</em> of digits over and over. Does this one do that?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              Having a pattern is not enough. The <em>same block</em> must repeat. Here the zeros keep growing (1, then 2, then 3, …),
+              so no fixed block repeats. This is a non-repeating, non-terminating decimal → <strong>irrational</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which set contains <strong>only rational</strong> numbers?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\{\sqrt{2},\ \tfrac{1}{2},\ 3\}$</button>
+            <button class="option" data-value="1">$\{\pi,\ 0.5,\ 7\}$</button>
+            <button class="option" data-value="2">$\{-3,\ 0,\ \tfrac{4}{5}\}$</button>
+            <button class="option" data-value="3">$\{\sqrt{5},\ \sqrt{7},\ \sqrt{11}\}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Check every number in each set. One irrational number disqualifies the whole set.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              Set A has $\sqrt{2}$ (irrational). Set B has $\pi$ (irrational). Set D has three irrationals.
+              Set C: $-3 = \frac{-3}{1}$ ✓, $0 = \frac{0}{1}$ ✓, $\frac{4}{5}$ ✓ — all rational.
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="problem" data-type="fill-in" data-answer="2/5" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Write $0.4$ as a fraction in lowest terms. (Enter as a fraction, e.g. <code>3/4</code>)</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="a/b">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$0.4 = \dfrac{4}{10}$. Can you simplify that fraction?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$0.4 = \dfrac{4}{10} = \dfrac{2}{5}$. Divide numerator and denominator by their GCF, which is 2.</div>
+          </div>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Between any two rational numbers, there is always:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Another rational number (in fact, infinitely many)</button>
+            <button class="option" data-value="1">An irrational number only</button>
+            <button class="option" data-value="2">Exactly one number</button>
+            <button class="option" data-value="3">Nothing — rational numbers are adjacent</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Try finding a number between $\frac{1}{2}$ and $\frac{3}{4}$. Can you always find another one after that?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              Between any two rationals $a$ and $b$, the average $\dfrac{a+b}{2}$ is also rational. You can repeat this process
+              infinitely — so there are infinitely many rationals between any two rationals. The rationals are <em>dense</em> on the number line.
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="problem" data-type="fill-in" data-answer="-7" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Simplify $-\sqrt{49}$. What is the result? (Negative square roots are still real numbers — the negative sign is outside the radical.)</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$-\sqrt{49} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>First simplify the radical: $\sqrt{49} = ?$ Then apply the negative sign.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{49} = 7$ because $7 \times 7 = 49$. Then $-\sqrt{49} = -7$.
+              The result is the integer $-7$, which is rational. The negative sign outside the radical does <em>not</em> make the number irrational.
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which of the following expressions equals a <strong>rational</strong> number?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$\sqrt{3} + \sqrt{3}$</button>
+            <button class="option" data-value="1">$\sqrt{5} \times \sqrt{5}$</button>
+            <button class="option" data-value="2">$\sqrt{2} + 1$</button>
+            <button class="option" data-value="3">$\pi - 1$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Evaluate each expression. Does any one simplify to a number with no radical or $\pi$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\sqrt{3} + \sqrt{3} = 2\sqrt{3}$ — still irrational.<br>
+              $\sqrt{5} \times \sqrt{5} = 5$ — the radicals cancel, leaving the integer 5. <strong>Rational.</strong><br>
+              $\sqrt{2} + 1 \approx 2.414\ldots$ — irrational plus rational stays irrational.<br>
+              $\pi - 1 \approx 2.14159\ldots$ — irrational minus rational stays irrational.<br>
+              Key insight: two irrational numbers can <em>multiply</em> to give a rational result.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
+    <nav class="lesson-nav">
+      <a href="../index.html" id="nav-prev">← Course Home</a>
+      <a href="day-02.html" id="nav-next">Day 2: Integer Exponents &amp; Rules →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

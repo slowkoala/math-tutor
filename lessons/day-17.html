@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 17 — Exponential Growth &amp; Decay</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="17">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 17</span>
+        <span class="unit-badge" id="unit-badge">Functions</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Exponential Growth &amp; Decay</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- VOCAB -->
+    <section class="vocab-section">
+      <h2 class="section-heading">Key Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Exponential Function</div>
+          <div class="vocab-def">A function of the form \(f(x) = a \cdot b^x\) where \(b > 0\) and \(b \ne 1\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Growth Factor</div>
+          <div class="vocab-def">The value \(b > 1\) in \(f(x) = a \cdot b^x\); the output multiplies by \(b\) each step.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Decay Factor</div>
+          <div class="vocab-def">The value \(0 < b < 1\) in \(f(x) = a \cdot b^x\); the output shrinks by factor \(b\) each step.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Initial Value (\(a\))</div>
+          <div class="vocab-def">The value of the function when \(x = 0\): \(f(0) = a \cdot b^0 = a\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Percent Rate</div>
+          <div class="vocab-def">If growing at \(r\%\) per period, \(b = 1 + \tfrac{r}{100}\). If decaying, \(b = 1 - \tfrac{r}{100}\).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Asymptote</div>
+          <div class="vocab-def">A line the graph approaches but never touches. Exponential functions approach \(y = 0\) as \(x \to -\infty\) (growth) or \(x \to +\infty\) (decay).</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="concept-section">
+      <h2 class="section-heading">Growth vs. Decay</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1rem 0;">
+        <div style="background:#eff6ff; border:1.5px solid #3b82f6; border-radius:8px; padding:0.9rem;">
+          <div style="font-weight:700; color:#1d4ed8; margin-bottom:0.4rem;">Exponential Growth</div>
+          <div>\(f(x) = a \cdot b^x,\quad b > 1\)</div>
+          <div style="margin-top:0.5rem; font-size:0.9rem">Example: \(f(x) = 100 \cdot 2^x\)</div>
+          <div style="font-size:0.85rem; color:#374151; margin-top:0.3rem">Doubles every step</div>
+        </div>
+        <div style="background:#fef3c7; border:1.5px solid #d97706; border-radius:8px; padding:0.9rem;">
+          <div style="font-weight:700; color:#92400e; margin-bottom:0.4rem;">Exponential Decay</div>
+          <div>\(f(x) = a \cdot b^x,\quad 0 < b < 1\)</div>
+          <div style="margin-top:0.5rem; font-size:0.9rem">Example: \(f(x) = 100 \cdot (0.5)^x\)</div>
+          <div style="font-size:0.85rem; color:#374151; margin-top:0.3rem">Halves every step</div>
+        </div>
+      </div>
+
+      <!-- SVG: growth curve vs decay curve side by side -->
+      <!-- Growth: y=2^x for x=0..5, plotted scaled -->
+      <!-- Decay: y=(0.5)^x for x=0..5 -->
+      <!-- origin at SVG(50,160), x-unit=35px, y-unit scaled -->
+      <!-- Growth values: x=0:1, x=1:2, x=2:4, x=3:8 — scale by 15px per unit: -->
+      <!--   SVG_y = 160 - 15*y; x=0:145, x=1:130, x=2:100, x=3:40 -->
+      <!-- Decay: x=0:1, x=1:0.5, x=2:0.25, x=3:0.125 — scale by 80px: -->
+      <!--   SVG_y = 160 - 80*y; x=0:80, x=1:120, x=2:140, x=3:150 -->
+      <figure class="svg-figure">
+        <svg viewBox="0 0 340 190" width="340" height="190" aria-label="Exponential growth and decay curves">
+          <!-- LEFT panel: growth -->
+          <text x="75" y="14" font-size="11" text-anchor="middle" fill="#1d4ed8" font-weight="bold">Growth: y = 2ˣ</text>
+          <!-- axes -->
+          <line x1="30" y1="20" x2="30"  y2="170" stroke="#374151" stroke-width="1.5"/>
+          <line x1="30" y1="170" x2="155" y2="170" stroke="#374151" stroke-width="1.5"/>
+          <!-- x labels -->
+          <text x="30"  y="180" font-size="9" text-anchor="middle" fill="#6b7280">0</text>
+          <text x="65"  y="180" font-size="9" text-anchor="middle" fill="#6b7280">1</text>
+          <text x="100" y="180" font-size="9" text-anchor="middle" fill="#6b7280">2</text>
+          <text x="135" y="180" font-size="9" text-anchor="middle" fill="#6b7280">3</text>
+          <!-- y=2^x points: scale 15px/unit, x-unit=35px -->
+          <!-- (0,1)->SVG(30,170-15)=(30,155) (1,2)->SVG(65,140) (2,4)->SVG(100,110) (3,8)->SVG(135,50) -->
+          <polyline points="30,155 65,140 100,110 135,50" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="30"  cy="155" r="3" fill="#2563eb"/>
+          <circle cx="65"  cy="140" r="3" fill="#2563eb"/>
+          <circle cx="100" cy="110" r="3" fill="#2563eb"/>
+          <circle cx="135" cy="50"  r="3" fill="#2563eb"/>
+          <!-- asymptote -->
+          <line x1="30" y1="170" x2="150" y2="170" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4"/>
+          <text x="32" y="168" font-size="8" fill="#93c5fd">y=0</text>
+
+          <!-- RIGHT panel: decay -->
+          <text x="255" y="14" font-size="11" text-anchor="middle" fill="#92400e" font-weight="bold">Decay: y = (0.5)ˣ</text>
+          <!-- axes -->
+          <line x1="185" y1="20" x2="185" y2="170" stroke="#374151" stroke-width="1.5"/>
+          <line x1="185" y1="170" x2="330" y2="170" stroke="#374151" stroke-width="1.5"/>
+          <!-- x labels -->
+          <text x="185" y="180" font-size="9" text-anchor="middle" fill="#6b7280">0</text>
+          <text x="220" y="180" font-size="9" text-anchor="middle" fill="#6b7280">1</text>
+          <text x="255" y="180" font-size="9" text-anchor="middle" fill="#6b7280">2</text>
+          <text x="290" y="180" font-size="9" text-anchor="middle" fill="#6b7280">3</text>
+          <!-- y=(0.5)^x: scale 80px/unit -->
+          <!-- (0,1)->SVG(185,90) (1,0.5)->SVG(220,130) (2,0.25)->SVG(255,150) (3,0.125)->SVG(290,160) -->
+          <polyline points="185,90 220,130 255,150 290,160" fill="none" stroke="#d97706" stroke-width="2.5"/>
+          <circle cx="185" cy="90"  r="3" fill="#d97706"/>
+          <circle cx="220" cy="130" r="3" fill="#d97706"/>
+          <circle cx="255" cy="150" r="3" fill="#d97706"/>
+          <circle cx="290" cy="160" r="3" fill="#d97706"/>
+          <!-- asymptote -->
+          <line x1="185" y1="170" x2="325" y2="170" stroke="#fcd34d" stroke-width="1" stroke-dasharray="4"/>
+          <text x="190" y="168" font-size="8" fill="#b45309">y=0</text>
+        </svg>
+        <figcaption>Growth curves rise steeply; decay curves fall and approach the x-axis asymptotically.</figcaption>
+      </figure>
+
+      <div class="callout callout--tip">
+        <strong>Identify growth vs. decay:</strong> If \(b > 1\) → growth. If \(0 < b < 1\) → decay. The initial value \(a = f(0)\) is the y-intercept.
+      </div>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="examples-section">
+      <h2 class="section-heading">Worked Examples</h2>
+
+      <div class="example">
+        <div class="example-problem">A bacteria culture starts with 500 cells and doubles every hour. Write a function and find the count after 3 hours.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Model:</strong> \(f(t) = 500 \cdot 2^t\), where \(t\) = hours.</p>
+          <p><strong>Identify:</strong> \(a = 500\) (initial), \(b = 2\) (doubles → growth).</p>
+          <p><strong>After 3 hours:</strong> \(f(3) = 500 \cdot 2^3 = 500 \cdot 8 = 4000\) cells.</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">A car worth $20,000 depreciates at 15% per year. Write a model and find its value after 4 years.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Decay factor:</strong> \(b = 1 - 0.15 = 0.85\).</p>
+          <p><strong>Model:</strong> \(V(t) = 20000 \cdot (0.85)^t\)</p>
+          <p><strong>After 4 years:</strong> \(V(4) = 20000 \cdot (0.85)^4\)</p>
+          <p>\((0.85)^4 \approx 0.522\), so \(V(4) \approx 20000 \cdot 0.522 = \$10{,}440\).</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-problem">Given \(f(x) = 3 \cdot (0.25)^x\), identify the initial value and state whether it is growth or decay.</div>
+        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
+        <div class="example-steps" hidden>
+          <p><strong>Initial value:</strong> \(a = 3\) (the coefficient).</p>
+          <p><strong>Base:</strong> \(b = 0.25\). Since \(0 < 0.25 < 1\), this is <strong>decay</strong>.</p>
+          <p><strong>Verify:</strong> \(f(0) = 3 \cdot 1 = 3\), \(f(1) = 3 \cdot 0.25 = 0.75\) — decreasing. ✓</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <h2 class="section-heading">Practice Problems</h2>
+
+      <!-- P1: f(x)=4*(3)^x: growth or decay? b=3>1 → growth → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">\(f(x) = 4 \cdot 3^x\) — is this growth or decay?</div>
+        <ol class="choices" type="A">
+          <li>Growth, because \(b = 3 > 1\)</li>
+          <li>Decay, because \(a = 4\)</li>
+          <li>Decay, because the exponent is positive</li>
+          <li>Neither — it is linear</li>
+        </ol>
+      </div>
+
+      <!-- P2: f(x)=200*(0.8)^x: initial value = 200 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="200" data-tolerance="0">
+        <div class="problem-stem">What is the initial value of \(f(x) = 200 \cdot (0.8)^x\)?</div>
+      </div>
+
+      <!-- P3: f(x)=50*2^x, f(3)=50*8=400 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="400" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = 50 \cdot 2^x\), find \(f(3)\).</div>
+      </div>
+
+      <!-- P4: population 1000 grows 20%/yr: b=1.2, model → index 2 -->
+      <div class="problem" data-type="multiple-choice" data-answer="2">
+        <div class="problem-stem">A town's population starts at 1,000 and grows 20% per year. Which model is correct?</div>
+        <ol class="choices" type="A">
+          <li>\(P(t) = 1000 + 20t\)</li>
+          <li>\(P(t) = 1000 \cdot (0.20)^t\)</li>
+          <li>\(P(t) = 1000 \cdot (1.20)^t\)</li>
+          <li>\(P(t) = 1200 \cdot t\)</li>
+        </ol>
+      </div>
+
+      <!-- P5: f(x)=800*(0.5)^x, f(4)=800*(0.0625)=50 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="50" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = 800 \cdot (0.5)^x\), find \(f(4)\).</div>
+      </div>
+
+      <!-- P6: growth or decay: f(x)=0.1*(1.5)^x? b=1.5>1 → growth → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">Does \(f(x) = 0.1 \cdot (1.5)^x\) represent growth or decay?</div>
+        <ol class="choices" type="A">
+          <li>Growth — base 1.5 is greater than 1</li>
+          <li>Decay — the initial value 0.1 is small</li>
+          <li>Decay — base 1.5 is less than 2</li>
+          <li>Cannot be determined</li>
+        </ol>
+      </div>
+
+      <!-- P7: car $30000 depreciates 10%/yr: value after 1 year = 30000*0.9=27000 → fill-in -->
+      <div class="problem" data-type="fill-in" data-answer="27000" data-tolerance="0">
+        <div class="problem-stem">A car worth $30,000 depreciates 10% per year. What is its value (in dollars) after 1 year?</div>
+      </div>
+
+      <!-- P8: which equation shows decay? b<1 → index 1: f(x)=5*(0.6)^x -->
+      <div class="problem" data-type="multiple-choice" data-answer="1">
+        <div class="problem-stem">Which equation represents exponential decay?</div>
+        <ol class="choices" type="A">
+          <li>\(f(x) = 2 \cdot 3^x\)</li>
+          <li>\(f(x) = 5 \cdot (0.6)^x\)</li>
+          <li>\(f(x) = 3x + 10\)</li>
+          <li>\(f(x) = 10 \cdot (1.1)^x\)</li>
+        </ol>
+      </div>
+
+      <!-- P9: f(x)=6*(1/3)^x: f(2)=6*(1/9)=6/9=2/3 — not whole, let's use f(0)=6 → change to f(0)=6 fill-in -->
+      <!-- Actually let me give a cleaner problem: f(x)=6*(1/3)^x, f(2)=6*(1/9)=2/3. Not integer. -->
+      <!-- Use: f(x)=9*(1/3)^x, f(2)=9*(1/9)=1 → fill-in answer=1 -->
+      <div class="problem" data-type="fill-in" data-answer="1" data-tolerance="0">
+        <div class="problem-stem">If \(f(x) = 9 \cdot \left(\tfrac{1}{3}\right)^x\), find \(f(2)\).</div>
+      </div>
+
+      <!-- P10: asymptote of exponential function approaches which line? y=0 → index 0 -->
+      <div class="problem" data-type="multiple-choice" data-answer="0">
+        <div class="problem-stem">As \(x \to +\infty\), the function \(f(x) = 5 \cdot (0.4)^x\) approaches which value?</div>
+        <ol class="choices" type="A">
+          <li>0</li>
+          <li>5</li>
+          <li>\(+\infty\)</li>
+          <li>\(-\infty\)</li>
+        </ol>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="lesson-footer">
+    <a href="day-16.html" id="nav-prev">← Day 16</a>
+    <a href="../index.html" class="home-link">Home</a>
+    <a href="day-18.html" id="nav-next">Day 18 →</a>
+  </footer>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 11 — Two-Variable &amp; Compound Inequalities</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-day="11">
+
+  <div class="lesson-accent-bar"></div>
+
+  <header class="lesson-header">
+    <div class="lesson-header__inner">
+      <div class="lesson-header__meta">
+        <span class="lesson-day-label" id="lesson-day">Day 11</span>
+        <span class="unit-badge" id="unit-badge">Inequalities</span>
+      </div>
+      <h1 class="lesson-title" id="lesson-title">Two-Variable &amp; Compound Inequalities</h1>
+    </div>
+  </header>
+
+  <nav class="progress-dots-bar" aria-label="Course progress">
+    <div class="progress-dots-inner" id="progress-dots"></div>
+  </nav>
+
+  <main class="lesson-body">
+
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Two-Variable Inequality</div>
+          <div class="vocab-def">An inequality with two variables, such as $y < 2x + 1$. Its solution is an entire region of the coordinate plane, not a single value or line.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Half-Plane</div>
+          <div class="vocab-def">The region on one side of a boundary line in the coordinate plane. The solution to a two-variable linear inequality is always a half-plane.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Boundary Line</div>
+          <div class="vocab-def">The line $y = mx + b$ dividing the plane into two halves. Draw it <em>dashed</em> for strict inequalities ($<$, $>$) and <em>solid</em> for non-strict ($\leq$, $\geq$).</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Test Point</div>
+          <div class="vocab-def">A convenient point (usually the origin) substituted into the inequality to determine which half-plane to shade.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Conjunction (AND)</div>
+          <div class="vocab-def">A compound inequality requiring <em>both</em> conditions to hold simultaneously. The solution is the <em>intersection</em> of the two solution sets. Example: $1 \leq x \leq 5$.</div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Disjunction (OR)</div>
+          <div class="vocab-def">A compound inequality requiring <em>at least one</em> condition to hold. The solution is the <em>union</em> of the two solution sets. Example: $x < -2$ or $x > 3$.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
+
+        <p>
+          <strong>Graphing a two-variable inequality</strong> follows three steps:
+          (1) graph the boundary line (dashed or solid),
+          (2) pick a test point not on the line,
+          (3) if the test point satisfies the inequality, shade its side; otherwise shade the other side.
+        </p>
+
+        <!-- Half-plane diagram -->
+        <div class="diagram-wrap">
+          <!--
+            Shaded half-plane for y < x + 1.
+            Origin at SVG (80, 140), unit = 25 px.
+            math (x,y) → SVG (80+25x, 140-25y).
+            Line y=x+1: at (-2,-1)→SVG(30,165); at (3,4)→SVG(155,40).
+            Shaded region (y < x+1, below line in math = higher SVG y):
+              polygon (30,165),(155,40),(180,40),(180,190),(30,190).
+            Test point (0,0) → SVG(80,140) is in shaded region.
+          -->
+          <svg viewBox="0 0 300 215" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:300px;margin:0 auto;font-family:-apple-system,sans-serif;">
+
+            <!-- Shaded half-plane (light blue, low opacity) -->
+            <polygon points="30,165 155,40 180,40 180,190 30,190"
+                     fill="#BFDBFE" fill-opacity="0.5"/>
+
+            <!-- Grid -->
+            <line x1="80" y1="15"  x2="80"  y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="105" y1="15" x2="105" y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="130" y1="15" x2="130" y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="155" y1="15" x2="155" y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="180" y1="15" x2="180" y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="30"  y1="15" x2="30"  y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="55"  y1="15" x2="55"  y2="190" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="40"  x2="195" y2="40"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="65"  x2="195" y2="65"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="90"  x2="195" y2="90"  stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="115" x2="195" y2="115" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="140" x2="195" y2="140" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="165" x2="195" y2="165" stroke="#E2E8F0" stroke-width="1"/>
+            <line x1="10"  y1="190" x2="195" y2="190" stroke="#E2E8F0" stroke-width="1"/>
+
+            <!-- Axes -->
+            <line x1="80" y1="10" x2="80"  y2="198" stroke="#94A3B8" stroke-width="2"/>
+            <line x1="8"  y1="140" x2="193" y2="140" stroke="#94A3B8" stroke-width="2"/>
+            <polygon points="193,140 185,136 185,144" fill="#94A3B8"/>
+            <polygon points="80,10 76,18 84,18" fill="#94A3B8"/>
+            <text x="197" y="144" font-size="10" fill="#64748B">x</text>
+            <text x="83"  y="10"  font-size="10" fill="#64748B">y</text>
+
+            <!-- Axis labels -->
+            <text x="55"  y="153" text-anchor="middle" font-size="9" fill="#64748B">-1</text>
+            <text x="30"  y="153" text-anchor="middle" font-size="9" fill="#64748B">-2</text>
+            <text x="105" y="153" text-anchor="middle" font-size="9" fill="#64748B">1</text>
+            <text x="130" y="153" text-anchor="middle" font-size="9" fill="#64748B">2</text>
+            <text x="155" y="153" text-anchor="middle" font-size="9" fill="#64748B">3</text>
+            <text x="75"  y="116" text-anchor="end" font-size="9" fill="#64748B">1</text>
+            <text x="75"  y="91"  text-anchor="end" font-size="9" fill="#64748B">2</text>
+            <text x="75"  y="66"  text-anchor="end" font-size="9" fill="#64748B">3</text>
+            <text x="75"  y="166" text-anchor="end" font-size="9" fill="#64748B">-1</text>
+
+            <!-- Dashed boundary line y = x + 1: from (30,165) to (155,40) -->
+            <line x1="22" y1="173" x2="163" y2="32"
+                  stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4"/>
+
+            <!-- Line label -->
+            <text x="160" y="35" font-size="10" fill="#3B82F6" font-weight="600">y = x + 1</text>
+
+            <!-- Test point (0,0) → SVG (80, 140) — IN shaded region -->
+            <circle cx="80" cy="140" r="5" fill="#16A34A"/>
+            <text x="88" y="138" font-size="9" fill="#16A34A" font-weight="600">(0,0) ✓</text>
+            <text x="88" y="150" font-size="8" fill="#16A34A">0 &lt; 0+1</text>
+
+            <!-- Inequality label -->
+            <text x="148" y="185" font-size="11" font-weight="700" fill="#1D4ED8">y &lt; x + 1</text>
+            <text x="148" y="197" font-size="9" fill="#475569">(shaded region)</text>
+          </svg>
+          <p class="diagram-caption">Dashed line (strict $<$); shaded below. Test point $(0, 0)$: $0 < 0 + 1$ ✓ — shade the side containing $(0, 0)$.</p>
+        </div>
+
+        <!-- Compound inequalities -->
+        <p><strong>Compound inequalities</strong> combine two conditions:</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s4);margin:var(--s3) 0;">
+          <div style="background:#EFF6FF;border:2px solid #3B82F6;border-radius:10px;padding:var(--s4);">
+            <div style="font-size:0.75rem;font-weight:700;color:#1D4ED8;margin-bottom:var(--s2);">AND (Conjunction)</div>
+            <p style="font-size:0.9rem;">Both conditions must be true.<br>Solution = <strong>intersection</strong>.</p>
+            <p style="font-size:0.9rem;color:#1E293B;">$-1 \leq x < 3$<br>means $x \geq -1$ AND $x < 3$</p>
+          </div>
+          <div style="background:#FEF2F2;border:2px solid #EF4444;border-radius:10px;padding:var(--s4);">
+            <div style="font-size:0.75rem;font-weight:700;color:#DC2626;margin-bottom:var(--s2);">OR (Disjunction)</div>
+            <p style="font-size:0.9rem;">At least one condition must be true.<br>Solution = <strong>union</strong>.</p>
+            <p style="font-size:0.9rem;color:#1E293B;">$x < -2$ or $x > 3$<br>includes both separate rays</p>
+          </div>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🔍</span>
+          <div class="callout__body">
+            <strong>Which side to shade?</strong> Always test $(0, 0)$ first (unless the boundary passes through the origin, then use $(1, 0)$).
+            If $(0, 0)$ satisfies the inequality, shade the side containing it. If not, shade the other side.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
+
+        <div class="example">
+          <div class="example__header">Example 1 — Graph a Two-Variable Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Graph $y \geq -x + 2$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Graph the boundary line $y = -x + 2$. Use a <em>solid</em> line because the inequality is $\geq$ (includes equal).</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Test $(0, 0)$: $0 \geq -0 + 2 = 2$? $0 \geq 2$ is false. So shade the other side (above the line).</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">The solution is the solid line and the region above it (where $y$ values are larger than $-x + 2$).</div>
+            </div>
+          </div>
+          <div class="example__answer">Solid line $y = -x + 2$; shade above</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 2 — Solve a Compound AND Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $3 < 2x + 1 \leq 11$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Subtract 1 from all three parts: $2 < 2x \leq 10$</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Divide all parts by 2: $1 < x \leq 5$</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">Solution: $x$ is greater than 1 (open) and at most 5 (closed).</div>
+            </div>
+          </div>
+          <div class="example__answer">$1 < x \leq 5$</div>
+        </div>
+
+        <div class="example">
+          <div class="example__header">Example 3 — Solve a Compound OR Inequality
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $2x - 1 > 5$ or $3x + 2 < -4$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step"><span class="step__num">1</span>
+              <div class="step__content">Solve first: $2x > 6 \Rightarrow x > 3$.</div>
+            </div>
+            <div class="step"><span class="step__num">2</span>
+              <div class="step__content">Solve second: $3x < -6 \Rightarrow x < -2$.</div>
+            </div>
+            <div class="step"><span class="step__num">3</span>
+              <div class="step__content">OR combines with union: $x < -2$ or $x > 3$. This is two separate rays on the number line with a gap in the middle.</div>
+            </div>
+          </div>
+          <div class="example__answer">$x < -2$ or $x > 3$</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PRACTICE PROBLEMS (10) ────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
+
+        <!-- P1: (2,3) in y<2x+1? 3<5 ✓ yes, index 0 -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Is the point $(2, 3)$ a solution to $y < 2x + 1$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Yes — $3 < 5$, so it satisfies the inequality.</button>
+            <button class="option" data-value="1">No — $3$ is not less than $5$.</button>
+            <button class="option" data-value="2">Yes, but only if $x = 2$.</button>
+            <button class="option" data-value="3">Cannot determine without the graph.</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute: $y < 2x + 1 \Rightarrow 3 < 2(2) + 1$. Evaluate the right side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2(2)+1 = 5$. Is $3 < 5$? Yes ✓. The point $(2,3)$ is in the shaded region.</div>
+          </div>
+        </div>
+
+        <!-- P2: y>3x-2, boundary line is dashed, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">When graphing $y > 3x - 2$, how should the boundary line be drawn?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Solid line</button>
+            <button class="option" data-value="1">Dashed line</button>
+            <button class="option" data-value="2">Horizontal line</button>
+            <button class="option" data-value="3">Vertical line</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Is the boundary included in the solution? Check whether the symbol is strict ($>$) or non-strict ($\geq$).</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Strict $>$ means points on the line are NOT solutions → dashed boundary line.</div>
+          </div>
+        </div>
+
+        <!-- P3: -3≤x<5, which value? x=0, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Which value is in the solution of $-3 \leq x < 5$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = -4$</button>
+            <button class="option" data-value="1">$x = 5$</button>
+            <button class="option" data-value="2">$x = 0$</button>
+            <button class="option" data-value="3">$x = -3.5$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$x$ must satisfy both $x \geq -3$ AND $x < 5$. Check each option.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-3 \leq 0 < 5$ ✓. Note: $x=5$ fails because the right bound is strict ($<5$).</div>
+          </div>
+        </div>
+
+        <!-- P4: OR: x>2 or x<-1, which is NOT a solution? x=0, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">The compound inequality "$x > 2$ OR $x < -1$" — which value is <em>not</em> a solution?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = 3$</button>
+            <button class="option" data-value="1">$x = -2$</button>
+            <button class="option" data-value="2">$x = 0$</button>
+            <button class="option" data-value="3">$x = 5$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>OR: at least one condition must hold. Find the value that is neither $>2$ nor $<-1$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x=0$: $0>2$? No. $0<-1$? No. Neither condition holds → NOT a solution.</div>
+          </div>
+        </div>
+
+        <!-- P5: x≥1 AND x≤4 ↔ 1≤x≤4, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">The compound inequality "$x \geq 1$ AND $x \leq 4$" is equivalent to:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x > 1$ or $x < 4$</button>
+            <button class="option" data-value="1">$1 \leq x \leq 4$</button>
+            <button class="option" data-value="2">$x < 1$ or $x > 4$</button>
+            <button class="option" data-value="3">$x = 1$ or $x = 4$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>AND means intersection: both conditions must hold simultaneously.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>The AND of $x \geq 1$ and $x \leq 4$ is the segment between them: $1 \leq x \leq 4$.</div>
+          </div>
+        </div>
+
+        <!-- P6: (0,4) in y≥-x+3? 4≥3 ✓ yes, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Is $(0, 4)$ in the solution of $y \geq -x + 3$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">No</button>
+            <button class="option" data-value="1">Yes</button>
+            <button class="option" data-value="2">It is on the boundary only.</button>
+            <button class="option" data-value="3">Cannot determine.</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute: $4 \geq -(0) + 3$. Simplify the right side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$4 \geq 3$ ✓ (strictly greater, not just on the boundary). Yes, $(0,4)$ is in the solution.</div>
+          </div>
+        </div>
+
+        <!-- P7: shading for y<2x-1 → shade below, index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">When graphing $y < 2x - 1$, which region do you shade?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Above the boundary line</button>
+            <button class="option" data-value="1">Below the boundary line</button>
+            <button class="option" data-value="2">The boundary line itself</button>
+            <button class="option" data-value="3">To the right of the boundary line</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Test $(0, 0)$: $0 < 2(0)-1 = -1$? Is $0 < -1$? No → shade the other side from $(0,0)$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(0,0)$ fails: $0 \not< -1$. Shade the side that does NOT contain the origin — which is below the line.</div>
+          </div>
+        </div>
+
+        <!-- P8: x+2≤7 AND x-1≥0 → x≤5 AND x≥1 → 1≤x≤5, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve: $x + 2 \leq 7$ AND $x - 1 \geq 0$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x \leq 5$</button>
+            <button class="option" data-value="1">$x \geq 1$</button>
+            <button class="option" data-value="2">$1 \leq x \leq 5$</button>
+            <button class="option" data-value="3">$x \leq 5$ or $x \geq 1$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Solve each part: $x \leq 5$ and $x \geq 1$. AND means both must hold.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x \leq 5$ AND $x \geq 1$ → intersection: $1 \leq x \leq 5$.</div>
+          </div>
+        </div>
+
+        <!-- P9: fill-in 3<2x+1≤9 → 1<x≤4, lower bound=1 -->
+        <div class="problem" data-type="fill-in" data-answer="1" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $3 < 2x + 1 \leq 9$. The solution is $? < x \leq 4$. What is the lower bound?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>lower bound = </label>
+            <input type="text" class="answer-input" placeholder="your answer">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Subtract 1 from all parts: $2 < 2x \leq 8$. Then divide by 2.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$3-1 < 2x \leq 9-1 \Rightarrow 2 < 2x \leq 8 \Rightarrow 1 < x \leq 4$. Lower bound is $1$ (open/strict).</div>
+          </div>
+        </div>
+
+        <!-- P10: x≥3 OR x<0, which is NOT a solution? x=1, index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">"$x \geq 3$ OR $x < 0$" — which value is NOT in the solution set?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x = -1$</button>
+            <button class="option" data-value="1">$x = 4$</button>
+            <button class="option" data-value="2">$x = 1$</button>
+            <button class="option" data-value="3">$x = 100$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>OR: find values that fail both $x \geq 3$ AND $x < 0$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x=1$: $1 \geq 3$? No. $1 < 0$? No. Neither holds → $x=1$ is not a solution. The gap between the two rays ($0 \leq x < 3$) is excluded.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="day-10.html" id="nav-prev">← Day 10</a>
+      <a href="day-12.html" id="nav-next">Day 12 →</a>
+    </nav>
+
+  </main>
+
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
+
+  <script src="../js/lessons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/katex-init.js"></script>
+  <script src="../js/problems.js"></script>
+</body>
+</html>
