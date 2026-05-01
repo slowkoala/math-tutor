@@ -122,17 +122,15 @@
             <text x="76"  y="56"  text-anchor="end" font-size="9" fill="#64748B">3</text>
             <text x="76"  y="21"  text-anchor="end" font-size="9" fill="#64748B">4</text>
 
-            <!-- Line 1: y = 2x (blue) from (0,0) through (2,4) -->
-            <!-- SVG: (80,160) to (150,20), extended to (165,−10) — use (10,210)→(180,−30) clipped -->
-            <line x1="10" y1="230" x2="170" y2="−10" stroke="#3B82F6" stroke-width="2"
-                  clip-path="url(#plotarea)"/>
-            <!-- Can't clip easily; just draw from visible range -->
-            <line x1="45" y1="195" x2="165" y2="15" stroke="#3B82F6" stroke-width="2"/>
-            <text x="167" y="16" font-size="9" fill="#3B82F6" font-weight="600">y = 2x</text>
+            <!-- Line 1: y = 2x (blue): SVG_y = 320 − 2·SVG_x -->
+            <!-- (70,180)=math(−1,−2)  (153,14)=math(2.09,4.17) passes through (80,160)=(0,0) and (150,20)=(2,4) -->
+            <line x1="70" y1="180" x2="153" y2="14" stroke="#3B82F6" stroke-width="2"/>
+            <text x="155" y="13" font-size="9" fill="#3B82F6" font-weight="600">y = 2x</text>
 
-            <!-- Line 2: y = x + 2 (green) from (0,2)=(80,90) through (2,4)=(150,20) -->
-            <line x1="10" y1="160" x2="195" y2="20" stroke="#16A34A" stroke-width="2"/>
-            <text x="197" y="21" font-size="9" fill="#16A34A" font-weight="600">y = x+2</text>
+            <!-- Line 2: y = x+2 (green): SVG_y = 170 − SVG_x -->
+            <!-- (10,160)=math(−2,0)  (155,15)=math(2.14,4.14) passes through (80,90)=(0,2) and (150,20)=(2,4) -->
+            <line x1="10" y1="160" x2="155" y2="15" stroke="#16A34A" stroke-width="2"/>
+            <text x="155" y="27" font-size="9" fill="#16A34A" font-weight="600">y = x+2</text>
 
             <!-- Intersection point (2,4) → SVG (150, 20) -->
             <circle cx="150" cy="20" r="6" fill="#EF4444" stroke="white" stroke-width="1.5"/>
