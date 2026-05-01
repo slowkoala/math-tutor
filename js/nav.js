@@ -40,7 +40,9 @@
 
     buildProgressDots(currentDay);
     buildPrevNext(currentDay);
+    ensureScoreBar();
     initMarkComplete(currentDay);
+    decorateSectionLabels();
   }
 
   function buildProgressDots(currentDay) {
@@ -88,9 +90,52 @@
     }
   }
 
+  function fireConfetti() {
+    function launch() {
+      window.confetti({
+        particleCount: 160,
+        spread: 80,
+        origin: { x: 0.5, y: 0.85 },
+        colors: ["#3B82F6","#10B981","#F59E0B","#8B5CF6","#EF4444","#EC4899"],
+      });
+    }
+    if (window.confetti) {
+      launch();
+    } else {
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js";
+      s.onload = launch;
+      document.head.appendChild(s);
+    }
+  }
+
+  function decorateSectionLabels() {
+    const emojiMap = {
+      "vocabulary":        "📚",
+      "key vocabulary":    "📚",
+      "concept":           "💡",
+      "worked examples":   "✏️",
+      "practice problems": "🏋️",
+    };
+    document.querySelectorAll(".section-label, .section-heading").forEach((el) => {
+      const key = el.textContent.trim().toLowerCase();
+      const emoji = emojiMap[key];
+      if (emoji) el.textContent = emoji + " " + el.textContent.trim();
+    });
+  }
+
+  function ensureScoreBar() {
+    if (document.getElementById("mark-complete")) return;
+    const bar = document.createElement("div");
+    bar.className = "score-bar";
+    bar.innerHTML = `<span id="score-display"></span><button class="btn-complete" id="mark-complete">🎯 Mark Complete</button>`;
+    document.body.appendChild(bar);
+  }
+
   function initMarkComplete(currentDay) {
     const btn = document.getElementById("mark-complete");
     if (!btn) return;
+    btn.textContent = "🎯 Mark Complete";
 
     const completed = getCompleted();
     if (completed.has(currentDay)) {
@@ -102,12 +147,13 @@
       c.add(currentDay);
       saveCompleted(c);
       setCompletedState(btn);
-      buildProgressDots(currentDay); // refresh dots
+      buildProgressDots(currentDay);
+      fireConfetti();
     });
   }
 
   function setCompletedState(btn) {
-    btn.textContent = "✓ Lesson Complete";
+    btn.textContent = "🏆 Nailed It!";
     btn.classList.add("btn-completed");
     btn.disabled = true;
   }
@@ -122,7 +168,14 @@
     // Progress summary
     const progressEl = document.getElementById("course-progress");
     if (progressEl) {
-      progressEl.textContent = `${completed.size} of ${LESSONS.length} lessons complete`;
+      const n = completed.size;
+      const total = LESSONS.length;
+      let msg;
+      if (n === 0)           msg = `0 of ${total} — let's get started! 🚀`;
+      else if (n === total)  msg = `All ${total} done — you're ready! 🏆`;
+      else if (n >= total/2) msg = `${n} of ${total} — almost there! 🔥`;
+      else                   msg = `${n} of ${total} — keep going! 💪`;
+      progressEl.textContent = msg;
     }
 
     // Render the day grid grouped by unit

@@ -29,14 +29,14 @@
 
   <main class="lesson-body">
 
-    <!-- VOCAB -->
-    <section class="vocab-section">
-      <h2 class="section-heading">Key Vocabulary</h2>
+    <!-- VOCABULARY -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
       <div class="vocab-grid">
 
         <div class="vocab-card">
           <div class="vocab-term">Pythagorean Theorem</div>
-          <div class="vocab-def">In a right triangle: \(a^2 + b^2 = c^2\), where \(c\) is the hypotenuse (longest side).</div>
+          <div class="vocab-def">In a right triangle: $a^2 + b^2 = c^2$, where $c$ is the hypotenuse (longest side).</div>
         </div>
 
         <div class="vocab-card">
@@ -51,207 +51,346 @@
 
         <div class="vocab-card">
           <div class="vocab-term">Pythagorean Triple</div>
-          <div class="vocab-def">A set of three whole numbers satisfying \(a^2 + b^2 = c^2\). Common: 3-4-5, 5-12-13, 8-15-17.</div>
+          <div class="vocab-def">A set of three whole numbers satisfying $a^2 + b^2 = c^2$. Common: 3-4-5, 5-12-13, 8-15-17.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Converse of Pythagorean Theorem</div>
-          <div class="vocab-def">If \(a^2 + b^2 = c^2\), then the triangle is a right triangle.</div>
+          <div class="vocab-def">If $a^2 + b^2 = c^2$, then the triangle is a right triangle.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Distance Formula</div>
-          <div class="vocab-def">\(d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\) — derived from the Pythagorean Theorem.</div>
+          <div class="vocab-def">$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ — derived from the Pythagorean Theorem.</div>
         </div>
 
       </div>
     </section>
 
     <!-- CONCEPT -->
-    <section class="concept-section">
-      <h2 class="section-heading">The Pythagorean Theorem</h2>
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <!-- SVG: right triangle with squares on each side and label -->
-      <!-- Triangle: A(0,0) B(4,0) C(0,3); right angle at A -->
-      <!-- Squares: on legs and hypotenuse -->
-      <!-- origin SVG(70,170), unit=30px -->
-      <!-- A->SVG(70,170); B->SVG(190,170); C->SVG(70,80) -->
-      <!-- Hypotenuse: A to C to B -- wait, right angle at A means legs are AB (along x) and AC (along y) -->
-      <!-- Leg AB: along bottom, length 4 (sides: a=3, b=4, c=5) -->
-      <!-- Square on AB (leg 4): vertices A(70,170) B(190,170) and down: B(190,200) A(70,200) -->
-      <!-- Square on AC (leg 3): vertices A(70,170) C(70,80) and left: C(40,80) A(40,170) -->
-      <!-- Square on BC (hyp 5): vertices B(190,170) C(70,80) and perpendicular... complex -->
-      <!-- Simplified: just show the triangle with labeled sides -->
-      <figure class="svg-figure">
-        <svg viewBox="0 0 300 200" width="300" height="200" aria-label="Right triangle with Pythagorean Theorem labels">
-          <!-- Right triangle vertices: A(40,170) B(190,170) C(40,50) -->
-          <!-- a=leg AB=150px=5 units; b=leg AC=120px=4 units; hyp BC -->
-          <!-- Let's use a=3,b=4,c=5 with unit=35px -->
-          <!-- A(40,170) B(40+4*35,170)=(180,170) C(40, 170-3*35)=(40,65) -->
-          <!-- hyp = 5*35=175px; BC from (180,170) to (40,65) — verified sqrt(140^2+105^2)=sqrt(19600+11025)=sqrt(30625)=175 ✓ -->
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:300px;margin:0 auto;font-family:-apple-system,sans-serif;">
+            <rect x="5"  y="65"  width="35" height="105" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="22" y="120" font-size="11" text-anchor="middle" fill="#2563eb" font-weight="bold">b²</text>
+            <rect x="40" y="170" width="140" height="35" fill="#bbf7d0" fill-opacity="0.6" stroke="#16a34a" stroke-width="1.5"/>
+            <text x="110" y="192" font-size="11" text-anchor="middle" fill="#16a34a" font-weight="bold">a²</text>
+            <polygon points="40,170 180,170 40,65" fill="#fef3c7" fill-opacity="0.7" stroke="#d97706" stroke-width="2.5"/>
+            <rect x="40" y="155" width="15" height="15" fill="none" stroke="#374151" stroke-width="1.5"/>
+            <text x="110" y="162" font-size="12" text-anchor="middle" fill="#15803d" font-weight="bold">a = 4</text>
+            <text x="28"  y="120" font-size="12" text-anchor="middle" fill="#1d4ed8" font-weight="bold">b = 3</text>
+            <text x="118" y="105" font-size="12" text-anchor="middle" fill="#92400e" font-weight="bold" transform="rotate(-37,118,105)">c = 5</text>
+            <text x="230" y="70"  font-size="12" fill="#374151" font-weight="bold">$a^2 + b^2 = c^2$</text>
+            <text x="230" y="90"  font-size="11" fill="#374151">$4^2 + 3^2 = 5^2$</text>
+            <text x="230" y="110" font-size="11" fill="#374151">$16 + 9 = 25$ ✓</text>
+            <text x="230" y="140" font-size="10" fill="#92400e">c² = a² + b²</text>
+            <text x="230" y="155" font-size="10" fill="#92400e">= 16 + 9 = 25</text>
+            <text x="230" y="170" font-size="10" fill="#92400e">c = 5</text>
+          </svg>
+          <p class="diagram-caption">A 3-4-5 right triangle: $3^2 + 4^2 = 9 + 16 = 25 = 5^2$.</p>
+        </div>
 
-          <!-- squares on legs (simplified colored rects) -->
-          <!-- Square on leg b=AC (left side, height=3*35=105): -->
-          <rect x="5" y="65" width="35" height="105" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="22" y="120" font-size="11" text-anchor="middle" fill="#2563eb" font-weight="bold">b²</text>
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Common Pythagorean Triples (memorize these!):</strong><br>
+            3-4-5 &nbsp;|&nbsp; 5-12-13 &nbsp;|&nbsp; 8-15-17 &nbsp;|&nbsp; 7-24-25<br>
+            Any multiple also works: 6-8-10, 9-12-15, …
+          </div>
+        </div>
 
-          <!-- Square on leg a=AB (bottom, width=4*35=140): -->
-          <rect x="40" y="170" width="140" height="35" fill="#bbf7d0" fill-opacity="0.6" stroke="#16a34a" stroke-width="1.5"/>
-          <text x="110" y="192" font-size="11" text-anchor="middle" fill="#16a34a" font-weight="bold">a²</text>
-
-          <!-- Triangle -->
-          <polygon points="40,170 180,170 40,65" fill="#fef3c7" fill-opacity="0.7" stroke="#d97706" stroke-width="2.5"/>
-
-          <!-- Right angle mark at A -->
-          <rect x="40" y="155" width="15" height="15" fill="none" stroke="#374151" stroke-width="1.5"/>
-
-          <!-- Labels on sides -->
-          <!-- leg a = AB: label below middle of AB -->
-          <text x="110" y="162" font-size="12" text-anchor="middle" fill="#15803d" font-weight="bold">a = 4</text>
-          <!-- leg b = AC: label left of middle of AC -->
-          <text x="28" y="120" font-size="12" text-anchor="middle" fill="#1d4ed8" font-weight="bold">b = 3</text>
-          <!-- hypotenuse BC: label along middle -->
-          <text x="118" y="105" font-size="12" text-anchor="middle" fill="#92400e" font-weight="bold" transform="rotate(-37, 118, 105)">c = 5</text>
-
-          <!-- Formula -->
-          <text x="230" y="70"  font-size="12" fill="#374151" font-weight="bold">\(a^2 + b^2 = c^2\)</text>
-          <text x="230" y="90"  font-size="11" fill="#374151">\(4^2 + 3^2 = 5^2\)</text>
-          <text x="230" y="110" font-size="11" fill="#374151">\(16 + 9 = 25\) ✓</text>
-
-          <!-- hypotenuse square (simplified label) -->
-          <text x="230" y="140" font-size="10" fill="#92400e">c² = a² + b²</text>
-          <text x="230" y="155" font-size="10" fill="#92400e">= 16 + 9 = 25</text>
-          <text x="230" y="170" font-size="10" fill="#92400e">c = 5</text>
-        </svg>
-        <figcaption>A 3-4-5 right triangle: \(3^2 + 4^2 = 9 + 16 = 25 = 5^2\).</figcaption>
-      </figure>
-
-      <div class="callout callout--tip">
-        <strong>Common Pythagorean Triples (memorize these!):</strong><br>
-        3-4-5 &nbsp;|&nbsp; 5-12-13 &nbsp;|&nbsp; 8-15-17 &nbsp;|&nbsp; 7-24-25<br>
-        Any multiple also works: 6-8-10, 9-12-15, …
       </div>
     </section>
 
-    <!-- EXAMPLES -->
-    <section class="examples-section">
-      <h2 class="section-heading">Worked Examples</h2>
+    <!-- WORKED EXAMPLES -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
 
-      <div class="example">
-        <div class="example-problem">Find the hypotenuse of a right triangle with legs 5 and 12.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Theorem:</strong> \(a^2 + b^2 = c^2\)</p>
-          <p>\(5^2 + 12^2 = c^2\)</p>
-          <p>\(25 + 144 = c^2 = 169\)</p>
-          <p>\(c = \sqrt{169} = 13\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Find the hypotenuse
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Find the hypotenuse of a right triangle with legs 5 and 12.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Write the theorem: $a^2 + b^2 = c^2$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Substitute: $5^2 + 12^2 = c^2 \Rightarrow 25 + 144 = 169$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">Take the square root: $c = \sqrt{169} = 13$</div>
+            </div>
+          </div>
+          <div class="example__answer">Hypotenuse $= 13$ &nbsp;(this is a 5-12-13 Pythagorean triple)</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">A right triangle has hypotenuse 17 and one leg 8. Find the other leg.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Theorem:</strong> \(a^2 + 8^2 = 17^2\)</p>
-          <p>\(a^2 + 64 = 289\)</p>
-          <p>\(a^2 = 225\)</p>
-          <p>\(a = 15\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Find a missing leg
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A right triangle has hypotenuse 17 and one leg 8. Find the other leg.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Set up: $a^2 + 8^2 = 17^2$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">$a^2 + 64 = 289$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">$a^2 = 225 \Rightarrow a = 15$</div>
+            </div>
+          </div>
+          <div class="example__answer">Other leg $= 15$ &nbsp;(8-15-17 triple)</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">Find the distance between \((-3, 1)\) and \((5, 7)\).</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Distance formula:</strong> \(d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\)</p>
-          <p>\(d = \sqrt{(5-(-3))^2 + (7-1)^2}\)</p>
-          <p>\(= \sqrt{8^2 + 6^2} = \sqrt{64+36} = \sqrt{100} = 10\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Distance between two points
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Find the distance between $(-3,1)$ and $(5,7)$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Distance formula: $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Substitute: $d = \sqrt{(5-(-3))^2 + (7-1)^2} = \sqrt{8^2 + 6^2}$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">$= \sqrt{64 + 36} = \sqrt{100} = 10$</div>
+            </div>
+          </div>
+          <div class="example__answer">Distance $= 10$</div>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <!-- PROBLEMS -->
-    <section class="problems-section">
-      <h2 class="section-heading">Practice Problems</h2>
+    <!-- PRACTICE PROBLEMS -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- P1: legs 6,8: hyp=sqrt(36+64)=sqrt(100)=10 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="10" data-tolerance="0">
-        <div class="problem-stem">Find the hypotenuse of a right triangle with legs 6 and 8.</div>
+        <div class="problem" data-type="fill-in" data-answer="10" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the hypotenuse of a right triangle with legs 6 and 8.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$c =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$6^2 + 8^2 = 36 + 64 = ?$ Then take the square root.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{36+64} = \sqrt{100} = 10$ &nbsp;(6-8-10 is a multiple of 3-4-5).</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A right triangle has hypotenuse 13 and one leg 5. Find the other leg.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>leg $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^2 + 5^2 = 13^2 \Rightarrow a^2 = 169 - 25$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$a^2 = 169 - 25 = 144 \Rightarrow a = 12$ &nbsp;(5-12-13 triple).</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Is 7, 24, 25 a Pythagorean triple?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Yes — $7^2 + 24^2 = 49 + 576 = 625 = 25^2$</button>
+            <button class="option" data-value="1">No — 25 is not a perfect square</button>
+            <button class="option" data-value="2">No — the numbers are too large</button>
+            <button class="option" data-value="3">Yes — but only approximately</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Check: does $7^2 + 24^2 = 25^2$? Compute each side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$49 + 576 = 625$ and $25^2 = 625$. ✓ It is a Pythagorean triple.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A triangle has sides 9, 12, and 15. Is it a right triangle?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Yes — $9^2 + 12^2 = 81 + 144 = 225 = 15^2$</button>
+            <button class="option" data-value="1">No — none of the sides equal each other</button>
+            <button class="option" data-value="2">No — 15 is not the hypotenuse</button>
+            <button class="option" data-value="3">Cannot be determined without angles</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Use the converse: check whether $a^2 + b^2 = c^2$ with 15 as the longest side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$81 + 144 = 225 = 15^2$ ✓. This is a 3-4-5 triple scaled by 3.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="13" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the distance between $(0,0)$ and $(5,12)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$d =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$d = \sqrt{5^2 + 12^2}$. Do you recognize this triple?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{25 + 144} = \sqrt{169} = 13$ &nbsp;(5-12-13 triple).</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="1.41" data-tolerance="0.01">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the hypotenuse of a right triangle with both legs equal to 1. Round to the nearest hundredth.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$c \approx$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$c = \sqrt{1^2 + 1^2} = \sqrt{2}$. What is $\sqrt{2}$ rounded to the nearest hundredth?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$c = \sqrt{2} \approx 1.41$. This is an irrational number.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the distance between $(1,2)$ and $(4,6)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$d =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$d = \sqrt{(4-1)^2 + (6-2)^2} = \sqrt{3^2 + 4^2}$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{9 + 16} = \sqrt{25} = 5$ &nbsp;(3-4-5 triple).</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="8" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A 10-foot ladder leans against a wall. The base is 6 feet from the wall. How high up the wall does the ladder reach?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>height $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The ladder is the hypotenuse (10 ft), the base is one leg (6 ft). Find the missing leg.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$h^2 + 6^2 = 10^2 \Rightarrow h^2 = 100 - 36 = 64 \Rightarrow h = 8$ ft.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A triangle has sides 5, 7, and 9. Is it a right triangle?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Yes — $5^2 + 7^2 = 9^2$</button>
+            <button class="option" data-value="1">No — $5^2 + 7^2 = 74 \ne 81 = 9^2$</button>
+            <button class="option" data-value="2">Yes — 9 is the hypotenuse</button>
+            <button class="option" data-value="3">Cannot be determined</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Check: $5^2 + 7^2 = 25 + 49 = ?$ Compare to $9^2 = 81$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$25 + 49 = 74 \ne 81$. Since $a^2 + b^2 \ne c^2$, this is not a right triangle.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="29" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the hypotenuse of a right triangle with legs 20 and 21.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$c =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$c = \sqrt{20^2 + 21^2} = \sqrt{400 + 441}$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{841} = 29$ &nbsp;(20-21-29 is a Pythagorean triple).</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- P2: hyp=13, leg=5: other leg=sqrt(169-25)=sqrt(144)=12 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
-        <div class="problem-stem">A right triangle has hypotenuse 13 and one leg 5. Find the other leg.</div>
-      </div>
-
-      <!-- P3: is 7,24,25 a Pythagorean triple? 49+576=625=25^2 → yes → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">Is 7, 24, 25 a Pythagorean triple?</div>
-        <ol class="choices" type="A">
-          <li>Yes — \(7^2 + 24^2 = 49 + 576 = 625 = 25^2\)</li>
-          <li>No — 25 is not a perfect square</li>
-          <li>No — the numbers are too large</li>
-          <li>Yes — but only approximately</li>
-        </ol>
-      </div>
-
-      <!-- P4: legs 9 and 12: is this a right triangle using converse? 81+144=225=15^2 → yes → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">A triangle has sides 9, 12, and 15. Is it a right triangle?</div>
-        <ol class="choices" type="A">
-          <li>Yes — \(9^2 + 12^2 = 81 + 144 = 225 = 15^2\)</li>
-          <li>No — none of the sides equal each other</li>
-          <li>No — 15 is not the hypotenuse</li>
-          <li>Cannot be determined without angles</li>
-        </ol>
-      </div>
-
-      <!-- P5: distance (0,0) to (5,12): sqrt(25+144)=sqrt(169)=13 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="13" data-tolerance="0">
-        <div class="problem-stem">Find the distance between \((0, 0)\) and \((5, 12)\).</div>
-      </div>
-
-      <!-- P6: legs 1,1: hyp=sqrt(2)≈1.41 → fill-in with tolerance -->
-      <div class="problem" data-type="fill-in" data-answer="1.41" data-tolerance="0.01">
-        <div class="problem-stem">Find the hypotenuse of a right triangle with legs both equal to 1. (Round to the nearest hundredth.)</div>
-      </div>
-
-      <!-- P7: distance (1,2) to (4,6): sqrt(9+16)=sqrt(25)=5 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
-        <div class="problem-stem">Find the distance between \((1, 2)\) and \((4, 6)\).</div>
-      </div>
-
-      <!-- P8: ladder 10ft leans against wall, base 6ft from wall: height=sqrt(100-36)=sqrt(64)=8 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="8" data-tolerance="0">
-        <div class="problem-stem">A 10-foot ladder leans against a wall. The base is 6 feet from the wall. How high up the wall does the ladder reach?</div>
-      </div>
-
-      <!-- P9: sides 5,7,9: is it right? 25+49=74≠81 → no → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">A triangle has sides 5, 7, and 9. Is it a right triangle?</div>
-        <ol class="choices" type="A">
-          <li>Yes — \(5^2 + 7^2 = 9^2\)</li>
-          <li>No — \(5^2 + 7^2 = 74 \ne 81 = 9^2\)</li>
-          <li>Yes — 9 is the hypotenuse</li>
-          <li>Cannot be determined</li>
-        </ol>
-      </div>
-
-      <!-- P10: right triangle, legs 20 and 21: hyp=sqrt(400+441)=sqrt(841)=29 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="29" data-tolerance="0">
-        <div class="problem-stem">Find the hypotenuse of a right triangle with legs 20 and 21.</div>
-      </div>
-
     </section>
+
+    <nav class="lesson-nav">
+      <a href="day-24.html" id="nav-prev">← Day 24: Similarity &amp; Dilations</a>
+      <a href="day-26.html" id="nav-next">Day 26: Angles &amp; Volume →</a>
+    </nav>
 
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-24.html" id="nav-prev">← Day 24</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <a href="day-26.html" id="nav-next">Day 26 →</a>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>

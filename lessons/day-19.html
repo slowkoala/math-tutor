@@ -29,14 +29,14 @@
 
   <main class="lesson-body">
 
-    <!-- VOCAB -->
-    <section class="vocab-section">
-      <h2 class="section-heading">Key Vocabulary</h2>
+    <!-- ── VOCABULARY ───────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
       <div class="vocab-grid">
 
         <div class="vocab-card">
           <div class="vocab-term">Quadratic Expression</div>
-          <div class="vocab-def">A polynomial of degree 2: \(ax^2 + bx + c\) where \(a \ne 0\).</div>
+          <div class="vocab-def">A polynomial of degree 2: $ax^2 + bx + c$ where $a \ne 0$.</div>
         </div>
 
         <div class="vocab-card">
@@ -51,7 +51,7 @@
 
         <div class="vocab-card">
           <div class="vocab-term">Zero Product Property</div>
-          <div class="vocab-def">If \(A \cdot B = 0\), then \(A = 0\) or \(B = 0\). Used to solve factored equations.</div>
+          <div class="vocab-def">If $A \cdot B = 0$, then $A = 0$ or $B = 0$. Used to solve factored equations.</div>
         </div>
 
         <div class="vocab-card">
@@ -61,203 +61,379 @@
 
         <div class="vocab-card">
           <div class="vocab-term">ac Method</div>
-          <div class="vocab-def">For \(ax^2+bx+c\): find two numbers that multiply to \(ac\) and add to \(b\), then factor by grouping.</div>
+          <div class="vocab-def">For $ax^2+bx+c$: find two numbers that multiply to $ac$ and add to $b$, then factor by grouping.</div>
         </div>
 
       </div>
     </section>
 
-    <!-- CONCEPT -->
-    <section class="concept-section">
-      <h2 class="section-heading">Factoring Strategy</h2>
+    <!-- ── CONCEPT ──────────────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <div class="callout callout--info">
-        <strong>Flowchart — always follow this order:</strong>
-        <ol style="margin:0.4rem 0 0 1.1rem; line-height:1.8">
-          <li><strong>GCF first</strong> — factor out the greatest common factor.</li>
-          <li><strong>Check the number of terms:</strong>
-            <ul style="margin-top:0.3rem">
-              <li>2 terms → difference of squares? \(a^2 - b^2 = (a+b)(a-b)\)</li>
-              <li>3 terms, \(a=1\) → find two numbers multiplying to \(c\) and adding to \(b\).</li>
-              <li>3 terms, \(a \ne 1\) → use the ac method.</li>
-            </ul>
-          </li>
-          <li><strong>Check your answer</strong> by expanding (FOIL).</li>
-        </ol>
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Flowchart — always follow this order:</strong>
+            <ol style="margin:0.4rem 0 0 1.1rem; line-height:1.8">
+              <li><strong>GCF first</strong> — factor out the greatest common factor.</li>
+              <li><strong>Check the number of terms:</strong>
+                <ul style="margin-top:0.3rem">
+                  <li>2 terms → difference of squares? $a^2 - b^2 = (a+b)(a-b)$</li>
+                  <li>3 terms, $a=1$ → find two numbers multiplying to $c$ and adding to $b$.</li>
+                  <li>3 terms, $a \ne 1$ → use the ac method.</li>
+                </ul>
+              </li>
+              <li><strong>Check your answer</strong> by expanding (FOIL).</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- SVG: FOIL visual / factor box -->
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 310 165" width="310" height="165" aria-label="Factor box for x squared plus 7x plus 12">
+            <text x="155" y="16" font-size="12" text-anchor="middle" fill="#374151" font-weight="bold">Factor Box: $x^2 + 7x + 12$</text>
+            <!-- column headers -->
+            <text x="130" y="38" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="bold">x</text>
+            <text x="200" y="38" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="bold">+3</text>
+            <!-- row headers -->
+            <text x="68" y="80" font-size="12" text-anchor="end" fill="#16a34a" font-weight="bold">x</text>
+            <text x="68" y="135" font-size="12" text-anchor="end" fill="#16a34a" font-weight="bold">+4</text>
+            <!-- box outline -->
+            <rect x="75" y="45" width="220" height="110" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="75"  y1="100" x2="295" y2="100" stroke="#9ca3af" stroke-width="1"/>
+            <line x1="165" y1="45"  x2="165" y2="155" stroke="#9ca3af" stroke-width="1"/>
+            <!-- cell contents -->
+            <text x="120" y="78" font-size="13" text-anchor="middle" fill="#374151">$x^2$</text>
+            <text x="230" y="78" font-size="13" text-anchor="middle" fill="#374151">$3x$</text>
+            <text x="120" y="133" font-size="13" text-anchor="middle" fill="#374151">$4x$</text>
+            <text x="230" y="133" font-size="13" text-anchor="middle" fill="#374151">$12$</text>
+            <!-- answer label -->
+            <text x="155" y="160" font-size="11" text-anchor="middle" fill="#7c3aed">$= (x+3)(x+4)$   since $3 \times 4=12$ and $3+4=7$</text>
+          </svg>
+          <p class="diagram-caption">The box method shows each product; combine the middle terms to verify $3x + 4x = 7x$.</p>
+        </div>
+
       </div>
-
-      <!-- SVG: FOIL visual / factor box -->
-      <!-- Box method for (x+3)(x+4)=x^2+7x+12 -->
-      <figure class="svg-figure">
-        <svg viewBox="0 0 310 165" width="310" height="165" aria-label="Factor box for x squared plus 7x plus 12">
-          <text x="155" y="16" font-size="12" text-anchor="middle" fill="#374151" font-weight="bold">Factor Box: \(x^2 + 7x + 12\)</text>
-          <!-- column headers -->
-          <text x="130" y="38" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="bold">x</text>
-          <text x="200" y="38" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="bold">+3</text>
-          <!-- row headers -->
-          <text x="68" y="80" font-size="12" text-anchor="end" fill="#16a34a" font-weight="bold">x</text>
-          <text x="68" y="135" font-size="12" text-anchor="end" fill="#16a34a" font-weight="bold">+4</text>
-          <!-- box outline -->
-          <rect x="75" y="45" width="220" height="110" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
-          <line x1="75"  y1="100" x2="295" y2="100" stroke="#9ca3af" stroke-width="1"/>
-          <line x1="165" y1="45"  x2="165" y2="155" stroke="#9ca3af" stroke-width="1"/>
-          <!-- cell contents -->
-          <text x="120" y="78" font-size="13" text-anchor="middle" fill="#374151">\(x^2\)</text>
-          <text x="230" y="78" font-size="13" text-anchor="middle" fill="#374151">\(3x\)</text>
-          <text x="120" y="133" font-size="13" text-anchor="middle" fill="#374151">\(4x\)</text>
-          <text x="230" y="133" font-size="13" text-anchor="middle" fill="#374151">\(12\)</text>
-          <!-- answer label -->
-          <text x="155" y="160" font-size="11" text-anchor="middle" fill="#7c3aed">\(= (x+3)(x+4)\)   since \(3 \times 4=12\) and \(3+4=7\)</text>
-        </svg>
-        <figcaption>The box method shows each product; combine the middle terms to verify \(3x + 4x = 7x\).</figcaption>
-      </figure>
     </section>
 
-    <!-- EXAMPLES -->
-    <section class="examples-section">
-      <h2 class="section-heading">Worked Examples</h2>
+    <!-- ── WORKED EXAMPLES ──────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
 
-      <div class="example">
-        <div class="example-problem">Factor: \(x^2 + 5x + 6\)</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Step 1 — GCF:</strong> None (no common factor).</p>
-          <p><strong>Step 2 — Find two numbers:</strong> multiply to 6, add to 5.</p>
-          <p>Pairs: \(1 \times 6 = 6\), \(1+6=7\); \(2 \times 3=6\), \(2+3=5\) ✓</p>
-          <p><strong>Step 3 — Factor:</strong> \((x+2)(x+3)\)</p>
-          <p><strong>Check:</strong> \((x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6\) ✓</p>
+        <!-- Example 1 -->
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Factor a monic trinomial ($a = 1$)
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Factor: $x^2 + 5x + 6$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content"><strong>GCF:</strong> None (no common factor).</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content"><strong>Find two numbers:</strong> multiply to 6, add to 5.<br>
+              Pairs: $1 \times 6 = 6$, $1+6=7$; $2 \times 3=6$, $2+3=5$ ✓</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content"><strong>Factor:</strong> $(x+2)(x+3)$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">4</span>
+              <div class="step__content"><strong>Check:</strong> $(x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6$ ✓</div>
+            </div>
+          </div>
+          <div class="example__answer">
+            $x^2 + 5x + 6 = (x+2)(x+3)$
+          </div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">Factor: \(2x^2 + 7x + 3\)</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Step 1 — GCF:</strong> None.</p>
-          <p><strong>Step 2 — ac method:</strong> \(a \cdot c = 2 \cdot 3 = 6\). Need two numbers multiplying to 6, adding to 7: \(1\) and \(6\).</p>
-          <p><strong>Step 3 — Rewrite:</strong> \(2x^2 + x + 6x + 3\)</p>
-          <p><strong>Step 4 — Group:</strong> \(x(2x+1) + 3(2x+1) = (x+3)(2x+1)\)</p>
+        <!-- Example 2 -->
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Factor with the ac method ($a \ne 1$)
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Factor: $2x^2 + 7x + 3$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content"><strong>GCF:</strong> None.</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content"><strong>ac method:</strong> $a \cdot c = 2 \cdot 3 = 6$. Need two numbers multiplying to 6, adding to 7: $1$ and $6$.</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content"><strong>Rewrite:</strong> $2x^2 + x + 6x + 3$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">4</span>
+              <div class="step__content"><strong>Group:</strong> $x(2x+1) + 3(2x+1) = (x+3)(2x+1)$</div>
+            </div>
+          </div>
+          <div class="example__answer">
+            $2x^2 + 7x + 3 = (x+3)(2x+1)$
+          </div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">Solve: \(x^2 - x - 12 = 0\)</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Step 1 — Factor:</strong> Find two numbers multiplying to \(-12\), adding to \(-1\): \(-4\) and \(3\).</p>
-          <p>\((x-4)(x+3) = 0\)</p>
-          <p><strong>Step 2 — Zero Product:</strong> \(x-4=0\) or \(x+3=0\)</p>
-          <p>\(x = 4\) or \(x = -3\)</p>
+        <!-- Example 3 -->
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Solve a quadratic by factoring
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Solve: $x^2 - x - 12 = 0$</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content"><strong>Factor:</strong> Find two numbers multiplying to $-12$, adding to $-1$: $-4$ and $3$.<br>
+              $(x-4)(x+3) = 0$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content"><strong>Zero Product:</strong> $x-4=0$ or $x+3=0$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">$x = 4$ or $x = -3$</div>
+            </div>
+          </div>
+          <div class="example__answer">
+            $x = 4$ or $x = -3$.
+          </div>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <!-- PROBLEMS -->
-    <section class="problems-section">
-      <h2 class="section-heading">Practice Problems</h2>
+    <!-- ── PRACTICE PROBLEMS ────────────────────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- P1: x^2+8x+15=(x+3)(x+5): factors → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem">Factor: \(x^2 + 8x + 15\)</div>
-        <ol class="choices" type="A">
-          <li>\((x+1)(x+15)\)</li>
-          <li>\((x+4)(x+4)\)</li>
-          <li>\((x+3)(x+5)\)</li>
-          <li>\((x+6)(x+2)\)</li>
-        </ol>
+        <!-- P1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $x^2 + 8x + 15$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(x+1)(x+15)$</button>
+            <button class="option" data-value="1">$(x+4)(x+4)$</button>
+            <button class="option" data-value="2">$(x+3)(x+5)$</button>
+            <button class="option" data-value="3">$(x+6)(x+2)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find two numbers that multiply to 15 and add to 8.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$3 \times 5 = 15$ and $3 + 5 = 8$. So $x^2+8x+15 = (x+3)(x+5)$. Check: $(x+3)(x+5) = x^2+8x+15$ ✓.</div>
+          </div>
+        </div>
+
+        <!-- P2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $x^2 - 9x + 18$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(x-2)(x-7)$</button>
+            <button class="option" data-value="1">$(x+3)(x-6)$</button>
+            <button class="option" data-value="2">$(x-9)(x+2)$</button>
+            <button class="option" data-value="3">$(x-3)(x-6)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find two negative numbers that multiply to 18 and add to $-9$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(-3) \times (-6) = 18$ and $(-3) + (-6) = -9$. So $x^2-9x+18 = (x-3)(x-6)$.</div>
+          </div>
+        </div>
+
+        <!-- P3 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $x^2 + 3x - 10$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(x-5)(x+2)$</button>
+            <button class="option" data-value="1">$(x+5)(x-2)$</button>
+            <button class="option" data-value="2">$(x+10)(x-1)$</button>
+            <button class="option" data-value="3">$(x-10)(x+1)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find two numbers multiplying to $-10$ and adding to $+3$. One must be positive, one negative.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$5 \times (-2) = -10$ and $5 + (-2) = 3$. So $x^2+3x-10 = (x+5)(x-2)$.</div>
+          </div>
+        </div>
+
+        <!-- P4 -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor out the GCF from $3x^2 + 9x$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$3x(x + 3)$</button>
+            <button class="option" data-value="1">$3(x^2 + 9x)$</button>
+            <button class="option" data-value="2">$x(3x + 9)$</button>
+            <button class="option" data-value="3">$9x(x + 1)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The GCF of $3x^2$ and $9x$ includes both the common number factor and the common variable factor.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>GCF of $3x^2$ and $9x$ is $3x$. Factoring: $3x^2 + 9x = 3x(x + 3)$. Verify: $3x \cdot x = 3x^2$ ✓ and $3x \cdot 3 = 9x$ ✓.</div>
+          </div>
+        </div>
+
+        <!-- P5 -->
+        <div class="problem" data-type="fill-in" data-answer="-2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $x^2 + 6x + 8 = 0$. What is the larger root?</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Factor: find two numbers multiplying to 8, adding to 6. Then use the Zero Product Property.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^2+6x+8 = (x+2)(x+4) = 0$. Roots: $x = -2$ or $x = -4$. The larger root is $-2$.</div>
+          </div>
+        </div>
+
+        <!-- P6 -->
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $x^2 - 5x + 6 = 0$. What is the smaller root?</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find two numbers multiplying to 6 and adding to $-5$. Both should be negative.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^2-5x+6 = (x-2)(x-3) = 0$. Roots: $x = 2$ or $x = 3$. The smaller root is $2$.</div>
+          </div>
+        </div>
+
+        <!-- P7 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $x^2 - 16$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(x-4)^2$</button>
+            <button class="option" data-value="1">$(x+8)(x-8)$</button>
+            <button class="option" data-value="2">$(x+4)(x-4)$</button>
+            <button class="option" data-value="3">$(x-2)(x-8)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Recognize the difference of squares pattern: $a^2 - b^2 = (a+b)(a-b)$. Here $a = x$ and $b = 4$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^2 - 16 = x^2 - 4^2 = (x+4)(x-4)$. This is the difference of squares pattern.</div>
+          </div>
+        </div>
+
+        <!-- P8 -->
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $2x^2 + 5x - 3$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2x+3)(x-1)$</button>
+            <button class="option" data-value="1">$(x+3)(2x+1)$</button>
+            <button class="option" data-value="2">$(2x-3)(x+1)$</button>
+            <button class="option" data-value="3">$(2x-1)(x+3)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Use the ac method: $ac = 2 \times (-3) = -6$. Find two numbers multiplying to $-6$ and adding to $5$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$ac = -6$; need numbers multiplying to $-6$ adding to $5$: $6$ and $-1$. Rewrite: $2x^2+6x-x-3 = 2x(x+3)-1(x+3) = (2x-1)(x+3)$.</div>
+          </div>
+        </div>
+
+        <!-- P9 -->
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Solve $x^2 - 2x - 15 = 0$. What is the sum of the two roots?</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Factor first: find two numbers multiplying to $-15$ and adding to $-2$. Then find both roots.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$x^2-2x-15 = (x-5)(x+3) = 0$. Roots: $x=5$ or $x=-3$. Sum: $5 + (-3) = 2$.</div>
+          </div>
+        </div>
+
+        <!-- P10 -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Factor: $4x^2 - 25$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(2x+5)(2x-5)$</button>
+            <button class="option" data-value="1">$(4x+5)(x-5)$</button>
+            <button class="option" data-value="2">$(2x-5)^2$</button>
+            <button class="option" data-value="3">$(4x-25)(x+1)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Recognize the difference of squares: $4x^2 = (2x)^2$ and $25 = 5^2$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$4x^2 - 25 = (2x)^2 - 5^2 = (2x+5)(2x-5)$. Check: $(2x+5)(2x-5) = 4x^2 - 10x + 10x - 25 = 4x^2 - 25$ ✓.</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- P2: x^2-9x+18=(x-3)(x-6): factors → index 3 -->
-      <div class="problem" data-type="multiple-choice" data-answer="3">
-        <div class="problem-stem">Factor: \(x^2 - 9x + 18\)</div>
-        <ol class="choices" type="A">
-          <li>\((x-2)(x-7)\)</li>
-          <li>\((x+3)(x-6)\)</li>
-          <li>\((x-9)(x+2)\)</li>
-          <li>\((x-3)(x-6)\)</li>
-        </ol>
-      </div>
-
-      <!-- P3: x^2+3x-10=(x+5)(x-2): factors → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">Factor: \(x^2 + 3x - 10\)</div>
-        <ol class="choices" type="A">
-          <li>\((x-5)(x+2)\)</li>
-          <li>\((x+5)(x-2)\)</li>
-          <li>\((x+10)(x-1)\)</li>
-          <li>\((x-10)(x+1)\)</li>
-        </ol>
-      </div>
-
-      <!-- P4: GCF of 3x^2+9x = 3x(x+3): GCF=3x → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">Factor out the GCF from \(3x^2 + 9x\).</div>
-        <ol class="choices" type="A">
-          <li>\(3x(x + 3)\)</li>
-          <li>\(3(x^2 + 9x)\)</li>
-          <li>\(x(3x + 9)\)</li>
-          <li>\(9x(x + 1)\)</li>
-        </ol>
-      </div>
-
-      <!-- P5: solve x^2+6x+8=0: (x+2)(x+4)=0 -> x=-2 or x=-4: larger root=-2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="-2" data-tolerance="0">
-        <div class="problem-stem">Solve \(x^2 + 6x + 8 = 0\). What is the larger root?</div>
-      </div>
-
-      <!-- P6: solve x^2-5x+6=0: (x-2)(x-3)=0 -> x=2 or x=3: smaller root=2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
-        <div class="problem-stem">Solve \(x^2 - 5x + 6 = 0\). What is the smaller root?</div>
-      </div>
-
-      <!-- P7: diff of squares x^2-16=(x+4)(x-4) → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem">Factor: \(x^2 - 16\)</div>
-        <ol class="choices" type="A">
-          <li>\((x-4)^2\)</li>
-          <li>\((x+8)(x-8)\)</li>
-          <li>\((x+4)(x-4)\)</li>
-          <li>\((x-2)(x-8)\)</li>
-        </ol>
-      </div>
-
-      <!-- P8: 2x^2+5x-3=(2x-1)(x+3) → index 3 -->
-      <div class="problem" data-type="multiple-choice" data-answer="3">
-        <div class="problem-stem">Factor: \(2x^2 + 5x - 3\)</div>
-        <ol class="choices" type="A">
-          <li>\((2x+3)(x-1)\)</li>
-          <li>\((x+3)(2x+1)\)</li>
-          <li>\((2x-3)(x+1)\)</li>
-          <li>\((2x-1)(x+3)\)</li>
-        </ol>
-      </div>
-
-      <!-- P9: x^2-2x-15=0: (x-5)(x+3)=0 -> x=5 or x=-3: sum of roots=2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
-        <div class="problem-stem">Solve \(x^2 - 2x - 15 = 0\). What is the sum of the two roots?</div>
-      </div>
-
-      <!-- P10: factor 4x^2-25=(2x+5)(2x-5) → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">Factor: \(4x^2 - 25\)</div>
-        <ol class="choices" type="A">
-          <li>\((2x+5)(2x-5)\)</li>
-          <li>\((4x+5)(x-5)\)</li>
-          <li>\((2x-5)^2\)</li>
-          <li>\((4x-25)(x+1)\)</li>
-        </ol>
-      </div>
-
     </section>
+
+    <!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
+    <nav class="lesson-nav">
+      <a href="day-18.html" id="nav-prev">← Day 18: Creating Functions from Contexts</a>
+      <a href="day-20.html" id="nav-next">Day 20: Polynomials: Operations &amp; Special Products →</a>
+    </nav>
 
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-18.html" id="nav-prev">← Day 18</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <a href="day-20.html" id="nav-next">Day 20 →</a>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>

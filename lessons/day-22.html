@@ -30,8 +30,8 @@
   <main class="lesson-body">
 
     <!-- VOCAB -->
-    <section class="vocab-section">
-      <h2 class="section-heading">Key Vocabulary</h2>
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
       <div class="vocab-grid">
 
         <div class="vocab-card">
@@ -68,215 +68,434 @@
     </section>
 
     <!-- CONCEPT -->
-    <section class="concept-section">
-      <h2 class="section-heading">Scatter Plots &amp; Correlation</h2>
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <!-- SVG: 3-panel scatter plots showing positive, negative, and no correlation -->
-      <!-- Each panel 120px wide, 10 data points each -->
-      <figure class="svg-figure">
-        <svg viewBox="0 0 400 145" width="400" height="145" aria-label="Scatter plot correlation examples">
-          <!-- POSITIVE CORRELATION -->
-          <rect x="5" y="5" width="120" height="130" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
-          <text x="65" y="18" font-size="10" text-anchor="middle" fill="#15803d" font-weight="bold">Positive</text>
-          <line x1="15" y1="120" x2="120" y2="120" stroke="#374151" stroke-width="1"/>
-          <line x1="15" y1="20"  x2="15"  y2="120" stroke="#374151" stroke-width="1"/>
-          <!-- trend line -->
-          <line x1="15" y1="115" x2="120" y2="35" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4"/>
-          <!-- data points (roughly along positive trend) -->
-          <circle cx="22" cy="112" r="3" fill="#16a34a"/>
-          <circle cx="35" cy="105" r="3" fill="#16a34a"/>
-          <circle cx="45" cy="95"  r="3" fill="#16a34a"/>
-          <circle cx="55" cy="88"  r="3" fill="#16a34a"/>
-          <circle cx="65" cy="82"  r="3" fill="#16a34a"/>
-          <circle cx="75" cy="70"  r="3" fill="#16a34a"/>
-          <circle cx="85" cy="62"  r="3" fill="#16a34a"/>
-          <circle cx="95" cy="55"  r="3" fill="#16a34a"/>
-          <circle cx="108" cy="45" r="3" fill="#16a34a"/>
-          <circle cx="115" cy="38" r="3" fill="#16a34a"/>
-          <text x="65" y="138" font-size="9" text-anchor="middle" fill="#15803d">as x↑, y↑</text>
+        <p>A <strong>scatter plot</strong> displays bivariate data — each point is an ordered pair $(x, y)$. The shape of the cloud of points tells us whether there is a <strong>correlation</strong> between the two variables.</p>
 
-          <!-- NEGATIVE CORRELATION -->
-          <rect x="140" y="5" width="120" height="130" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
-          <text x="200" y="18" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">Negative</text>
-          <line x1="150" y1="120" x2="255" y2="120" stroke="#374151" stroke-width="1"/>
-          <line x1="150" y1="20"  x2="150" y2="120" stroke="#374151" stroke-width="1"/>
-          <line x1="150" y1="35" x2="255" y2="115" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4"/>
-          <circle cx="157" cy="38" r="3" fill="#dc2626"/>
-          <circle cx="168" cy="45" r="3" fill="#dc2626"/>
-          <circle cx="178" cy="55" r="3" fill="#dc2626"/>
-          <circle cx="188" cy="65" r="3" fill="#dc2626"/>
-          <circle cx="198" cy="72" r="3" fill="#dc2626"/>
-          <circle cx="210" cy="82" r="3" fill="#dc2626"/>
-          <circle cx="220" cy="90" r="3" fill="#dc2626"/>
-          <circle cx="232" cy="98" r="3" fill="#dc2626"/>
-          <circle cx="242" cy="108" r="3" fill="#dc2626"/>
-          <circle cx="250" cy="112" r="3" fill="#dc2626"/>
-          <text x="200" y="138" font-size="9" text-anchor="middle" fill="#dc2626">as x↑, y↓</text>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 400 145" width="400" height="145" aria-label="Scatter plot correlation examples">
+            <!-- POSITIVE CORRELATION -->
+            <rect x="5" y="5" width="120" height="130" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+            <text x="65" y="18" font-size="10" text-anchor="middle" fill="#15803d" font-weight="bold">Positive</text>
+            <line x1="15" y1="120" x2="120" y2="120" stroke="#374151" stroke-width="1"/>
+            <line x1="15" y1="20"  x2="15"  y2="120" stroke="#374151" stroke-width="1"/>
+            <!-- trend line -->
+            <line x1="15" y1="115" x2="120" y2="35" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4"/>
+            <!-- data points (roughly along positive trend) -->
+            <circle cx="22" cy="112" r="3" fill="#16a34a"/>
+            <circle cx="35" cy="105" r="3" fill="#16a34a"/>
+            <circle cx="45" cy="95"  r="3" fill="#16a34a"/>
+            <circle cx="55" cy="88"  r="3" fill="#16a34a"/>
+            <circle cx="65" cy="82"  r="3" fill="#16a34a"/>
+            <circle cx="75" cy="70"  r="3" fill="#16a34a"/>
+            <circle cx="85" cy="62"  r="3" fill="#16a34a"/>
+            <circle cx="95" cy="55"  r="3" fill="#16a34a"/>
+            <circle cx="108" cy="45" r="3" fill="#16a34a"/>
+            <circle cx="115" cy="38" r="3" fill="#16a34a"/>
+            <text x="65" y="138" font-size="9" text-anchor="middle" fill="#15803d">as x↑, y↑</text>
 
-          <!-- NO CORRELATION -->
-          <rect x="275" y="5" width="120" height="130" rx="4" fill="#f9fafb" stroke="#9ca3af" stroke-width="1"/>
-          <text x="335" y="18" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="bold">No Correlation</text>
-          <line x1="285" y1="120" x2="390" y2="120" stroke="#374151" stroke-width="1"/>
-          <line x1="285" y1="20"  x2="285" y2="120" stroke="#374151" stroke-width="1"/>
-          <!-- scattered random points -->
-          <circle cx="292" cy="95"  r="3" fill="#6b7280"/>
-          <circle cx="305" cy="42"  r="3" fill="#6b7280"/>
-          <circle cx="316" cy="110" r="3" fill="#6b7280"/>
-          <circle cx="325" cy="55"  r="3" fill="#6b7280"/>
-          <circle cx="335" cy="80"  r="3" fill="#6b7280"/>
-          <circle cx="345" cy="32"  r="3" fill="#6b7280"/>
-          <circle cx="355" cy="105" r="3" fill="#6b7280"/>
-          <circle cx="365" cy="60"  r="3" fill="#6b7280"/>
-          <circle cx="375" cy="90"  r="3" fill="#6b7280"/>
-          <circle cx="384" cy="45"  r="3" fill="#6b7280"/>
-          <text x="335" y="138" font-size="9" text-anchor="middle" fill="#6b7280">no pattern</text>
-        </svg>
-        <figcaption>Correlation types: positive (left), negative (center), none (right).</figcaption>
-      </figure>
+            <!-- NEGATIVE CORRELATION -->
+            <rect x="140" y="5" width="120" height="130" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+            <text x="200" y="18" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">Negative</text>
+            <line x1="150" y1="120" x2="255" y2="120" stroke="#374151" stroke-width="1"/>
+            <line x1="150" y1="20"  x2="150" y2="120" stroke="#374151" stroke-width="1"/>
+            <line x1="150" y1="35" x2="255" y2="115" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4"/>
+            <circle cx="157" cy="38" r="3" fill="#dc2626"/>
+            <circle cx="168" cy="45" r="3" fill="#dc2626"/>
+            <circle cx="178" cy="55" r="3" fill="#dc2626"/>
+            <circle cx="188" cy="65" r="3" fill="#dc2626"/>
+            <circle cx="198" cy="72" r="3" fill="#dc2626"/>
+            <circle cx="210" cy="82" r="3" fill="#dc2626"/>
+            <circle cx="220" cy="90" r="3" fill="#dc2626"/>
+            <circle cx="232" cy="98" r="3" fill="#dc2626"/>
+            <circle cx="242" cy="108" r="3" fill="#dc2626"/>
+            <circle cx="250" cy="112" r="3" fill="#dc2626"/>
+            <text x="200" y="138" font-size="9" text-anchor="middle" fill="#dc2626">as x↑, y↓</text>
 
-      <div class="callout callout--tip">
-        <strong>Using the line of best fit:</strong> Once you have the equation \(\hat{y} = mx + b\), plug in any x to predict y. The slope tells you the rate — how much y changes per unit of x.
+            <!-- NO CORRELATION -->
+            <rect x="275" y="5" width="120" height="130" rx="4" fill="#f9fafb" stroke="#9ca3af" stroke-width="1"/>
+            <text x="335" y="18" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="bold">No Correlation</text>
+            <line x1="285" y1="120" x2="390" y2="120" stroke="#374151" stroke-width="1"/>
+            <line x1="285" y1="20"  x2="285" y2="120" stroke="#374151" stroke-width="1"/>
+            <!-- scattered random points -->
+            <circle cx="292" cy="95"  r="3" fill="#6b7280"/>
+            <circle cx="305" cy="42"  r="3" fill="#6b7280"/>
+            <circle cx="316" cy="110" r="3" fill="#6b7280"/>
+            <circle cx="325" cy="55"  r="3" fill="#6b7280"/>
+            <circle cx="335" cy="80"  r="3" fill="#6b7280"/>
+            <circle cx="345" cy="32"  r="3" fill="#6b7280"/>
+            <circle cx="355" cy="105" r="3" fill="#6b7280"/>
+            <circle cx="365" cy="60"  r="3" fill="#6b7280"/>
+            <circle cx="375" cy="90"  r="3" fill="#6b7280"/>
+            <circle cx="384" cy="45"  r="3" fill="#6b7280"/>
+            <text x="335" y="138" font-size="9" text-anchor="middle" fill="#6b7280">no pattern</text>
+          </svg>
+          <p class="diagram-caption">Correlation types: positive (left), negative (center), none (right).</p>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Using the line of best fit:</strong> Once you have the equation $\hat{y} = mx + b$, plug in any x to predict y. The slope tells you the rate — how much y changes per unit of x.
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- EXAMPLES -->
-    <section class="examples-section">
-      <h2 class="section-heading">Worked Examples</h2>
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
 
-      <div class="example">
-        <div class="example-problem">A line of best fit for study hours vs. test score is \(\hat{y} = 5x + 55\). Predict the score for 8 hours of studying.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Substitute \(x = 8\):</strong> \(\hat{y} = 5(8) + 55 = 40 + 55 = 95\)</p>
-          <p>A student who studies 8 hours is predicted to score 95.</p>
-          <p><strong>Interpret slope:</strong> Each additional hour of study is associated with 5 more points.</p>
+        <!-- Example 1 -->
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Predict from a line of best fit
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A line of best fit for study hours vs. test score is $\hat{y} = 5x + 55$. Predict the score for 8 hours of studying.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                Identify what to substitute: we want to predict when $x = 8$ hours.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                Substitute into the equation: $\hat{y} = 5(8) + 55 = 40 + 55 = 95$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                Interpret the slope: each additional hour of study is associated with 5 more points on the test.
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            A student who studies 8 hours is predicted to score <strong>95</strong>.
+          </div>
         </div>
+
+        <!-- Example 2 -->
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Estimate a line from data
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Data:</p>
+            <table style="margin:0.4rem auto; border-collapse:collapse; font-size:0.9rem">
+              <tr><th style="border:1px solid #d1d5db;padding:3px 8px">Hours (x)</th><td style="border:1px solid #d1d5db;padding:3px 8px">1</td><td style="border:1px solid #d1d5db;padding:3px 8px">2</td><td style="border:1px solid #d1d5db;padding:3px 8px">3</td><td style="border:1px solid #d1d5db;padding:3px 8px">4</td></tr>
+              <tr><th style="border:1px solid #d1d5db;padding:3px 8px">Miles (y)</th><td style="border:1px solid #d1d5db;padding:3px 8px">3</td><td style="border:1px solid #d1d5db;padding:3px 8px">5</td><td style="border:1px solid #d1d5db;padding:3px 8px">8</td><td style="border:1px solid #d1d5db;padding:3px 8px">10</td></tr>
+            </table>
+            <p>Estimate a line of best fit and use it to predict y at x = 5.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                Estimate the slope using two points: from $(1, 3)$ to $(4, 10)$: $m \approx \dfrac{10-3}{4-1} = \dfrac{7}{3} \approx 2.3$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                Estimate the y-intercept using point $(1, 3)$: $3 = 2.3(1) + b \Rightarrow b \approx 0.7$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                Write the line: $\hat{y} \approx 2.3x + 0.7$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">4</span>
+              <div class="step__content">
+                Predict at $x = 5$: $\hat{y} \approx 2.3(5) + 0.7 = 11.5 + 0.7 = 12.2$ miles.
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            Predicted value at $x = 5$: approximately <strong>12.2 miles</strong>.
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Compute a residual
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A line of best fit is $\hat{y} = 3x + 10$. A data point is $(4, 25)$. Find the residual.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">
+                Find the predicted value: $\hat{y} = 3(4) + 10 = 12 + 10 = 22$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">
+                Identify the actual value: $y = 25$.
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">
+                Compute the residual: actual $-$ predicted $= 25 - 22 = 3$.
+              </div>
+            </div>
+          </div>
+          <div class="example__answer">
+            Residual $= 3$. The point is <strong>3 units above</strong> the line of best fit.
+          </div>
+        </div>
+
       </div>
-
-      <div class="example">
-        <div class="example-problem">
-          Data: <br>
-          <table style="margin:0.4rem auto; border-collapse:collapse; font-size:0.9rem">
-            <tr><th style="border:1px solid #d1d5db;padding:3px 8px">Hours (x)</th><td style="border:1px solid #d1d5db;padding:3px 8px">1</td><td style="border:1px solid #d1d5db;padding:3px 8px">2</td><td style="border:1px solid #d1d5db;padding:3px 8px">3</td><td style="border:1px solid #d1d5db;padding:3px 8px">4</td></tr>
-            <tr><th style="border:1px solid #d1d5db;padding:3px 8px">Miles (y)</th><td style="border:1px solid #d1d5db;padding:3px 8px">3</td><td style="border:1px solid #d1d5db;padding:3px 8px">5</td><td style="border:1px solid #d1d5db;padding:3px 8px">8</td><td style="border:1px solid #d1d5db;padding:3px 8px">10</td></tr>
-          </table>
-          Estimate a line of best fit and use it to predict y at x = 5.
-        </div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Estimate slope:</strong> From \((1,3)\) to \((4,10)\): \(m \approx \dfrac{10-3}{4-1} = \dfrac{7}{3} \approx 2.3\)</p>
-          <p><strong>Estimate y-intercept:</strong> Using point \((1,3)\): \(3 = 2.3(1) + b \Rightarrow b \approx 0.7\)</p>
-          <p><strong>Line:</strong> \(\hat{y} \approx 2.3x + 0.7\)</p>
-          <p><strong>Predict x=5:</strong> \(\hat{y} \approx 2.3(5) + 0.7 = 11.5 + 0.7 = 12.2\) miles.</p>
-        </div>
-      </div>
-
-      <div class="example">
-        <div class="example-problem">A line of best fit is \(\hat{y} = 3x + 10\). A data point is \((4, 25)\). Find the residual.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Predicted value:</strong> \(\hat{y} = 3(4) + 10 = 22\)</p>
-          <p><strong>Actual value:</strong> \(y = 25\)</p>
-          <p><strong>Residual:</strong> actual − predicted \(= 25 - 22 = 3\)</p>
-          <p>The point is 3 units <em>above</em> the line.</p>
-        </div>
-      </div>
-
     </section>
 
     <!-- PROBLEMS -->
-    <section class="problems-section">
-      <h2 class="section-heading">Practice Problems</h2>
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- P1: positive correlation means → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">A scatter plot shows that as x increases, y also increases. This is called:</div>
-        <ol class="choices" type="A">
-          <li>Positive correlation</li>
-          <li>Negative correlation</li>
-          <li>No correlation</li>
-          <li>Causation</li>
-        </ol>
+        <!-- P1: positive correlation → index 0 -->
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A scatter plot shows that as x increases, y also increases. This is called:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Positive correlation</button>
+            <button class="option" data-value="1">Negative correlation</button>
+            <button class="option" data-value="2">No correlation</button>
+            <button class="option" data-value="3">Causation</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Think about the direction: both variables move in the same direction (both up).</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              When both variables increase together, the relationship is called <strong>positive correlation</strong>. The scatter plot cloud slopes upward from left to right.
+            </div>
+          </div>
+        </div>
+
+        <!-- P2: y=4x+10, x=6 → 34 fill-in -->
+        <div class="problem" data-type="fill-in" data-answer="34" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line of best fit is $\hat{y} = 4x + 10$. Predict $y$ when $x = 6$.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute $x = 6$ into the equation: $\hat{y} = 4(6) + 10$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\hat{y} = 4(6) + 10 = 24 + 10 = \mathbf{34}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- P3: slope meaning → index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">The line of best fit is $\hat{y} = 2.5x + 30$. What does the slope 2.5 mean in context?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">The starting value is 2.5</button>
+            <button class="option" data-value="1">For each unit increase in x, y increases by 2.5</button>
+            <button class="option" data-value="2">The maximum value of y is 2.5</button>
+            <button class="option" data-value="3">There is no relationship between x and y</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The slope of a line always describes the rate of change: how much y changes for each 1-unit increase in x.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              The slope is the rate of change. A slope of 2.5 means <strong>for every 1-unit increase in x, y increases by 2.5</strong>. The y-intercept 30 is the starting value, not the slope.
+            </div>
+          </div>
+        </div>
+
+        <!-- P4: residual: actual=18, predicted=15 → 3 fill-in -->
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">For a data point where actual $y = 18$ and predicted $\hat{y} = 15$, what is the residual?</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Residual = actual $-$ predicted. Subtract the predicted value from the actual value.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              Residual $=$ actual $-$ predicted $= 18 - 15 = \mathbf{3}$. A positive residual means the point is above the line of best fit.
+            </div>
+          </div>
+        </div>
+
+        <!-- P5: extrapolation → index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Predicting a y-value for an x that is far outside the range of the data is called:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Interpolation — generally reliable</button>
+            <button class="option" data-value="1">Extrapolation — less reliable</button>
+            <button class="option" data-value="2">Correlation — measures strength</button>
+            <button class="option" data-value="3">Regression — fits the line</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Think about the prefix: "extra-" means outside. Predicting outside the data range is riskier because the trend may not continue.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              <strong>Extrapolation</strong> means predicting beyond the observed data range. It is less reliable because the linear trend may not continue outside the measured data. Interpolation (predicting within the range) is more trustworthy.
+            </div>
+          </div>
+        </div>
+
+        <!-- P6: y-intercept meaning → index 2 -->
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line of best fit for weekly cost ($) vs. number of orders is $\hat{y} = 3x + 20$. What does the y-intercept 20 represent?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">The cost for each order</button>
+            <button class="option" data-value="1">The maximum number of orders</button>
+            <button class="option" data-value="2">The fixed cost when no orders are placed</button>
+            <button class="option" data-value="3">The total cost for 20 orders</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The y-intercept is the value of y when $x = 0$. What does it mean for the cost when zero orders are placed?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              When $x = 0$ (no orders), $\hat{y} = 3(0) + 20 = 20$. The y-intercept represents the <strong>fixed cost of $20 even when no orders are placed</strong> — like a base fee or overhead cost.
+            </div>
+          </div>
+        </div>
+
+        <!-- P7: y=6x+2, x=3 → 20 fill-in -->
+        <div class="problem" data-type="fill-in" data-answer="20" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Using $\hat{y} = 6x + 2$, find the predicted value when $x = 3$.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute $x = 3$: $\hat{y} = 6(3) + 2$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $\hat{y} = 6(3) + 2 = 18 + 2 = \mathbf{20}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- P8: slope from (1,8) and (3,14) → 3 fill-in -->
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line of best fit passes through $(1, 8)$ and $(3, 14)$. What is the slope?</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Use the slope formula: $m = \dfrac{y_2 - y_1}{x_2 - x_1}$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              $m = \dfrac{14 - 8}{3 - 1} = \dfrac{6}{2} = \mathbf{3}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- P9: negative residual → index 1 -->
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A negative residual means the actual data point is:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Above the line of best fit</button>
+            <button class="option" data-value="1">Below the line of best fit</button>
+            <button class="option" data-value="2">On the line of best fit</button>
+            <button class="option" data-value="3">Not related to the line</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Residual = actual $-$ predicted. If residual is negative, actual is less than predicted. Is actual less than predicted when the point is above or below the line?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              Residual $=$ actual $-$ predicted. A negative residual means actual $&lt;$ predicted, so the data point lies <strong>below the line of best fit</strong>. A positive residual means the point is above the line.
+            </div>
+          </div>
+        </div>
+
+        <!-- P10: slope=3, y-int=2, x=5 → 17 fill-in -->
+        <div class="problem" data-type="fill-in" data-answer="17" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A line of best fit has slope 3 and y-intercept 2. Predict $y$ when $x = 5$.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Write the equation first: $\hat{y} = 3x + 2$. Then substitute $x = 5$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>
+              The equation is $\hat{y} = 3x + 2$. Substituting $x = 5$: $\hat{y} = 3(5) + 2 = 15 + 2 = \mathbf{17}$.
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- P2: line of best fit y=4x+10, predict y at x=6: 4*6+10=34 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="34" data-tolerance="0">
-        <div class="problem-stem">A line of best fit is \(\hat{y} = 4x + 10\). Predict \(y\) when \(x = 6\).</div>
-      </div>
-
-      <!-- P3: slope of y=2.5x+30 in context "each additional unit of x adds 2.5 to y" → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">The line of best fit is \(\hat{y} = 2.5x + 30\). What does the slope 2.5 mean in context?</div>
-        <ol class="choices" type="A">
-          <li>The starting value is 2.5</li>
-          <li>For each unit increase in x, y increases by 2.5</li>
-          <li>The maximum value of y is 2.5</li>
-          <li>There is no relationship between x and y</li>
-        </ol>
-      </div>
-
-      <!-- P4: residual: actual=18, predicted=15, residual=3 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
-        <div class="problem-stem">For a data point where actual \(y = 18\) and predicted \(\hat{y} = 15\), what is the residual?</div>
-      </div>
-
-      <!-- P5: which type of prediction is riskier — extrapolation (beyond data range) → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">Predicting a y-value for an x that is far outside the range of the data is called:</div>
-        <ol class="choices" type="A">
-          <li>Interpolation — generally reliable</li>
-          <li>Extrapolation — less reliable</li>
-          <li>Correlation — measures strength</li>
-          <li>Regression — fits the line</li>
-        </ol>
-      </div>
-
-      <!-- P6: y-intercept meaning in y=3x+20 for "weekly cost vs orders": $20 when 0 orders → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem">A line of best fit for weekly cost (\$) vs. number of orders is \(\hat{y} = 3x + 20\). What does the y-intercept 20 represent?</div>
-        <ol class="choices" type="A">
-          <li>The cost for each order</li>
-          <li>The maximum number of orders</li>
-          <li>The fixed cost when no orders are placed</li>
-          <li>The total cost for 20 orders</li>
-        </ol>
-      </div>
-
-      <!-- P7: line y=6x+2, predict at x=3: 18+2=20 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="20" data-tolerance="0">
-        <div class="problem-stem">Using \(\hat{y} = 6x + 2\), find the predicted value when \(x = 3\).</div>
-      </div>
-
-      <!-- P8: two points on line of best fit (1,8) and (3,14): slope=(14-8)/(3-1)=3 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
-        <div class="problem-stem">A line of best fit passes through \((1, 8)\) and \((3, 14)\). What is the slope?</div>
-      </div>
-
-      <!-- P9: negative residual means the data point is below the line → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">A negative residual means the actual data point is:</div>
-        <ol class="choices" type="A">
-          <li>Above the line of best fit</li>
-          <li>Below the line of best fit</li>
-          <li>On the line of best fit</li>
-          <li>Not related to the line</li>
-        </ol>
-      </div>
-
-      <!-- P10: using slope=3, y-int=2 (from P8/context): predict at x=5: 3*5+2=17 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="17" data-tolerance="0">
-        <div class="problem-stem">A line of best fit has slope 3 and y-intercept 2. Predict \(y\) when \(x = 5\).</div>
-      </div>
-
     </section>
+
+    <!-- NAVIGATION -->
+    <nav class="lesson-nav">
+      <a href="day-21.html" id="nav-prev">← Day 21: Graphing Quadratic Functions</a>
+      <a href="day-23.html" id="nav-next">Day 23: Transformations &amp; Congruence →</a>
+    </nav>
 
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-21.html" id="nav-prev">← Day 21</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <a href="day-23.html" id="nav-next">Day 23 →</a>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>

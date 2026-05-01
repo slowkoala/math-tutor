@@ -29,24 +29,24 @@
 
   <main class="lesson-body">
 
-    <!-- VOCAB -->
-    <section class="vocab-section">
-      <h2 class="section-heading">Key Vocabulary</h2>
+    <!-- VOCABULARY -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
       <div class="vocab-grid">
 
         <div class="vocab-card">
           <div class="vocab-term">Similarity</div>
-          <div class="vocab-def">Two figures are similar (\(\sim\)) if one can be obtained from the other by a sequence of rigid motions and dilations. Same shape, possibly different size.</div>
+          <div class="vocab-def">Two figures are similar ($\sim$) if one can be obtained from the other by rigid motions and dilations. Same shape, possibly different size.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Dilation</div>
-          <div class="vocab-def">A transformation that scales a figure by a scale factor \(k\) about a center point: \((x,y) \to (kx, ky)\).</div>
+          <div class="vocab-def">A transformation that scales a figure by scale factor $k$ about a center point: $(x,y) \to (kx,\ ky)$.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Scale Factor</div>
-          <div class="vocab-def">The ratio of corresponding lengths in similar figures: \(k = \dfrac{\text{image length}}{\text{pre-image length}}\).</div>
+          <div class="vocab-def">The ratio of corresponding lengths in similar figures: $k = \dfrac{\text{image length}}{\text{pre-image length}}$.</div>
         </div>
 
         <div class="vocab-card">
@@ -56,7 +56,7 @@
 
         <div class="vocab-card">
           <div class="vocab-term">Proportion</div>
-          <div class="vocab-def">An equation stating that two ratios are equal: \(\dfrac{a}{b} = \dfrac{c}{d}\). Used to find missing lengths in similar figures.</div>
+          <div class="vocab-def">An equation stating two ratios are equal: $\dfrac{a}{b} = \dfrac{c}{d}$. Used to find missing lengths in similar figures.</div>
         </div>
 
         <div class="vocab-card">
@@ -68,196 +68,351 @@
     </section>
 
     <!-- CONCEPT -->
-    <section class="concept-section">
-      <h2 class="section-heading">Dilations &amp; Scale Factor</h2>
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <p>A dilation with scale factor \(k\) centered at the origin multiplies every coordinate by \(k\):</p>
-      <p style="text-align:center; font-size:1.05rem;">\((x, y) \xrightarrow{\times k} (kx, ky)\)</p>
+        <p>A dilation with scale factor $k$ centered at the origin multiplies every coordinate by $k$:</p>
+        <p style="text-align:center;font-size:1.05rem;">$(x,y) \xrightarrow{\times k} (kx,\ ky)$</p>
 
-      <!-- SVG: triangle dilated by factor 2 -->
-      <!-- Original: A(1,1) B(2,1) C(1,2) -->
-      <!-- Dilated k=2: A'(2,2) B'(4,2) C'(2,4) -->
-      <!-- origin SVG(60,180), unit=35px -->
-      <!-- SVG = (60+35x, 180-35y) -->
-      <!-- A(1,1)->SVG(95,145); B(2,1)->SVG(130,145); C(1,2)->SVG(95,110) -->
-      <!-- A'(2,2)->SVG(130,110); B'(4,2)->SVG(200,110); C'(2,4)->SVG(130,40) -->
-      <figure class="svg-figure">
-        <svg viewBox="0 0 270 210" width="270" height="210" aria-label="Triangle dilated by scale factor 2">
-          <!-- grid -->
-          <g stroke="#e5e7eb" stroke-width="0.5">
-            <line x1="20" y1="180" x2="240" y2="180"/>
-            <line x1="20" y1="145" x2="240" y2="145"/>
-            <line x1="20" y1="110" x2="240" y2="110"/>
-            <line x1="20" y1="75"  x2="240" y2="75"/>
-            <line x1="20" y1="40"  x2="240" y2="40"/>
-            <line x1="60"  y1="20" x2="60"  y2="200"/>
-            <line x1="95"  y1="20" x2="95"  y2="200"/>
-            <line x1="130" y1="20" x2="130" y2="200"/>
-            <line x1="165" y1="20" x2="165" y2="200"/>
-            <line x1="200" y1="20" x2="200" y2="200"/>
-          </g>
-          <!-- axes -->
-          <line x1="20" y1="180" x2="240" y2="180" stroke="#374151" stroke-width="1.5"/>
-          <line x1="60" y1="20"  x2="60"  y2="200" stroke="#374151" stroke-width="1.5"/>
-          <text x="243" y="183" font-size="10" fill="#374151">x</text>
-          <text x="63"  y="18"  font-size="10" fill="#374151">y</text>
-          <text x="54"  y="193" font-size="10" fill="#374151">O</text>
-          <!-- tick x -->
-          <text x="92"  y="192" font-size="9" fill="#6b7280" text-anchor="middle">1</text>
-          <text x="127" y="192" font-size="9" fill="#6b7280" text-anchor="middle">2</text>
-          <text x="162" y="192" font-size="9" fill="#6b7280" text-anchor="middle">3</text>
-          <text x="197" y="192" font-size="9" fill="#6b7280" text-anchor="middle">4</text>
-          <!-- tick y -->
-          <text x="52" y="148" font-size="9" fill="#6b7280" text-anchor="end">1</text>
-          <text x="52" y="113" font-size="9" fill="#6b7280" text-anchor="end">2</text>
-          <text x="52" y="78"  font-size="9" fill="#6b7280" text-anchor="end">3</text>
-          <text x="52" y="43"  font-size="9" fill="#6b7280" text-anchor="end">4</text>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 270 210" xmlns="http://www.w3.org/2000/svg"
+               style="max-width:270px;margin:0 auto;font-family:-apple-system,sans-serif;">
+            <g stroke="#e5e7eb" stroke-width="0.5">
+              <line x1="20" y1="180" x2="240" y2="180"/>
+              <line x1="20" y1="145" x2="240" y2="145"/>
+              <line x1="20" y1="110" x2="240" y2="110"/>
+              <line x1="20" y1="75"  x2="240" y2="75"/>
+              <line x1="20" y1="40"  x2="240" y2="40"/>
+              <line x1="60"  y1="20" x2="60"  y2="200"/>
+              <line x1="95"  y1="20" x2="95"  y2="200"/>
+              <line x1="130" y1="20" x2="130" y2="200"/>
+              <line x1="165" y1="20" x2="165" y2="200"/>
+              <line x1="200" y1="20" x2="200" y2="200"/>
+            </g>
+            <line x1="20" y1="180" x2="240" y2="180" stroke="#374151" stroke-width="1.5"/>
+            <line x1="60" y1="20"  x2="60"  y2="200" stroke="#374151" stroke-width="1.5"/>
+            <text x="243" y="183" font-size="10" fill="#374151">x</text>
+            <text x="63"  y="18"  font-size="10" fill="#374151">y</text>
+            <text x="54"  y="193" font-size="10" fill="#374151">O</text>
+            <text x="92"  y="192" font-size="9" fill="#6b7280" text-anchor="middle">1</text>
+            <text x="127" y="192" font-size="9" fill="#6b7280" text-anchor="middle">2</text>
+            <text x="162" y="192" font-size="9" fill="#6b7280" text-anchor="middle">3</text>
+            <text x="197" y="192" font-size="9" fill="#6b7280" text-anchor="middle">4</text>
+            <text x="52" y="148" font-size="9" fill="#6b7280" text-anchor="end">1</text>
+            <text x="52" y="113" font-size="9" fill="#6b7280" text-anchor="end">2</text>
+            <text x="52" y="78"  font-size="9" fill="#6b7280" text-anchor="end">3</text>
+            <text x="52" y="43"  font-size="9" fill="#6b7280" text-anchor="end">4</text>
+            <line x1="60" y1="180" x2="140" y2="100" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+            <line x1="60" y1="180" x2="210" y2="100" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+            <line x1="60" y1="180" x2="140" y2="30"  stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+            <polygon points="95,145 130,145 95,110" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2"/>
+            <text x="100" y="158" font-size="9" fill="#2563eb">A(1,1)</text>
+            <text x="132" y="158" font-size="9" fill="#2563eb">B(2,1)</text>
+            <text x="62"  y="108" font-size="9" fill="#2563eb">C(1,2)</text>
+            <polygon points="130,110 200,110 130,40" fill="#bbf7d0" fill-opacity="0.5" stroke="#16a34a" stroke-width="2" stroke-dasharray="5"/>
+            <text x="132" y="124" font-size="9" fill="#16a34a">A'(2,2)</text>
+            <text x="202" y="124" font-size="9" fill="#16a34a">B'(4,2)</text>
+            <text x="132" y="37"  font-size="9" fill="#16a34a">C'(2,4)</text>
+            <text x="135" y="195" font-size="10" text-anchor="middle" fill="#7c3aed">k = 2 (enlargement)</text>
+          </svg>
+          <p class="diagram-caption">Dilation by $k=2$: the green triangle is twice the size of the blue, with corresponding angles equal.</p>
+        </div>
 
-          <!-- Lines from origin through vertices (dilation rays) -->
-          <line x1="60" y1="180" x2="140" y2="100" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
-          <line x1="60" y1="180" x2="210" y2="100" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
-          <line x1="60" y1="180" x2="140" y2="30"  stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Finding a missing side:</strong> Set up a proportion: $\dfrac{\text{side in } \triangle 1}{\text{corresponding side in } \triangle 2} = \dfrac{\text{other known side 1}}{\text{other known side 2}}$. Cross-multiply to solve.
+          </div>
+        </div>
 
-          <!-- Pre-image triangle (blue) -->
-          <polygon points="95,145 130,145 95,110" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2"/>
-          <text x="100" y="158" font-size="9" fill="#2563eb">A(1,1)</text>
-          <text x="132" y="158" font-size="9" fill="#2563eb">B(2,1)</text>
-          <text x="62"  y="108" font-size="9" fill="#2563eb">C(1,2)</text>
-
-          <!-- Image triangle (green) k=2: A'(2,2)->SVG(130,110); B'(4,2)->SVG(200,110); C'(2,4)->SVG(130,40) -->
-          <polygon points="130,110 200,110 130,40" fill="#bbf7d0" fill-opacity="0.5" stroke="#16a34a" stroke-width="2" stroke-dasharray="5"/>
-          <text x="132" y="124" font-size="9" fill="#16a34a">A'(2,2)</text>
-          <text x="202" y="124" font-size="9" fill="#16a34a">B'(4,2)</text>
-          <text x="132" y="37"  font-size="9" fill="#16a34a">C'(2,4)</text>
-
-          <!-- scale factor label -->
-          <text x="135" y="195" font-size="10" text-anchor="middle" fill="#7c3aed">k = 2 (enlargement)</text>
-        </svg>
-        <figcaption>Dilation by \(k=2\): the green triangle is twice the size of the blue, with corresponding angles equal.</figcaption>
-      </figure>
-
-      <div class="callout callout--tip">
-        <strong>Finding a missing side:</strong> Set up a proportion: \(\dfrac{\text{side in △1}}{\text{corresponding side in △2}} = \dfrac{\text{known side 1}}{\text{known side 2}}\). Cross-multiply to solve.
       </div>
     </section>
 
-    <!-- EXAMPLES -->
-    <section class="examples-section">
-      <h2 class="section-heading">Worked Examples</h2>
+    <!-- WORKED EXAMPLES -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
 
-      <div class="example">
-        <div class="example-problem">Triangle ABC ~ Triangle DEF. AB = 6, BC = 9, and DE = 4. Find EF.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Set up proportion:</strong> \(\dfrac{AB}{DE} = \dfrac{BC}{EF}\)</p>
-          <p>\(\dfrac{6}{4} = \dfrac{9}{EF}\)</p>
-          <p><strong>Cross-multiply:</strong> \(6 \cdot EF = 4 \cdot 9 = 36\)</p>
-          <p>\(EF = 6\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Find a missing side using similar triangles
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Triangle ABC ~ Triangle DEF. $AB = 6$, $BC = 9$, and $DE = 4$. Find $EF$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Set up a proportion using corresponding sides: $\dfrac{AB}{DE} = \dfrac{BC}{EF}$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Substitute: $\dfrac{6}{4} = \dfrac{9}{EF}$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">Cross-multiply: $6 \cdot EF = 4 \cdot 9 = 36$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">4</span>
+              <div class="step__content">Divide: $EF = 36 \div 6 = 6$</div>
+            </div>
+          </div>
+          <div class="example__answer">$EF = 6$</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">A figure is dilated by scale factor \(\tfrac{1}{3}\) from the origin. Point \(P(9, -6)\) maps to \(P'\). Find \(P'\).</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Rule:</strong> \((x,y) \to \left(\tfrac{1}{3}x, \tfrac{1}{3}y\right)\)</p>
-          <p>\(P(9, -6) \to P'\left(3, -2\right)\)</p>
-          <p>Scale factor \(&lt; 1\) → the image is smaller (reduction).</p>
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Dilate a point by a fractional scale factor
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A figure is dilated by scale factor $\tfrac{1}{3}$ from the origin. Point $P(9,-6)$ maps to $P'$. Find $P'$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Rule: $(x,y) \to \left(\tfrac{1}{3}x,\ \tfrac{1}{3}y\right)$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">$P(9,-6) \to P'\!\left(\tfrac{9}{3},\ \tfrac{-6}{3}\right) = P'(3,-2)$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">Scale factor $k = \tfrac{1}{3} &lt; 1$ → the image is smaller (a reduction).</div>
+            </div>
+          </div>
+          <div class="example__answer">$P'(3,\ -2)$ — a reduction</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">Two similar triangles have sides 5, 7, 9 and 10, 14, ?. Find the missing side.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Find scale factor:</strong> \(k = \dfrac{10}{5} = 2\) (confirmed: \(\dfrac{14}{7} = 2\) ✓)</p>
-          <p><strong>Missing side:</strong> \(9 \times 2 = 18\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Find a missing side using scale factor
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Two similar triangles have sides 5, 7, 9 and 10, 14, ?. Find the missing side.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Find the scale factor: $k = \dfrac{10}{5} = 2$ &nbsp; (confirm: $\dfrac{14}{7} = 2$ ✓)</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Multiply the third side by $k$: $9 \times 2 = 18$</div>
+            </div>
+          </div>
+          <div class="example__answer">Missing side $= 18$</div>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <!-- PROBLEMS -->
-    <section class="problems-section">
-      <h2 class="section-heading">Practice Problems</h2>
+    <!-- PRACTICE PROBLEMS -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- P1: dilation (4,6) by k=3: x-coord=12 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
-        <div class="problem-stem">Point \((4, 6)\) is dilated from the origin by scale factor 3. What is the x-coordinate of the image?</div>
+        <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Point $(4,6)$ is dilated from the origin by scale factor 3. What is the x-coordinate of the image?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>x-coordinate $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply the x-coordinate by the scale factor: $4 \times 3 = ?$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(x,y) \to (3x, 3y)$: $4 \times 3 = 12$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="18" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">What is the y-coordinate of the image of $(4,6)$ after dilation by scale factor 3?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>y-coordinate $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Multiply the y-coordinate by 3: $6 \times 3 = ?$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$6 \times 3 = 18$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A dilation with scale factor $k = 2.5$ produces:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">An enlargement (image larger than pre-image)</button>
+            <button class="option" data-value="1">A reduction (image smaller than pre-image)</button>
+            <button class="option" data-value="2">A congruent figure (same size)</button>
+            <button class="option" data-value="3">A rotation of 2.5°</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>If $k &gt; 1$ the image is larger; if $k &lt; 1$ the image is smaller; if $k = 1$ it's the same size.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$k = 2.5 &gt; 1$, so every side gets multiplied by 2.5 → the image is an enlargement.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="1.5" data-tolerance="0.01">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">△ABC ~ △XYZ with $AB = 8$ and $XY = 12$. What is the scale factor from △ABC to △XYZ?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$k =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$k = \dfrac{\text{image side}}{\text{pre-image side}} = \dfrac{XY}{AB}$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$k = \dfrac{12}{8} = 1.5$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="15" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two similar triangles have sides 3, 4, 5 and 9, 12, ?. Find the missing side.</p>
+          </div>
+          <div class="fill-in-area">
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find the scale factor from the known pairs: $9 \div 3 = ?$. Then multiply the third side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$k = 9 \div 3 = 3$. Missing side $= 5 \times 3 = 15$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">In similar figures, which measurements are preserved?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Side lengths</button>
+            <button class="option" data-value="1">Perimeter</button>
+            <button class="option" data-value="2">Angle measures and ratios of corresponding sides</button>
+            <button class="option" data-value="3">Area</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Similar means same shape but possibly different size. Shape is determined by angles; size changes proportionally.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Similar figures have equal corresponding angles and proportional (not equal) corresponding sides. Perimeter and area scale by $k$ and $k^2$ respectively, so they are not preserved.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="10" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A triangle with perimeter 20 is dilated by scale factor $\tfrac{1}{2}$. What is the perimeter of the image?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>Perimeter $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Perimeter scales by the same factor as the sides.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$20 \times \tfrac{1}{2} = 10$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two triangles each have angles of 40° and 70°. Are they similar?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">No — they must have equal sides</button>
+            <button class="option" data-value="1">Yes — by AA similarity (two angle pairs match)</button>
+            <button class="option" data-value="2">Yes — but only if they are the same size</button>
+            <button class="option" data-value="3">Cannot be determined</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The AA criterion: if two pairs of angles match, the triangles are similar. How many angle pairs match here?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Both triangles have 40° and 70° — the third angle must also match (180° − 40° − 70° = 70°). Two matching angle pairs → similar by AA.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">△PQR ~ △STU with $PQ = 5$, $ST = 15$, and $PR = 4$. Find $SU$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$SU =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Set up: $\dfrac{PQ}{ST} = \dfrac{PR}{SU}$, then cross-multiply.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\dfrac{5}{15} = \dfrac{4}{SU} \Rightarrow 5 \cdot SU = 60 \Rightarrow SU = 12$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="36" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">A square with area 9 is dilated by scale factor 2. What is the area of the image?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>Area $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Area scales by $k^2$. If $k = 2$, the area is multiplied by $2^2 = 4$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$9 \times 2^2 = 9 \times 4 = 36$.</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- P2: dilation (4,6) by k=3: y-coord=18 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="18" data-tolerance="0">
-        <div class="problem-stem">What is the y-coordinate of the image in the previous problem?</div>
-      </div>
-
-      <!-- P3: scale factor >1 → enlargement → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">A dilation with scale factor \(k = 2.5\) produces:</div>
-        <ol class="choices" type="A">
-          <li>An enlargement (image larger than pre-image)</li>
-          <li>A reduction (image smaller than pre-image)</li>
-          <li>A congruent figure (same size)</li>
-          <li>A rotation of 2.5°</li>
-        </ol>
-      </div>
-
-      <!-- P4: △ABC~△XYZ, AB=8, XY=12: scale factor=12/8=3/2 → fill-in decimal 1.5 -->
-      <div class="problem" data-type="fill-in" data-answer="1.5" data-tolerance="0.01">
-        <div class="problem-stem">△ABC ~ △XYZ with \(AB = 8\) and \(XY = 12\). What is the scale factor from △ABC to △XYZ?</div>
-      </div>
-
-      <!-- P5: similar triangles sides 3,4,5 and 9,12,?: missing=15 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="15" data-tolerance="0">
-        <div class="problem-stem">Two similar triangles have sides 3, 4, 5 and 9, 12, ?. Find the missing side.</div>
-      </div>
-
-      <!-- P6: similar figures — which are preserved? angles + side ratios → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem">In similar figures, which measurements are preserved?</div>
-        <ol class="choices" type="A">
-          <li>Side lengths</li>
-          <li>Perimeter</li>
-          <li>Angle measures and ratios of corresponding sides</li>
-          <li>Area</li>
-        </ol>
-      </div>
-
-      <!-- P7: scale factor 1/2 applied to perimeter 20: new perimeter=10 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="10" data-tolerance="0">
-        <div class="problem-stem">A triangle with perimeter 20 is dilated by scale factor \(\tfrac{1}{2}\). What is the perimeter of the image?</div>
-      </div>
-
-      <!-- P8: AA similarity: two angles match → triangles similar → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem">Two triangles each have angles of 40° and 70°. Are they similar?</div>
-        <ol class="choices" type="A">
-          <li>No — they must have equal sides</li>
-          <li>Yes — by AA similarity (two angle pairs match)</li>
-          <li>Yes — but only if they are the same size</li>
-          <li>Cannot be determined</li>
-        </ol>
-      </div>
-
-      <!-- P9: △PQR~△STU, PQ=5, ST=15, PR=4: TU=? proportion 5/15=4/x -> x=12 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="12" data-tolerance="0">
-        <div class="problem-stem">△PQR ~ △STU with \(PQ = 5\), \(ST = 15\), and \(PR = 4\). Find \(SU\).</div>
-      </div>
-
-      <!-- P10: dilation by k: area scales by k^2. Original area=9, k=2: new area=36 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="36" data-tolerance="0">
-        <div class="problem-stem">A square with area 9 is dilated by scale factor 2. What is the area of the image?</div>
-      </div>
-
     </section>
+
+    <nav class="lesson-nav">
+      <a href="day-23.html" id="nav-prev">← Day 23: Transformations &amp; Congruence</a>
+      <a href="day-25.html" id="nav-next">Day 25: Pythagorean Theorem →</a>
+    </nav>
 
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-23.html" id="nav-prev">← Day 23</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <a href="day-25.html" id="nav-next">Day 25 →</a>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>

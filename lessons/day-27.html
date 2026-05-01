@@ -30,212 +30,461 @@
   <main class="lesson-body">
 
     <!-- INTRO -->
-    <section class="concept-section">
-      <h2 class="section-heading">Algebra 1 — Cumulative Assessment</h2>
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <p>This mock test covers all 8 units of the course. There are <strong>20 problems</strong> drawn from every major topic. Work through each one independently before checking your answer.</p>
+        <p>This mock test covers all 8 units of the course. There are <strong>20 problems</strong> drawn from every major topic. Work through each one independently before checking your answer.</p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0.6rem; margin:1rem 0; font-size:0.85rem;">
-        <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#1d4ed8;">Unit 1</strong><br>Number Systems (Q1–2)
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0.6rem; margin:1rem 0; font-size:0.85rem;">
+          <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#1d4ed8;">Unit 1</strong><br>Number Systems (Q1–2)
+          </div>
+          <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#15803d;">Unit 2</strong><br>Linear Equations (Q3–4)
+          </div>
+          <div style="background:#fefce8; border:1px solid #fde047; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#92400e;">Unit 3</strong><br>Inequalities (Q5–6)
+          </div>
+          <div style="background:#fdf4ff; border:1px solid #d8b4fe; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#7e22ce;">Unit 4</strong><br>Systems (Q7–8)
+          </div>
+          <div style="background:#fff7ed; border:1px solid #fdba74; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#c2410c;">Unit 5</strong><br>Functions (Q9–11)
+          </div>
+          <div style="background:#f0fdf4; border:1px solid #6ee7b7; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#065f46;">Unit 6</strong><br>Polynomials (Q12–14)
+          </div>
+          <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#991b1b;">Unit 7</strong><br>Data (Q15–16)
+          </div>
+          <div style="background:#f9fafb; border:1px solid #d1d5db; border-radius:6px; padding:0.6rem;">
+            <strong style="color:#374151;">Unit 8</strong><br>Geometry (Q17–20)
+          </div>
         </div>
-        <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#15803d;">Unit 2</strong><br>Linear Equations (Q3–4)
+
+        <div class="callout callout--info">
+          <span class="callout__icon">🏆</span>
+          <div class="callout__body">
+            <strong>This is your final challenge!</strong> Try each problem on your own first, then use Check to verify. Mark complete when you're done to finish the whole course.
+          </div>
         </div>
-        <div style="background:#fefce8; border:1px solid #fde047; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#92400e;">Unit 3</strong><br>Inequalities (Q5–6)
-        </div>
-        <div style="background:#fdf4ff; border:1px solid #d8b4fe; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#7e22ce;">Unit 4</strong><br>Systems (Q7–8)
-        </div>
-        <div style="background:#fff7ed; border:1px solid #fdba74; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#c2410c;">Unit 5</strong><br>Functions (Q9–11)
-        </div>
-        <div style="background:#f0fdf4; border:1px solid #6ee7b7; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#065f46;">Unit 6</strong><br>Polynomials (Q12–14)
-        </div>
-        <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#991b1b;">Unit 7</strong><br>Data (Q15–16)
-        </div>
-        <div style="background:#f9fafb; border:1px solid #d1d5db; border-radius:6px; padding:0.6rem;">
-          <strong style="color:#374151;">Unit 8</strong><br>Geometry (Q17–20)
-        </div>
+
       </div>
     </section>
 
-    <!-- PROBLEMS — 20 cumulative questions -->
-    <section class="problems-section">
-      <h2 class="section-heading">Mock Test — 20 Questions</h2>
+    <!-- MOCK TEST — 20 QUESTIONS -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- ===== UNIT 1: Number Systems ===== -->
+        <!-- ===== UNIT 1: Number Systems ===== -->
 
-      <!-- Q1: classify sqrt(7): irrational → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem"><strong>Q1.</strong> How is \(\sqrt{7}\) best classified?</div>
-        <ol class="choices" type="A">
-          <li>Rational — it can be expressed as a fraction</li>
-          <li>Integer — it is between two integers</li>
-          <li>Irrational — its decimal is non-terminating and non-repeating</li>
-          <li>Natural number</li>
-        </ol>
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q1.</strong> How is $\sqrt{7}$ best classified?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Rational — it can be expressed as a fraction</button>
+            <button class="option" data-value="1">Integer — it is between two integers</button>
+            <button class="option" data-value="2">Irrational — its decimal is non-terminating and non-repeating</button>
+            <button class="option" data-value="3">Natural number</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Can $\sqrt{7}$ be written as a fraction $\tfrac{p}{q}$? What does its decimal expansion look like?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{7} \approx 2.6457\ldots$ — a non-terminating, non-repeating decimal. That means it is irrational.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q2.</strong> Simplify $\sqrt{48}$.</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$6\sqrt{2}$</button>
+            <button class="option" data-value="1">$4\sqrt{3}$</button>
+            <button class="option" data-value="2">$8\sqrt{6}$</button>
+            <button class="option" data-value="3">$2\sqrt{12}$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Factor out the largest perfect square: $48 = 16 \times 3$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\sqrt{48} = \sqrt{16 \cdot 3} = \sqrt{16}\cdot\sqrt{3} = 4\sqrt{3}$</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 2: Linear Equations ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q3.</strong> Find the slope of the line through $(2, 5)$ and $(6, 13)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>slope $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$m = \dfrac{y_2 - y_1}{x_2 - x_1} = \dfrac{13-5}{6-2}$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$m = \dfrac{8}{4} = 2$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="7" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q4.</strong> A line has slope $-3$ and passes through $(1, 4)$. What is the y-intercept?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$b =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Point-slope form: $y - 4 = -3(x - 1)$. Expand, then find $b$ when $x = 0$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$y = -3x + 3 + 4 = -3x + 7$. The y-intercept is 7.</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 3: Inequalities ===== -->
+
+        <div class="problem" data-type="multiple-choice" data-answer="2">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q5.</strong> Solve: $2x - 5 > 9$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$x > 2$</button>
+            <button class="option" data-value="1">$x > 5$</button>
+            <button class="option" data-value="2">$x > 7$</button>
+            <button class="option" data-value="3">$x &lt; 7$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add 5 to both sides, then divide by 2.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x > 14 \Rightarrow x > 7$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q6.</strong> Is $(1, 1)$ a solution to $y > 2x - 1$?</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Yes — $1 > 1$</button>
+            <button class="option" data-value="1">No — $1 \not> 1$ (strict inequality)</button>
+            <button class="option" data-value="2">Yes — $1 \ge 1$</button>
+            <button class="option" data-value="3">Cannot be determined</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute $(1,1)$: Is $1 > 2(1) - 1$? Compute the right side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2(1)-1 = 1$, so we need $1 > 1$. This is false — the strict inequality $>$ is not satisfied when both sides are equal.</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 4: Systems ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q7.</strong> Solve the system $\begin{cases}y = 2x+1 \\ y = x+3\end{cases}$. What is the x-coordinate of the solution?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Set the two expressions equal: $2x + 1 = x + 3$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$2x+1 = x+3 \Rightarrow x = 2$. Then $y = 2(2)+1 = 5$. Solution: $(2, 5)$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q8.</strong> Solve by elimination: $\begin{cases}3x + 2y = 12 \\ 3x - 2y = 0\end{cases}$. What is the value of $y$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$y =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Add the two equations together to eliminate $y$. What do you get?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Adding: $6x = 12 \Rightarrow x = 2$. Substituting back: $3(2) + 2y = 12 \Rightarrow 2y = 6 \Rightarrow y = 3$.</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 5: Functions ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q9.</strong> If $f(x) = x^2 - 3x + 1$, find $f(4)$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$f(4) =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute $x = 4$: $f(4) = 4^2 - 3(4) + 1$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$f(4) = 16 - 12 + 1 = 5$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="200" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q10.</strong> What is the initial value of $f(x) = 200 \cdot (0.75)^x$?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>initial value $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>The initial value is $f(0)$. What is $(0.75)^0$?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$f(0) = 200 \cdot (0.75)^0 = 200 \cdot 1 = 200$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q11.</strong> Find the average rate of change of $f(x) = 3x - 2$ from $x = 1$ to $x = 5$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>rate $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Rate of change $= \dfrac{f(5) - f(1)}{5 - 1}$. Compute $f(5)$ and $f(1)$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$f(1) = 1$, $f(5) = 13$. Rate $= \dfrac{13-1}{4} = 3$. (Linear functions always have constant slope!)</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 6: Polynomials ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q12.</strong> Expand $(x+5)(x-3)$. What is the coefficient of the $x$ term?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>coeff $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>FOIL: $(x+5)(x-3) = x^2 - 3x + 5x - 15$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(x+5)(x-3) = x^2 + 2x - 15$. The coefficient of $x$ is 2.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="3">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q13.</strong> Factor: $x^2 - x - 12$</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">$(x+4)(x-3)$</button>
+            <button class="option" data-value="1">$(x-4)(x-3)$</button>
+            <button class="option" data-value="2">$(x+6)(x-2)$</button>
+            <button class="option" data-value="3">$(x-4)(x+3)$</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Find two numbers that multiply to $-12$ and add to $-1$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$-4 \times 3 = -12$ and $-4 + 3 = -1$ ✓. So $x^2 - x - 12 = (x-4)(x+3)$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="-4" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q14.</strong> Find the y-coordinate of the vertex of $f(x) = x^2 + 6x + 5$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$y =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Axis of symmetry: $x = -\dfrac{b}{2a} = -\dfrac{6}{2} = -3$. Now find $f(-3)$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$f(-3) = (-3)^2 + 6(-3) + 5 = 9 - 18 + 5 = -4$. Vertex: $(-3, -4)$.</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 7: Data ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="22" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q15.</strong> A line of best fit is $\hat{y} = 3x + 7$. Predict $y$ when $x = 5$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$\hat{y} =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Substitute $x = 5$ into $\hat{y} = 3x + 7$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$\hat{y} = 3(5) + 7 = 15 + 7 = 22$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="1">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q16.</strong> A scatter plot shows that as x increases, y generally decreases. This relationship is:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">Positive correlation</button>
+            <button class="option" data-value="1">Negative correlation</button>
+            <button class="option" data-value="2">No correlation</button>
+            <button class="option" data-value="3">Causation</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>When y decreases as x increases, the slope of the trend line would be negative.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>When y decreases as x increases, the data shows negative correlation.</div>
+          </div>
+        </div>
+
+        <!-- ===== UNIT 8: Geometry ===== -->
+
+        <div class="problem" data-type="fill-in" data-answer="41" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q17.</strong> Find the hypotenuse of a right triangle with legs 9 and 40.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$c =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$a^2 + b^2 = c^2$: compute $9^2 + 40^2$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$81 + 1600 = 1681 = 41^2$. Hypotenuse $= 41$. &nbsp;(9-40-41 is a Pythagorean triple.)</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="-7" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q18.</strong> Reflect point $(-4, 7)$ over the x-axis. What is the y-coordinate of the image?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$y =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Reflecting over the x-axis negates the y-coordinate: $(x, y) \to (x, -y)$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$(-4, 7) \to (-4, -7)$. The y-coordinate of the image is $-7$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="42" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q19.</strong> Two similar triangles have a scale factor of 3. The smaller triangle has perimeter 14. What is the perimeter of the larger triangle?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>perimeter $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>For similar figures, all lengths (including perimeter) scale by the same factor.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Scale factor 3 means all lengths are multiplied by 3. Larger perimeter $= 3 \times 14 = 42$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="288" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question"><strong>Q20.</strong> Find the volume of a sphere with radius 6. Express as $k\pi$ and enter the value of $k$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$k =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Sphere: $V = \tfrac{4}{3}\pi r^3$ with $r = 6$. Compute $6^3 = 216$, then $\tfrac{4}{3}(216)$.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$V = \tfrac{4}{3}\pi(216) = \tfrac{864}{3}\pi = 288\pi$, so $k = 288$.</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Q2: simplify sqrt(48)=4sqrt(3): which? → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem"><strong>Q2.</strong> Simplify \(\sqrt{48}\).</div>
-        <ol class="choices" type="A">
-          <li>\(6\sqrt{2}\)</li>
-          <li>\(4\sqrt{3}\)</li>
-          <li>\(8\sqrt{6}\)</li>
-          <li>\(2\sqrt{12}\)</li>
-        </ol>
-      </div>
-
-      <!-- ===== UNIT 2: Linear Equations ===== -->
-
-      <!-- Q3: slope of line through (2,5) and (6,13): (13-5)/(6-2)=8/4=2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
-        <div class="problem-stem"><strong>Q3.</strong> Find the slope of the line through \((2, 5)\) and \((6, 13)\).</div>
-      </div>
-
-      <!-- Q4: equation of line slope=-3, passes (1,4): y-4=-3(x-1)->y=-3x+7: y-int=7 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="7" data-tolerance="0">
-        <div class="problem-stem"><strong>Q4.</strong> A line has slope \(-3\) and passes through \((1, 4)\). What is the y-intercept?</div>
-      </div>
-
-      <!-- ===== UNIT 3: Inequalities ===== -->
-
-      <!-- Q5: solve 2x-5>9: 2x>14, x>7 → which solution? x>7 → index 2 -->
-      <div class="problem" data-type="multiple-choice" data-answer="2">
-        <div class="problem-stem"><strong>Q5.</strong> Solve: \(2x - 5 > 9\)</div>
-        <ol class="choices" type="A">
-          <li>\(x > 2\)</li>
-          <li>\(x > 5\)</li>
-          <li>\(x > 7\)</li>
-          <li>\(x < 7\)</li>
-        </ol>
-      </div>
-
-      <!-- Q6: is (1,1) a solution to y>2x-1? 1>2-1=1? 1>1 NO → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem"><strong>Q6.</strong> Is \((1, 1)\) a solution to \(y > 2x - 1\)?</div>
-        <ol class="choices" type="A">
-          <li>Yes — \(1 > 1\)</li>
-          <li>No — \(1 \not> 1\) (strict inequality)</li>
-          <li>Yes — \(1 \ge 1\)</li>
-          <li>Cannot be determined</li>
-        </ol>
-      </div>
-
-      <!-- ===== UNIT 4: Systems ===== -->
-
-      <!-- Q7: solve system y=2x+1, y=x+3: 2x+1=x+3 -> x=2, y=5: x-coord=2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
-        <div class="problem-stem"><strong>Q7.</strong> Solve the system \(\begin{cases}y = 2x+1 \\ y = x+3\end{cases}\). What is the x-coordinate of the solution?</div>
-      </div>
-
-      <!-- Q8: elimination: 3x+2y=12 and 3x-2y=0: add->6x=12->x=2, 2y=12-6=6->y=3: y=3 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
-        <div class="problem-stem"><strong>Q8.</strong> Solve by elimination: \(\begin{cases}3x + 2y = 12 \\ 3x - 2y = 0\end{cases}\). What is the value of \(y\)?</div>
-      </div>
-
-      <!-- ===== UNIT 5: Functions ===== -->
-
-      <!-- Q9: f(x)=x^2-3x+1, f(4)=16-12+1=5 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="5" data-tolerance="0">
-        <div class="problem-stem"><strong>Q9.</strong> If \(f(x) = x^2 - 3x + 1\), find \(f(4)\).</div>
-      </div>
-
-      <!-- Q10: exponential f(x)=200*(0.75)^x: initial value=200 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="200" data-tolerance="0">
-        <div class="problem-stem"><strong>Q10.</strong> What is the initial value of \(f(x) = 200 \cdot (0.75)^x\)?</div>
-      </div>
-
-      <!-- Q11: avg rate of change f(x)=3x-2 from x=1 to x=5: linear, rate=3 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="3" data-tolerance="0">
-        <div class="problem-stem"><strong>Q11.</strong> Find the average rate of change of \(f(x) = 3x - 2\) from \(x = 1\) to \(x = 5\).</div>
-      </div>
-
-      <!-- ===== UNIT 6: Polynomials ===== -->
-
-      <!-- Q12: multiply (x+5)(x-3)=x^2+2x-15: middle coeff=2 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="2" data-tolerance="0">
-        <div class="problem-stem"><strong>Q12.</strong> Expand \((x+5)(x-3)\). What is the coefficient of the \(x\) term?</div>
-      </div>
-
-      <!-- Q13: factor x^2-x-12=(x-4)(x+3): which? → index 3 -->
-      <div class="problem" data-type="multiple-choice" data-answer="3">
-        <div class="problem-stem"><strong>Q13.</strong> Factor: \(x^2 - x - 12\)</div>
-        <ol class="choices" type="A">
-          <li>\((x+4)(x-3)\)</li>
-          <li>\((x-4)(x-3)\)</li>
-          <li>\((x+6)(x-2)\)</li>
-          <li>\((x-4)(x+3)\)</li>
-        </ol>
-      </div>
-
-      <!-- Q14: vertex of f(x)=x^2+6x+5: axis=-3, f(-3)=9-18+5=-4: vertex=(-3,-4): y-coord=-4 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="-4" data-tolerance="0">
-        <div class="problem-stem"><strong>Q14.</strong> Find the y-coordinate of the vertex of \(f(x) = x^2 + 6x + 5\).</div>
-      </div>
-
-      <!-- ===== UNIT 7: Data ===== -->
-
-      <!-- Q15: line of best fit y=3x+7, predict x=5: 3*5+7=22 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="22" data-tolerance="0">
-        <div class="problem-stem"><strong>Q15.</strong> A line of best fit is \(\hat{y} = 3x + 7\). Predict \(y\) when \(x = 5\).</div>
-      </div>
-
-      <!-- Q16: as x increases y decreases → negative correlation → index 1 -->
-      <div class="problem" data-type="multiple-choice" data-answer="1">
-        <div class="problem-stem"><strong>Q16.</strong> A scatter plot shows that as x increases, y generally decreases. This relationship is:</div>
-        <ol class="choices" type="A">
-          <li>Positive correlation</li>
-          <li>Negative correlation</li>
-          <li>No correlation</li>
-          <li>Causation</li>
-        </ol>
-      </div>
-
-      <!-- ===== UNIT 8: Geometry ===== -->
-
-      <!-- Q17: right triangle legs 9,40: hyp=sqrt(81+1600)=sqrt(1681)=41 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="41" data-tolerance="0">
-        <div class="problem-stem"><strong>Q17.</strong> Find the hypotenuse of a right triangle with legs 9 and 40.</div>
-      </div>
-
-      <!-- Q18: reflect (-4,7) over x-axis: (-4,-7): y-coord=-7 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="-7" data-tolerance="0">
-        <div class="problem-stem"><strong>Q18.</strong> Reflect point \((-4, 7)\) over the x-axis. What is the y-coordinate of the image?</div>
-      </div>
-
-      <!-- Q19: two similar triangles scale factor=3, smaller perimeter=14: larger=42 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="42" data-tolerance="0">
-        <div class="problem-stem"><strong>Q19.</strong> Two similar triangles have a scale factor of 3. The smaller triangle has perimeter 14. What is the perimeter of the larger triangle?</div>
-      </div>
-
-      <!-- Q20: volume of sphere r=6: 4/3*pi*216=288pi → k=288 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="288" data-tolerance="0">
-        <div class="problem-stem"><strong>Q20.</strong> Find the volume of a sphere with radius 6. Express as \(k\pi\) and enter the value of \(k\).</div>
-      </div>
-
     </section>
 
     <!-- COMPLETION CALLOUT -->
-    <section class="concept-section" style="margin-top:2rem;">
-      <div class="callout callout--tip">
-        <strong>You've completed all 27 lessons!</strong><br>
-        Review any topics where you missed questions, then revisit the corresponding lesson day. You've covered the full Algebra 1 curriculum — great work!
+    <section>
+      <div class="callout callout--info" style="margin-top:1rem;">
+        <span class="callout__icon">🎉</span>
+        <div class="callout__body">
+          <strong>You've completed all 27 lessons!</strong><br>
+          Review any topics where you missed questions, then revisit the corresponding lesson. You've covered the full Algebra 1 curriculum — great work!
+        </div>
       </div>
     </section>
 
+    <nav class="lesson-nav">
+      <a href="day-26.html" id="nav-prev">← Day 26: Angles &amp; Volume</a>
+      <a href="" id="nav-next"></a>
+    </nav>
+
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-26.html" id="nav-prev">← Day 26</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <span style="width:6rem"></span>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>

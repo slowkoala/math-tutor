@@ -20,8 +20,10 @@
     if (typeof renderMathInElement !== "undefined") {
       renderMathInElement(el, {
         delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$",  right: "$",  display: false },
+          { left: "$$",  right: "$$",  display: true  },
+          { left: "$",   right: "$",   display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true  },
         ],
         throwOnError: false,
       });
@@ -71,6 +73,10 @@
           else if (b === btn) b.classList.add("option--incorrect");
         });
 
+        const animCls = isCorrect ? "anim-pop" : "anim-shake";
+        btn.classList.add(animCls);
+        btn.addEventListener("animationend", () => btn.classList.remove(animCls), { once: true });
+
         recordAnswer(el, isCorrect);
       });
     });
@@ -111,6 +117,10 @@
       if (checkBtn) checkBtn.disabled = true;
       input.classList.add(isCorrect ? "input--correct" : "input--incorrect");
 
+      const animCls = isCorrect ? "anim-pop" : "anim-shake";
+      input.classList.add(animCls);
+      input.addEventListener("animationend", () => input.classList.remove(animCls), { once: true });
+
       recordAnswer(el, isCorrect);
     }
 
@@ -133,25 +143,100 @@
     });
   }
 
+  // ── Normalize days-14+ HTML structure to standard structure ─────────────────
+
+  function normalizeProblem(el) {
+    // 1. Convert .problem-stem → .problem__header / .problem-question
+    const stem = el.querySelector(".problem-stem");
+    if (stem) {
+      const header = document.createElement("div");
+      header.className = "problem__header";
+      const numSpan = document.createElement("span");
+      numSpan.className = "problem-number";
+      const qP = document.createElement("p");
+      qP.className = "problem-question";
+      qP.innerHTML = stem.innerHTML;
+      header.appendChild(numSpan);
+      header.appendChild(qP);
+      stem.replaceWith(header);
+    }
+
+    // 2. Convert <ol class="choices"><li> → <div class="options"><button data-value="i">
+    const choicesList = el.querySelector("ol.choices");
+    if (choicesList) {
+      const items = [...choicesList.querySelectorAll("li")];
+      const optionsDiv = document.createElement("div");
+      optionsDiv.className = "options";
+      items.forEach((li, i) => {
+        const btn = document.createElement("button");
+        btn.className = "option";
+        btn.dataset.value = String(i);
+        btn.innerHTML = li.innerHTML;
+        optionsDiv.appendChild(btn);
+      });
+      choicesList.replaceWith(optionsDiv);
+    }
+
+    // 3. Inject .fill-in-area for fill-in problems that have none
+    if (el.dataset.type === "fill-in" && !el.querySelector(".fill-in-area")) {
+      const area = document.createElement("div");
+      area.className = "fill-in-area";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "answer-input";
+      input.placeholder = "?";
+      const btn = document.createElement("button");
+      btn.className = "check-btn";
+      btn.textContent = "Check";
+      area.appendChild(input);
+      area.appendChild(btn);
+      const header = el.querySelector(".problem__header");
+      if (header) header.after(area);
+      else el.appendChild(area);
+    }
+
+    // 4. Ensure .problem__footer exists for feedback
+    if (!el.querySelector(".problem__footer")) {
+      const footer = document.createElement("div");
+      footer.className = "problem__footer";
+      footer.innerHTML = '<div class="feedback" hidden></div>';
+      el.appendChild(footer);
+    }
+
+    reRenderKatex(el);
+  }
+
   // ── Worked example steps ─────────────────────────────────────────────────────
 
   function initExample(el) {
-    const steps   = el.querySelectorAll(".step");
     const showBtn = el.querySelector(".show-steps-btn");
-    if (!showBtn || steps.length === 0) return;
+    if (!showBtn) return;
 
-    let revealed = 0;
+    const steps = el.querySelectorAll(".step");
 
-    steps.forEach((s) => (s.hidden = true));
-
-    showBtn.addEventListener("click", () => {
-      if (revealed < steps.length) {
-        steps[revealed].hidden = false;
-        reRenderKatex(steps[revealed]);
-        revealed++;
-        if (revealed === steps.length) showBtn.textContent = "All steps shown";
-      }
-    });
+    if (steps.length > 0) {
+      // Old structure: individual .step elements revealed one at a time
+      let revealed = 0;
+      steps.forEach((s) => (s.hidden = true));
+      showBtn.addEventListener("click", () => {
+        if (revealed < steps.length) {
+          steps[revealed].hidden = false;
+          reRenderKatex(steps[revealed]);
+          revealed++;
+          if (revealed === steps.length) showBtn.textContent = "All steps shown";
+        }
+      });
+    } else {
+      // New structure: one hidden .example-steps block revealed all at once
+      const stepsDiv = el.querySelector(".example-steps");
+      if (!stepsDiv) return;
+      showBtn.addEventListener("click", () => {
+        stepsDiv.hidden = false;
+        reRenderKatex(stepsDiv);
+        showBtn.textContent = "Steps shown";
+        showBtn.disabled = true;
+      });
+    }
   }
 
   // ── Boot ─────────────────────────────────────────────────────────────────────
@@ -161,6 +246,8 @@
     score.total    = problems.length;
 
     problems.forEach((el, i) => {
+      normalizeProblem(el);
+
       // Auto-number
       const numEl = el.querySelector(".problem-number");
       if (numEl) numEl.textContent = i + 1;

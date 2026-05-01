@@ -4,6 +4,7 @@
 
 /* === RESET === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 img, svg { display: block; max-width: 100%; }
 button { cursor: pointer; font: inherit; }
 a { color: inherit; }
@@ -22,7 +23,7 @@ a { color: inherit; }
   --c9: #6B7280;   /* Review            — gray    */
 
   /* Surfaces */
-  --bg:          #F1F5F9;
+  --bg:          #F0F4FF;
   --surface:     #FFFFFF;
   --surface-2:   #F8FAFC;
   --border:      #E2E8F0;
@@ -53,8 +54,8 @@ a { color: inherit; }
   --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px; --s12: 48px;
 
   /* Radii */
-  --r:   8px;
-  --r-lg: 14px;
+  --r:   10px;
+  --r-lg: 16px;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
@@ -97,16 +98,16 @@ body {
    ============================================================ */
 
 .course-header {
-  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  background: linear-gradient(135deg, #1D4ED8 0%, #4338CA 55%, #6D28D9 100%);
   color: white;
   padding: var(--s12) var(--s4);
   text-align: center;
 }
 .course-header__eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: .12em;
+  font-size: 0.85rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #C4B5FD;
   margin-bottom: var(--s2);
 }
 .course-header__title {
@@ -190,8 +191,8 @@ body {
   position: relative;
 }
 .day-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.13);
+  transform: translateY(-4px);
 }
 .day-card[data-unit="1"]:hover { border-color: var(--c1); }
 .day-card[data-unit="2"]:hover { border-color: var(--c2); }
@@ -239,7 +240,7 @@ body {
 
 /* Top accent bar */
 .lesson-accent-bar {
-  height: 5px;
+  height: 7px;
   background: var(--accent);
 }
 
@@ -406,9 +407,41 @@ body {
   margin: var(--s5) 0;
 }
 .callout--info   { background: var(--accent-light); border-color: var(--accent); color: var(--text); }
+.callout--tip    { background: var(--accent-light); border-color: var(--accent); color: var(--text); }
 .callout--warn   { background: var(--hint-bg);      border-color: var(--hint-border); }
 .callout__icon   { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
 .callout__body   { font-size: 0.9rem; line-height: 1.6; }
+
+/* Section heading alias (days 14+) */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s4);
+}
+.section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Figure / SVG captions (days 14+) */
+.svg-figure {
+  margin: var(--s5) 0;
+  text-align: center;
+}
+.svg-figure figcaption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: var(--s3);
+  font-style: italic;
+}
 
 /* ── Worked examples ─────────────────────────────────────────── */
 .example {
@@ -467,6 +500,7 @@ body {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+/* Inside .example__header (dark bg) */
 .show-steps-btn {
   background: none;
   border: 1px solid white;
@@ -478,6 +512,42 @@ body {
   opacity: .85;
 }
 .show-steps-btn:hover { opacity: 1; }
+.show-steps-btn:disabled { opacity: .5; cursor: default; }
+
+/* Standalone show-steps button (days 14+ — outside .example__header) */
+.example > .show-steps-btn {
+  display: block;
+  width: 100%;
+  padding: var(--s2) var(--s5);
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-left: none;
+  border-right: none;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 1;
+  border-radius: 0;
+}
+.example > .show-steps-btn:hover { background: var(--border); }
+
+/* Alternate example content classes (days 14+) */
+.example-problem {
+  padding: var(--s5) var(--s5) var(--s4);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.example-steps {
+  padding: var(--s4) var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.example-steps p { margin: 0; }
 .example__answer {
   padding: var(--s3) var(--s5);
   background: var(--ok-bg);
@@ -703,6 +773,30 @@ body {
 }
 .lesson-nav a:hover { background: var(--accent-light); }
 
+/* Alternate footer nav (days 14+) */
+.lesson-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s6) var(--s4);
+  border-top: 1px solid var(--border);
+  max-width: 860px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.lesson-footer a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: var(--s2) var(--s4);
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  transition: background .15s;
+}
+.lesson-footer a:hover { background: var(--accent-light); }
+
 /* ============================================================
    UTILITIES & KATEX OVERRIDES
    ============================================================ */
@@ -715,6 +809,26 @@ body {
   margin: var(--s3) 0;
   overflow-x: auto;
 }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes pop-correct {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.08); }
+  65%  { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+@keyframes shake-wrong {
+  0%, 100% { transform: translateX(0); }
+  18%      { transform: translateX(-8px); }
+  36%      { transform: translateX(8px); }
+  54%      { transform: translateX(-5px); }
+  72%      { transform: translateX(5px); }
+  88%      { transform: translateX(-2px); }
+}
+.anim-pop   { animation: pop-correct 0.35s ease-out; }
+.anim-shake { animation: shake-wrong 0.42s ease-out; }
 
 /* ============================================================
    RESPONSIVE

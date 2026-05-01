@@ -29,19 +29,19 @@
 
   <main class="lesson-body">
 
-    <!-- VOCAB -->
-    <section class="vocab-section">
-      <h2 class="section-heading">Key Vocabulary</h2>
+    <!-- VOCABULARY -->
+    <section>
+      <h2 class="section-label">Vocabulary</h2>
       <div class="vocab-grid">
 
         <div class="vocab-card">
           <div class="vocab-term">Supplementary Angles</div>
-          <div class="vocab-def">Two angles that sum to 180°. If one is \(x\), the other is \(180° - x\).</div>
+          <div class="vocab-def">Two angles that sum to 180°. If one is $x$, the other is $180° - x$.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Complementary Angles</div>
-          <div class="vocab-def">Two angles that sum to 90°. If one is \(x\), the other is \(90° - x\).</div>
+          <div class="vocab-def">Two angles that sum to 90°. If one is $x$, the other is $90° - x$.</div>
         </div>
 
         <div class="vocab-card">
@@ -56,197 +56,373 @@
 
         <div class="vocab-card">
           <div class="vocab-term">Volume of a Cylinder</div>
-          <div class="vocab-def">\(V = \pi r^2 h\) — base area times height.</div>
+          <div class="vocab-def">$V = \pi r^2 h$ — base area times height.</div>
         </div>
 
         <div class="vocab-card">
           <div class="vocab-term">Volume of a Cone / Sphere</div>
-          <div class="vocab-def">Cone: \(V = \tfrac{1}{3}\pi r^2 h\). Sphere: \(V = \tfrac{4}{3}\pi r^3\).</div>
+          <div class="vocab-def">Cone: $V = \tfrac{1}{3}\pi r^2 h$. Sphere: $V = \tfrac{4}{3}\pi r^3$.</div>
         </div>
 
       </div>
     </section>
 
     <!-- CONCEPT -->
-    <section class="concept-section">
-      <h2 class="section-heading">Angle Relationships &amp; 3D Volume</h2>
+    <section>
+      <h2 class="section-label">Concept</h2>
+      <div class="concept-text">
 
-      <!-- SVG: parallel lines cut by transversal with angle labels -->
-      <!-- Two horizontal parallel lines, one diagonal transversal -->
-      <figure class="svg-figure">
-        <svg viewBox="0 0 340 190" width="340" height="190" aria-label="Parallel lines cut by a transversal with angle relationships">
-          <!-- Parallel line 1 -->
-          <line x1="20" y1="60"  x2="310" y2="60"  stroke="#374151" stroke-width="2"/>
-          <text x="315" y="63" font-size="10" fill="#374151">ℓ₁</text>
-          <!-- Parallel line 2 -->
-          <line x1="20" y1="140" x2="310" y2="140" stroke="#374151" stroke-width="2"/>
-          <text x="315" y="143" font-size="10" fill="#374151">ℓ₂</text>
-          <!-- parallel marks -->
-          <line x1="148" y1="55" x2="158" y2="65" stroke="#374151" stroke-width="1.5"/>
-          <line x1="143" y1="55" x2="153" y2="65" stroke="#374151" stroke-width="1.5"/>
-          <line x1="148" y1="135" x2="158" y2="145" stroke="#374151" stroke-width="1.5"/>
-          <line x1="143" y1="135" x2="153" y2="145" stroke="#374151" stroke-width="1.5"/>
-          <!-- Transversal -->
-          <line x1="80" y1="10" x2="250" y2="190" stroke="#2563eb" stroke-width="2"/>
-          <!-- Intersection points -->
-          <!-- t meets ℓ1 at approx: slope=(190-10)/(250-80)=180/170≈1.06; at y=60: x=80+(60-10)/1.06≈80+47=127 -->
-          <!-- t meets ℓ2 at y=140: x=80+(140-10)/1.06≈80+123=203 -->
-          <!-- Angle arcs at upper intersection (127,60) -->
-          <path d="M127,60 m20,0 a20,20 0 0,1 -10,17" fill="none" stroke="#16a34a" stroke-width="2"/>
-          <text x="150" y="73" font-size="10" fill="#16a34a" font-weight="bold">a</text>
-          <path d="M127,60 m-20,0 a20,20 0 0,0 10,-17" fill="none" stroke="#16a34a" stroke-width="2"/>
-          <text x="95" y="50" font-size="10" fill="#16a34a" font-weight="bold">a</text>
-          <!-- vertical angles at upper -->
-          <path d="M127,60 m20,0 a20,20 0 0,0 -10,-17" fill="none" stroke="#dc2626" stroke-width="2"/>
-          <text x="148" y="50" font-size="10" fill="#dc2626" font-weight="bold">b</text>
-          <path d="M127,60 m-20,0 a20,20 0 0,1 10,17" fill="none" stroke="#dc2626" stroke-width="2"/>
-          <text x="98" y="78" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 340 190" width="340" height="190" aria-label="Parallel lines cut by a transversal with angle relationships">
+            <!-- Parallel line 1 -->
+            <line x1="20" y1="60"  x2="310" y2="60"  stroke="#374151" stroke-width="2"/>
+            <text x="315" y="63" font-size="10" fill="#374151">ℓ₁</text>
+            <!-- Parallel line 2 -->
+            <line x1="20" y1="140" x2="310" y2="140" stroke="#374151" stroke-width="2"/>
+            <text x="315" y="143" font-size="10" fill="#374151">ℓ₂</text>
+            <!-- parallel marks -->
+            <line x1="148" y1="55" x2="158" y2="65" stroke="#374151" stroke-width="1.5"/>
+            <line x1="143" y1="55" x2="153" y2="65" stroke="#374151" stroke-width="1.5"/>
+            <line x1="148" y1="135" x2="158" y2="145" stroke="#374151" stroke-width="1.5"/>
+            <line x1="143" y1="135" x2="153" y2="145" stroke="#374151" stroke-width="1.5"/>
+            <!-- Transversal -->
+            <line x1="80" y1="10" x2="250" y2="190" stroke="#2563eb" stroke-width="2"/>
+            <!-- Angle arcs at upper intersection -->
+            <path d="M127,60 m20,0 a20,20 0 0,1 -10,17" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <text x="150" y="73" font-size="10" fill="#16a34a" font-weight="bold">a</text>
+            <path d="M127,60 m-20,0 a20,20 0 0,0 10,-17" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <text x="95" y="50" font-size="10" fill="#16a34a" font-weight="bold">a</text>
+            <path d="M127,60 m20,0 a20,20 0 0,0 -10,-17" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="148" y="50" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+            <path d="M127,60 m-20,0 a20,20 0 0,1 10,17" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="98" y="78" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+            <!-- Angle arcs at lower intersection -->
+            <path d="M203,140 m20,0 a20,20 0 0,1 -10,17" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <text x="226" y="153" font-size="10" fill="#16a34a" font-weight="bold">a</text>
+            <path d="M203,140 m-20,0 a20,20 0 0,0 10,-17" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <text x="170" y="130" font-size="10" fill="#16a34a" font-weight="bold">a</text>
+            <path d="M203,140 m20,0 a20,20 0 0,0 -10,-17" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="224" y="130" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+            <path d="M203,140 m-20,0 a20,20 0 0,1 10,17" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="174" y="155" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+            <!-- Legend -->
+            <rect x="10" y="155" width="12" height="12" fill="#bbf7d0" stroke="#16a34a"/>
+            <text x="26" y="165" font-size="9" fill="#374151">= corresponding / alternate interior angles (equal)</text>
+            <rect x="10" y="171" width="12" height="12" fill="#fecaca" stroke="#dc2626"/>
+            <text x="26" y="181" font-size="9" fill="#374151">= supplementary pairs (a + b = 180°)</text>
+          </svg>
+          <p class="diagram-caption">Parallel lines: corresponding angles are equal; co-interior angles are supplementary.</p>
+        </div>
 
-          <!-- Angle arcs at lower intersection (203,140) -->
-          <path d="M203,140 m20,0 a20,20 0 0,1 -10,17" fill="none" stroke="#16a34a" stroke-width="2"/>
-          <text x="226" y="153" font-size="10" fill="#16a34a" font-weight="bold">a</text>
-          <path d="M203,140 m-20,0 a20,20 0 0,0 10,-17" fill="none" stroke="#16a34a" stroke-width="2"/>
-          <text x="170" y="130" font-size="10" fill="#16a34a" font-weight="bold">a</text>
-          <path d="M203,140 m20,0 a20,20 0 0,0 -10,-17" fill="none" stroke="#dc2626" stroke-width="2"/>
-          <text x="224" y="130" font-size="10" fill="#dc2626" font-weight="bold">b</text>
-          <path d="M203,140 m-20,0 a20,20 0 0,1 10,17" fill="none" stroke="#dc2626" stroke-width="2"/>
-          <text x="174" y="155" font-size="10" fill="#dc2626" font-weight="bold">b</text>
+        <!-- Volume formula reference grid -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:0.8rem; margin:1rem 0;">
+          <div style="background:#eff6ff; border:1.5px solid #3b82f6; border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-weight:700; color:#1d4ed8; margin-bottom:0.4rem;">Cylinder</div>
+            <div>$V = \pi r^2 h$</div>
+          </div>
+          <div style="background:#f0fdf4; border:1.5px solid #16a34a; border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-weight:700; color:#15803d; margin-bottom:0.4rem;">Cone</div>
+            <div>$V = \dfrac{1}{3}\pi r^2 h$</div>
+          </div>
+          <div style="background:#fefce8; border:1.5px solid #ca8a04; border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-weight:700; color:#92400e; margin-bottom:0.4rem;">Sphere</div>
+            <div>$V = \dfrac{4}{3}\pi r^3$</div>
+          </div>
+          <div style="background:#fdf4ff; border:1.5px solid #a855f7; border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-weight:700; color:#7e22ce; margin-bottom:0.4rem;">Rectangular Prism</div>
+            <div>$V = l \cdot w \cdot h$</div>
+          </div>
+        </div>
 
-          <!-- Legend -->
-          <rect x="10" y="155" width="12" height="12" fill="#bbf7d0" stroke="#16a34a"/>
-          <text x="26" y="165" font-size="9" fill="#374151">= corresponding / alternate interior angles (equal)</text>
-          <rect x="10" y="171" width="12" height="12" fill="#fecaca" stroke="#dc2626"/>
-          <text x="26" y="181" font-size="9" fill="#374151">= supplementary pairs (a + b = 180°)</text>
-        </svg>
-        <figcaption>Parallel lines: corresponding angles are equal; co-interior angles are supplementary.</figcaption>
-      </figure>
+        <div class="callout callout--info">
+          <span class="callout__icon">💡</span>
+          <div class="callout__body">
+            <strong>Memory trick for 3D volumes:</strong> Cylinder = $\pi r^2 h$. Cone = $\tfrac{1}{3}$ of a cylinder. Sphere = $\tfrac{4}{3}\pi r^3$.
+          </div>
+        </div>
 
-      <!-- Volume formulas -->
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:0.8rem; margin:1rem 0;">
-        <div style="background:#eff6ff; border:1.5px solid #3b82f6; border-radius:8px; padding:0.8rem; text-align:center;">
-          <div style="font-weight:700; color:#1d4ed8; margin-bottom:0.4rem;">Cylinder</div>
-          <div>\(V = \pi r^2 h\)</div>
-        </div>
-        <div style="background:#f0fdf4; border:1.5px solid #16a34a; border-radius:8px; padding:0.8rem; text-align:center;">
-          <div style="font-weight:700; color:#15803d; margin-bottom:0.4rem;">Cone</div>
-          <div>\(V = \dfrac{1}{3}\pi r^2 h\)</div>
-        </div>
-        <div style="background:#fefce8; border:1.5px solid #ca8a04; border-radius:8px; padding:0.8rem; text-align:center;">
-          <div style="font-weight:700; color:#92400e; margin-bottom:0.4rem;">Sphere</div>
-          <div>\(V = \dfrac{4}{3}\pi r^3\)</div>
-        </div>
-        <div style="background:#fdf4ff; border:1.5px solid #a855f7; border-radius:8px; padding:0.8rem; text-align:center;">
-          <div style="font-weight:700; color:#7e22ce; margin-bottom:0.4rem;">Rectangular Prism</div>
-          <div>\(V = l \cdot w \cdot h\)</div>
-        </div>
       </div>
     </section>
 
-    <!-- EXAMPLES -->
-    <section class="examples-section">
-      <h2 class="section-heading">Worked Examples</h2>
+    <!-- WORKED EXAMPLES -->
+    <section>
+      <h2 class="section-label">Worked Examples</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--s5);">
 
-      <div class="example">
-        <div class="example-problem">Two angles are supplementary. One measures \(3x + 10\)° and the other \(x + 30\)°. Find x.</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Supplementary means sum = 180°:</strong></p>
-          <p>\((3x+10) + (x+30) = 180\)</p>
-          <p>\(4x + 40 = 180\)</p>
-          <p>\(4x = 140 \Rightarrow x = 35\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 1 — Supplementary angle equation
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Two angles are supplementary. One measures $(3x + 10)°$ and the other $(x + 30)°$. Find $x$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Supplementary angles sum to 180°: $(3x+10) + (x+30) = 180$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Combine like terms: $4x + 40 = 180$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">$4x = 140 \Rightarrow x = 35$</div>
+            </div>
+          </div>
+          <div class="example__answer">$x = 35$</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">Find the volume of a cylinder with radius 5 cm and height 12 cm. Leave answer in terms of \(\pi\).</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Formula:</strong> \(V = \pi r^2 h\)</p>
-          <p>\(V = \pi (5)^2 (12) = \pi \cdot 25 \cdot 12 = 300\pi \text{ cm}^3\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 2 — Cylinder volume
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>Find the volume of a cylinder with radius 5 cm and height 12 cm. Leave your answer in terms of $\pi$.</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Write the formula: $V = \pi r^2 h$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Substitute: $V = \pi (5)^2 (12) = \pi \cdot 25 \cdot 12 = 300\pi \text{ cm}^3$</div>
+            </div>
+          </div>
+          <div class="example__answer">$V = 300\pi \approx 942 \text{ cm}^3$</div>
         </div>
-      </div>
 
-      <div class="example">
-        <div class="example-problem">A cone has radius 6 and height 9. Find its volume. (Use \(\pi \approx 3.14\).)</div>
-        <button class="show-steps-btn" aria-expanded="false">Show Steps</button>
-        <div class="example-steps" hidden>
-          <p><strong>Formula:</strong> \(V = \dfrac{1}{3}\pi r^2 h\)</p>
-          <p>\(V = \dfrac{1}{3}(3.14)(36)(9) = \dfrac{1}{3}(3.14)(324)\)</p>
-          <p>\(= \dfrac{1}{3}(1017.36) \approx 339.12 \text{ units}^3\)</p>
+        <div class="example">
+          <div class="example__header">
+            Example 3 — Cone volume
+            <button class="show-steps-btn">Show Steps</button>
+          </div>
+          <div class="example__problem">
+            <p>A cone has radius 6 and height 9. Find its volume. (Use $\pi \approx 3.14$.)</p>
+          </div>
+          <div class="example__steps">
+            <div class="step">
+              <span class="step__num">1</span>
+              <div class="step__content">Write the formula: $V = \dfrac{1}{3}\pi r^2 h$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">2</span>
+              <div class="step__content">Substitute: $V = \dfrac{1}{3}(3.14)(6)^2(9) = \dfrac{1}{3}(3.14)(36)(9)$</div>
+            </div>
+            <div class="step">
+              <span class="step__num">3</span>
+              <div class="step__content">$= \dfrac{1}{3}(1017.36) \approx 339.12 \text{ units}^3$</div>
+            </div>
+          </div>
+          <div class="example__answer">$V \approx 339.12 \text{ units}^3$</div>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <!-- PROBLEMS -->
-    <section class="problems-section">
-      <h2 class="section-heading">Practice Problems</h2>
+    <!-- PRACTICE PROBLEMS -->
+    <section>
+      <h2 class="section-label">Practice Problems</h2>
+      <div class="problems-list">
 
-      <!-- P1: supplementary angles: one=115, other=180-115=65 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="65" data-tolerance="0">
-        <div class="problem-stem">Two angles are supplementary. One angle measures 115°. What is the other angle (in degrees)?</div>
+        <div class="problem" data-type="fill-in" data-answer="65" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two angles are supplementary. One angle measures 115°. What is the other angle (in degrees)?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>angle $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Supplementary angles sum to 180°. Subtract 115 from 180.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$180° - 115° = 65°$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="52" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two angles are complementary. One angle measures 38°. What is the other angle?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>angle $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Complementary angles sum to 90°. Subtract 38 from 90.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$90° - 38° = 52°$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="73" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two lines intersect. One angle formed is 73°. What is the measure of the vertical angle?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>angle $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Vertical angles are always equal to each other.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Vertical angles are equal, so the other angle is also 73°.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="110" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Two parallel lines are cut by a transversal. One corresponding angle measures 110°. What is the other corresponding angle?</p>
+          </div>
+          <div class="fill-in-area">
+            <label>angle $=$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Corresponding angles are equal when the lines are parallel.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>Corresponding angles are equal, so the other is also 110°.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="multiple-choice" data-answer="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Parallel lines are cut by a transversal. One alternate interior angle is 65°. The other alternate interior angle is:</p>
+          </div>
+          <div class="options">
+            <button class="option" data-value="0">65° — alternate interior angles are equal</button>
+            <button class="option" data-value="1">115° — they are supplementary</button>
+            <button class="option" data-value="2">25° — they are complementary</button>
+            <button class="option" data-value="3">Cannot be determined</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Alternate interior angles are on opposite sides of the transversal, between the parallel lines. What's their relationship?</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>When lines are parallel, alternate interior angles are always equal.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="63" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the volume of a cylinder with radius 3 and height 7. Express your answer as $k\pi$ and enter the value of $k$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$k =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Cylinder: $V = \pi r^2 h = \pi(3)^2(7) = \pi \cdot 9 \cdot 7$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$V = \pi(9)(7) = 63\pi$, so $k = 63$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="36" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the volume of a sphere with radius 3. Express as $k\pi$ and enter $k$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$k =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Sphere: $V = \tfrac{4}{3}\pi r^3 = \tfrac{4}{3}\pi(3)^3 = \tfrac{4}{3}\pi(27)$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$V = \tfrac{4}{3}\pi(27) = \tfrac{108}{3}\pi = 36\pi$, so $k = 36$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="48" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the volume of a cone with radius 6 and height 4. Express as $k\pi$ and enter $k$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$k =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Cone: $V = \tfrac{1}{3}\pi r^2 h = \tfrac{1}{3}\pi(6)^2(4) = \tfrac{1}{3}\pi(36)(4)$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$V = \tfrac{1}{3}\pi(144) = 48\pi$, so $k = 48$.</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="120" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Find the volume of a rectangular prism with length 4, width 5, and height 6.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$V =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>Rectangular prism: $V = l \cdot w \cdot h = 4 \cdot 5 \cdot 6$</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$V = 4 \times 5 \times 6 = 120$</div>
+          </div>
+        </div>
+
+        <div class="problem" data-type="fill-in" data-answer="34" data-tolerance="0">
+          <div class="problem__header">
+            <span class="problem-number"></span>
+            <p class="problem-question">Angles $(2x + 15)°$ and $(3x - 5)°$ are supplementary. Find $x$.</p>
+          </div>
+          <div class="fill-in-area">
+            <label>$x =$</label>
+            <input type="text" class="answer-input" placeholder="?">
+            <button class="check-btn">Check</button>
+          </div>
+          <div class="problem__footer">
+            <button class="hint-btn">💡 Hint</button>
+            <div class="hint-box" hidden>$(2x+15) + (3x-5) = 180$. Combine like terms on the left side.</div>
+            <div class="feedback" hidden></div>
+            <div class="explanation" hidden>$5x + 10 = 180 \Rightarrow 5x = 170 \Rightarrow x = 34$</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- P2: complementary: one=38, other=90-38=52 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="52" data-tolerance="0">
-        <div class="problem-stem">Two angles are complementary. One angle measures 38°. What is the other angle?</div>
-      </div>
-
-      <!-- P3: vertical angles equal: one is 73, other is 73 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="73" data-tolerance="0">
-        <div class="problem-stem">Two lines intersect. One angle formed is 73°. What is the measure of the vertical angle?</div>
-      </div>
-
-      <!-- P4: parallel lines, corresponding angles: one is 110, other=110 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="110" data-tolerance="0">
-        <div class="problem-stem">Two parallel lines are cut by a transversal. One corresponding angle measures 110°. What is the other corresponding angle?</div>
-      </div>
-
-      <!-- P5: alt interior angles with parallel lines: one=65, other=65 → index 0 -->
-      <div class="problem" data-type="multiple-choice" data-answer="0">
-        <div class="problem-stem">Parallel lines are cut by a transversal. One alternate interior angle is 65°. The other alternate interior angle is:</div>
-        <ol class="choices" type="A">
-          <li>65° — alternate interior angles are equal</li>
-          <li>115° — they are supplementary</li>
-          <li>25° — they are complementary</li>
-          <li>Cannot be determined</li>
-        </ol>
-      </div>
-
-      <!-- P6: volume of cylinder r=3, h=7: V=pi*9*7=63pi → fill-in (exact, in terms of pi, so answer=63) -->
-      <div class="problem" data-type="fill-in" data-answer="63" data-tolerance="0">
-        <div class="problem-stem">Find the volume of a cylinder with radius 3 and height 7. Express your answer as \(k\pi\) and enter the value of \(k\).</div>
-      </div>
-
-      <!-- P7: volume of sphere r=3: V=4/3*pi*27=36pi → k=36 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="36" data-tolerance="0">
-        <div class="problem-stem">Find the volume of a sphere with radius 3. Express as \(k\pi\) and enter \(k\).</div>
-      </div>
-
-      <!-- P8: volume of cone r=6 h=4: V=1/3*pi*36*4=48pi → k=48 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="48" data-tolerance="0">
-        <div class="problem-stem">Find the volume of a cone with radius 6 and height 4. Express as \(k\pi\) and enter \(k\).</div>
-      </div>
-
-      <!-- P9: rectangular prism 4x5x6: V=120 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="120" data-tolerance="0">
-        <div class="problem-stem">Find the volume of a rectangular prism with length 4, width 5, and height 6.</div>
-      </div>
-
-      <!-- P10: 2x+15 and 3x-5 are supplementary: 2x+15+3x-5=180 → 5x+10=180 → x=34 → fill-in -->
-      <div class="problem" data-type="fill-in" data-answer="34" data-tolerance="0">
-        <div class="problem-stem">Angles \((2x + 15)°\) and \((3x - 5)°\) are supplementary. Find \(x\).</div>
-      </div>
-
     </section>
+
+    <nav class="lesson-nav">
+      <a href="day-25.html" id="nav-prev">← Day 25: Pythagorean Theorem</a>
+      <a href="day-27.html" id="nav-next">Day 27: Full Mock Test →</a>
+    </nav>
 
   </main>
 
-  <footer class="lesson-footer">
-    <a href="day-25.html" id="nav-prev">← Day 25</a>
-    <a href="../index.html" class="home-link">Home</a>
-    <a href="day-27.html" id="nav-next">Day 27 →</a>
-  </footer>
+  <div class="score-bar">
+    <span id="score-display"></span>
+    <button class="btn-complete" id="mark-complete">Mark Lesson Complete</button>
+  </div>
 
   <script src="../js/lessons.js"></script>
   <script src="../js/nav.js"></script>
